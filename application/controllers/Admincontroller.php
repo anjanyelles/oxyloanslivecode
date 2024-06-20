@@ -41,7 +41,7 @@ class Admincontroller extends Globalcontroller {
 		$this->load->view('admin/newLenderWalletAmount');
 	}
 	public function ListOfMembershipPaidLenders(){
-		$this->load->view('admin/listOfMembershipPaidLenders');
+		$this->load->view('admin/ListOfMembershipPaidLenders');
 	}
 	public function ActivLendersParicipationAmountAndCount(){
 		$this->load->view('admin/activLendersParicipationAmountAndCount');
@@ -162,6 +162,7 @@ class Admincontroller extends Globalcontroller {
 	public function displayRe_Investlist(){
 		$this->load->view('admin/displayRe_Investlist');
 	}
+
 	public function futureDeals(){
 		$this->load->view('admin/admin_futureDeals');
 	}

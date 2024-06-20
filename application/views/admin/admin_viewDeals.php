@@ -12,6 +12,17 @@ $dealStatus="CLOSED";
 }
 ?>
 
+<?php
+$urlfromBroweser = $_SERVER['REQUEST_URI'];
+$dealStatus =  isset($_GET['status']) ? $_GET['status'] : 'HAPPENING';
+
+if($dealStatus =="running"){
+$dealStatus="HAPPENING";
+}
+if($dealStatus =="closed"){
+$dealStatus="CLOSED";
+}
+?>
 <div class="content-wrapper">
     <section class="content-header">
         <div class="row">
@@ -47,9 +58,8 @@ $dealStatus="CLOSED";
                                 </button>
                             </a>
                             <a href="viewDeals?status=OPENINFUTURE" class="compleated-Btn">
-                                <button class=" btn btn-info btn-top-alg"
-                                    style="border-radius: 5px; margin: 0px;">
-                                    Future  Deals <i class="fa fa-angle-double-right"></i>
+                                <button class=" btn btn-info btn-top-alg" style="border-radius: 5px; margin: 0px;">
+                                    Future Deals <i class="fa fa-angle-double-right"></i>
                                 </button>
                             </a>
 
@@ -205,6 +215,35 @@ $dealStatus="CLOSED";
         digits();
     }, 3000);
     </script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // Function to get URL parameter by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get dealId from URL
+        var dealId = getQueryParam('dealId');
+
+        // Call extendTenure(dealId) if dealId is valid
+        if (dealId) {
+            console.log(dealId)
+            $(".btn-dealExtend").attr("data-id", dealId);
+            $("#update-deal-tenure-extend").modal("show");
+        }
+
+        // Function to simulate extendTenure(dealId)
+        function extendTenure(dealId) {
+            // Replace with your actual logic for extending tenure
+            console.log('extendTenure called with dealId:', dealId);
+            // Example: You can make an AJAX call here using dealId
+        }
+
+    });
+    </script>
+
     <script src="<?php echo base_url(); ?>/assets/js/mustache.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

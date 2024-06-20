@@ -345,6 +345,8 @@ $route['admin/getOxyFoundingGroups'] = 'Admincontroller/getOxyFoundingGroups';
 $route['admin/whatsappNotification'] = 'Admincontroller/whatsappNotification';
 $route['admin/sumofDealAmountInfo'] = 'Admincontroller/sumofDealAmountInfo';
 $route['admin/equityDeals'] = 'Admincontroller/equityDeals';
+
+
 $route['admin/offlineInterest'] = 'Admincontroller/offlineInterest';
 $route['admin/membershipFee'] = 'Admincontroller/membershipFee';
 $route['admin/dealNotifications'] = 'Admincontroller/dealNotifications';
@@ -458,6 +460,8 @@ $route['admin/pendingamountUser'] = 'Admincontroller/pendingamountUser';
 
 $route['admin/registerLenderUsers'] = 'Admincontroller/registerLenderUsers';
 $route['admin/activLendersParicipationAmountAndCount'] = 'Admincontroller/activLendersParicipationAmountAndCount';
+
+
 
 
 

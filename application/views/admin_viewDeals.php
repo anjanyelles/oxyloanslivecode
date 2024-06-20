@@ -47,9 +47,8 @@ $dealStatus="CLOSED";
                                 </button>
                             </a>
                             <a href="viewDeals?status=OPENINFUTURE" class="compleated-Btn">
-                                <button class=" btn btn-info btn-top-alg"
-                                    style="border-radius: 5px; margin: 0px;">
-                                    Future  Deals <i class="fa fa-angle-double-right"></i>
+                                <button class=" btn btn-info btn-top-alg" style="border-radius: 5px; margin: 0px;">
+                                    Future Deals <i class="fa fa-angle-double-right"></i>
                                 </button>
                             </a>
 

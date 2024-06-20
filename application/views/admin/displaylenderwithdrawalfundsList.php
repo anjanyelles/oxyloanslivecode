@@ -121,6 +121,7 @@
       {{firstName}}  {{lastName}}<br/>
       <b>Email:</b>{{email}} <br/>
       <b>Mobile Number:</b>{{mobileNumber}} <br/>
+   <a href="newLenderWalletAmount?userId={{userId}}">LenderWalletAmount</a>
 
        </td> 
       <td>Created On :  {{createdOn}}   </br>

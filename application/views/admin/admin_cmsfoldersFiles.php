@@ -176,19 +176,24 @@
                                     <table id="example2" class="table table-bordered table-hover"
                                         style=" table-layout: fixed;width:100%!important;">
                                         <thead>
+
                                             <tr id="example">
                                                 <th style="width:20%!important;overflow: hidden;">file Name</th>
                                                 <th>Amount </th>
                                                 <th>Payment Date </th>
                                                 <th>File status</th>
                                                 <th>Check </th>
+
+                                                <?php if ($s3DownloadLink !== null): ?>
+
                                                 <th>Link </th>
+                                                <?php endif; ?>
                                                 <!-- <th>Comments </th> -->
                                             </tr>
                                         </thead>
                                         <tbody id="displaycmsoutputfolderFiles">
                                             <tr id="cmsdisplayNodata" style="display:none;">
-                                                <td colspan="6" class="cmsnodatafound">No Data Found</td>
+                                                <td colspan="12" class="cmsnodatafound">No Data Found</td>
                                             </tr>
 
                                             </tfoot>
@@ -423,9 +428,12 @@
         <input type="checkbox" name="cmsoutputfolderListUsers" id="cmsoxyfile" class="cmsFileStatus_{{fileStatus}}"
         value="{{fileName}}"/>
       </td>
-        <td>
-       <a href="{{s3DownloadLink}}"  class="btn btn-primary">Download</a>
-      </td>
+   
+    <?php if ($s3DownloadLink !== null): ?>
+          <td>
+        <a href="<?php echo htmlspecialchars($s3DownloadLink); ?>" class="btn btn-primary">Download</a>
+    </td><?php endif; ?>
+
 
 
     </tr>
@@ -450,7 +458,7 @@
                 <div class="modal-footer">
                     <div align="right">
                         <button type="button" class="btn btn-default btn-sm" id="modalButton" data-id="">Ok</button>
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>

@@ -6,15 +6,14 @@ let isTest = false;
 let totalEntries = 0;
 let apiBaseURLOXY = "";
 let fdbranchcity = "";
-let bulkinviteImage="";
-let myChart="";
+let bulkinviteImage = "";
+let myChart = "";
 
-   
 if (userisIn == "prod") {
 	apiBaseURLOXY = "https://fintech.oxyloans.com/oxyloans/v1/user/";
 } else {
 	apiBaseURLOXY =
-	"http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/";
+		"http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/";
 }
 
 $(document).ready(function () {
@@ -65,13 +64,12 @@ $(document).ready(function () {
 		endDate: new Date(),
 	});
 
-		$(".registerUserEnddate,.registerStartdate").datepicker({
+	$(".registerUserEnddate,.registerStartdate").datepicker({
 		todayHighlight: true,
 		format: "yyyy-mm-dd",
 		autoclose: true,
 		endDate: new Date(),
 	});
-
 
 	$(".fdmonthlystartDatepicker,.fdmonthlyenddatepicker").datepicker({
 		todayHighlight: true,
@@ -94,15 +92,12 @@ $(document).ready(function () {
 		endDate: new Date(),
 	});
 
-
 	$(".dashboardStart,.dashboardEnd").datepicker({
 		todayHighlight: true,
 		format: "yyyy-mm-dd",
 		autoclose: true,
 		endDate: new Date(),
 	});
-
-
 
 	$("#closingFddate").datepicker({
 		todayHighlight: true,
@@ -178,9 +173,9 @@ $(document).ready(function () {
 					apiBaseURLOXY +
 					userId +
 					"/loan/ADMIN/request/" +
-					  requestID +
-		   		    "/download";
-			  }
+					requestID +
+					"/download";
+			}
 			$.ajax({
 				url: getStatUrl,
 				type: "GET",
@@ -200,7 +195,6 @@ $(document).ready(function () {
 
 	//*********     LENDER/BORROWER LOAN APPLICATION SEARCH STARTS **********//
 	$("#lenderSearch,#borrowerSearch").on("change", function () {
-
 		if ($("#lenderSearch,#borrowerSearch").val() == "name") {
 			$(".name").show();
 			$(".utm,.id,.roi,.amount,.oxyscore,.mobileNumber,.city").hide();
@@ -248,7 +242,6 @@ $(document).ready(function () {
 	//*********     RUNNING/CLOSED LOANS  SEARCH STARTS           **********//
 
 	$("#Search").on("change", function () {
-
 		if ($("#Search").val() == "loanID") {
 			$(".loanid").show();
 			$(
@@ -297,7 +290,8 @@ $(document).ready(function () {
 			).hide();
 		} else if ($("#Search").val() == "userName") {
 			$(".userName").show();
-			$(".date1,.date2,.utm,.loanid,.oxyscore,.panNumber,.applicationid,.lenderid,.borrowerid,.amount,.roi,.city,mobileNumber"
+			$(
+				".date1,.date2,.utm,.loanid,.oxyscore,.panNumber,.applicationid,.lenderid,.borrowerid,.amount,.roi,.city,mobileNumber"
 			).hide();
 		} else if ($("#Search").val() == "oxyscore") {
 			$(".oxyscore").show();
@@ -340,7 +334,7 @@ $(document).ready(function () {
 			$(
 				".utm,.city.oxyscore,.loanid,.amount,.lenderid,.borrowerid,.roi,.mobileNumber,.userName,.applicationid"
 			).hide();
-		 }else if ($("#Search").val() == "interestMonth&YearNew") {
+		} else if ($("#Search").val() == "interestMonth&YearNew") {
 			$(".interestStartDate").show();
 			$(".interestEndDateKNOW").show();
 			$(".month").show();
@@ -348,21 +342,19 @@ $(document).ready(function () {
 			$(
 				".utm,.city.oxyscore,.loanid,.amount,.lenderid,.borrowerid,.roi,.mobileNumber,.userName,.applicationid"
 			).hide();
-		}
-		 else if ($("#Search").val() == "viewdealsPayouts") {
+		} else if ($("#Search").val() == "viewdealsPayouts") {
 			$(".dealtypeinfo").show();
 			$(".dealpayouttype").show();
 			$(
 				".utm,.city.oxyscore,.loanid,.amount,.lenderid,.borrowerid,.roi,.mobileNumber,.userName,.applicationid"
 			).hide();
-		}
-		else if ($("#Search").val() == "searchFeepaidUsers") {
+		} else if ($("#Search").val() == "searchFeepaidUsers") {
 			$(".dealFeeType").show();
 
-		   $(".utm,.city.oxyscore,.loanid,.amount,.lenderid,.borrowerid,.roi,.mobileNumber,.userName,.applicationid"
+			$(
+				".utm,.city.oxyscore,.loanid,.amount,.lenderid,.borrowerid,.roi,.mobileNumber,.userName,.applicationid"
 			).hide();
-		}
-		else if ($("#Search").val() == "refereelenderId") {
+		} else if ($("#Search").val() == "refereelenderId") {
 			$(".refereeLenderIdSearch").show();
 			$(".refereePrimaryType").show();
 		} else if ($("#Search").val() == "referalEarning") {
@@ -392,60 +384,48 @@ $(document).ready(function () {
 		} else if ($("#Search").val() == "fdclosedDateRange") {
 			$(".fdclosedstartdate").show();
 			$(".fdclosedInfoEnddate").show();
-		}else if ($("#Search").val() == "registerStartEndDate") {
+		} else if ($("#Search").val() == "registerStartEndDate") {
 			$(".registerStartdatediv").show();
 			$(".registerUserEnddatediv").show();
-		}else if ($("#Search").val() == "dashboardGraph") {
+		} else if ($("#Search").val() == "dashboardGraph") {
 			$(".dasboardgraphStart").show();
 			$(".dasboardgraphEnd").show();
-		}else if($("#Search").val() == "cmsbeforefile"){
+		} else if ($("#Search").val() == "cmsbeforefile") {
 			$(".cmsbeforestartdatediv").show();
 			$(".cmsbeforeenddatediv").show();
 			$(".beforefileexecutedType").show();
-		}else if($("#Search").val() == "rangeMembership"){
+		} else if ($("#Search").val() == "rangeMembership") {
 			$(".knowmembershipDate").show();
 			$(".endknowmembershipDate").show();
-
-		  }else if($("#Search").val() == "topLendingUserSearch"){
+		} else if ($("#Search").val() == "topLendingUserSearch") {
 			$(".knowtopLendingRange").show();
-		  }else if($("#Search").val() == "dealpaticipationstatus"){
+		} else if ($("#Search").val() == "dealpaticipationstatus") {
 			$(".dealSummaryInputYear").hide();
 			$(".dealSumaaryInputEndYear").hide();
 			$(".dealSummaryMonth").show();
 			$(".dealSummaryYear").show();
 			$(".dealSummaryStatus").show();
-
-		  }  
-		  else if($("#Search").val() == "borrowerclosingstatus"){
+		} else if ($("#Search").val() == "borrowerclosingstatus") {
 			$(".dealSummaryInputYear").hide();
 			$(".dealSumaaryInputEndYear").hide();
 			$(".dealSummaryMonth").show();
 			$(".dealSummaryYear").show();
 			$(".dealSummaryStatus").show();
-		  } 
-		  else if($("#Search").val() == "Dealsexcelsheet"){
-		
+		} else if ($("#Search").val() == "Dealsexcelsheet") {
 			$(".dealSummaryMonth").hide();
 			$(".dealSummaryYear").hide();
 			$(".dealSummaryStatus").show();
 			$(".dealSummaryInputYear").show();
 			$(".dealSumaaryInputEndYear").show();
-
-		  } 
-         else if($("#Search").val() == "ClosedDealsexcelsheet"){
+		} else if ($("#Search").val() == "ClosedDealsexcelsheet") {
 			$(".dealSummaryMonth").hide();
 			$(".dealSummaryYear").hide();
 			$(".dealSummaryStatus").hide();
 			$(".dealSummaryInputYear").show();
 			$(".dealSumaaryInputEndYear").show();
-		  } 
-
-		  else if($("#Search").val() == "topReferralUserSearch"){
+		} else if ($("#Search").val() == "topReferralUserSearch") {
 			$(".knowtopReferalRange").show();
-	
-		  } 
-
-		  else {
+		} else {
 			$(".loanid").hide();
 			$(".knowtopLendingRange").hide();
 			$(".applicationid").hide();
@@ -472,10 +452,10 @@ $(document).ready(function () {
 			$(".registerUserEnddatediv").hide();
 			$(".cmsbeforestartdatediv").hide();
 			$(".cmsbeforeenddatediv").hide();
-		    $(".beforefileexecutedType").hide();
+			$(".beforefileexecutedType").hide();
 			$(".dasboardgraphStart").hide();
 			$(".dasboardgraphEnd").hide();
-		    $(".knowmembershipDate").hide();
+			$(".knowmembershipDate").hide();
 			$(".endknowmembershipDate").hide();
 			$(".dealSummaryMonth").hide();
 			$(".dealSummaryYear").hide();
@@ -499,9 +479,7 @@ $(document).ready(function () {
 	});
 });
 
-
 function checkuserTypeBeforeLoad() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -535,8 +513,8 @@ function checkuserTypeBeforeLoad() {
 		$(".displayAdminType").html(getUserUtm);
 		$(".logo-lg").html("");
 	} else if (sprimaryType == "PARTNERADMIN" || sprimaryType == "STUDENTADMIN") {
-
-		$(".displaySuperAdmin,.displayPaymentAdmin,.displayH2HAdmin,.partnerDashboard,.dropdown-toggle"
+		$(
+			".displaySuperAdmin,.displayPaymentAdmin,.displayH2HAdmin,.partnerDashboard,.dropdown-toggle"
 		).hide();
 		$(".hideInterestPayments").hide();
 		$(".partnerAdmin").hide();
@@ -545,10 +523,9 @@ function checkuserTypeBeforeLoad() {
 
 		$(".logo-lg").html("");
 
-		setTimeout(()=>{
-	     $(".paymentAdminView").show();
-		},100);
-
+		setTimeout(() => {
+			$(".paymentAdminView").show();
+		}, 100);
 	} else if (
 		sprimaryType == "OXYWHEELSADMIN" ||
 		sprimaryType == "NOTBORROWER"
@@ -612,7 +589,6 @@ function loadBoxforWriteComments(suserId, sprimaryType, saccessToken, pid) {
 }
 
 function saveAdminComments(pid) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -705,7 +681,6 @@ function saveAdminComments(pid) {
 }
 
 const loadadminDashbord = (pid) => {
-
 	$("#loadingSec").show();
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -757,7 +732,6 @@ const loadadminDashbord = (pid) => {
 //***************** DASHBOARD DATA ENDS*****************//
 
 function loadadminLatestloanAgreements() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -852,7 +826,6 @@ function loadadminLatestloanAgreements() {
 							operator: "IN",
 						},
 						page: {
-
 							pageNo: num,
 							pageSize: 10,
 						},
@@ -865,7 +838,6 @@ function loadadminLatestloanAgreements() {
 						var adminUrl =
 							apiBaseURLOXY + id + "/loan/" + primaryType + "/search";
 					} else {
-					
 						var adminUrl =
 							apiBaseURLOXY + id + "/loan/" + primaryType + "/search";
 					}
@@ -915,7 +887,6 @@ const feePaidClick = (id, userType) => {
 };
 
 const responsepaidinfo = (loanId, primaryType, amount) => {
-
 	const adminUrl =
 		userisIn === "local"
 			? `${apiBaseURLOXY}loan/${loanId}/feepaid?primaryType=${primaryType}`
@@ -937,7 +908,6 @@ const responsepaidinfo = (loanId, primaryType, amount) => {
 };
 
 function loadLendersApplications() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -1007,7 +977,6 @@ function loadLendersApplications() {
 		type: "POST",
 		data: postData,
 		success: function (data, textStatus, xhr) {
-
 			var totalEntries = data.totalCount;
 			console.log(data);
 			var template = document.getElementById("loadLendersListTpl").innerHTML;
@@ -1167,7 +1136,6 @@ function loadLendersApplications() {
 }
 
 function loadBorrowerApplications() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -1442,7 +1410,6 @@ function loadBorrowerApplications() {
 }
 
 const loadLoans = (recordsType) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -1636,7 +1603,6 @@ const postComment = () => {
 };
 
 const postOxyscore = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -1660,7 +1626,6 @@ const postOxyscore = () => {
 		body: postData,
 	})
 		.then((response) => {
-
 			if (!response.ok) {
 				throw new Error("Network response was not ok");
 			}
@@ -1675,7 +1640,6 @@ const postOxyscore = () => {
 };
 
 const viewEMICARD = () => {
-
 	$(".viewEMIcard").click(function () {
 		const suserId = getCookie("sUserId");
 		const sprimaryType = getCookie("sUserType");
@@ -1721,7 +1685,6 @@ const viewEMICARD = () => {
 };
 
 const viewDoc = (userID, doctype) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -1815,7 +1778,6 @@ const displayUpdate_emi_Block = (emiNumber) => {
 };
 
 const updateEMIStatus = (loanid, emino) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -1848,14 +1810,12 @@ const updateEMIStatus = (loanid, emino) => {
 };
 
 const oxyscore = (userID) => {
-
 	$("#modal-oxyscore").modal("show");
 	var userID = userID;
 	$(".postOxyscore").attr("data-clickedid", userID);
 };
 
 const UpdatePreclose = () => {
-
 	$(".loadingSec").show();
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -1897,7 +1857,6 @@ const UpdatePreclose = () => {
 };
 
 const UpdatePreclosebyplatform = () => {
-
 	$(".loadingSec").show();
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -2184,7 +2143,7 @@ function searchUsers(userType) {
 							"/loan/" +
 							primaryType +
 							"/request/search";
-				    	} else {
+					} else {
 						var getStatUrl =
 							" https://fintech.oxyloans.com/oxyloans/v1/user/" +
 							userId +
@@ -2228,7 +2187,6 @@ function searchUsers(userType) {
 }
 
 function searchUsersPhase1(userType) {
-	
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -4326,7 +4284,6 @@ function viewPAN(userID) {
 }
 
 function getKYC() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -4418,7 +4375,6 @@ function getKYC() {
 }
 
 function signout() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -4457,7 +4413,6 @@ function signout() {
 }
 
 function changePrimarytype(userType, id) {
-
 	$("#modal-change-primarytype").modal("show");
 	$(".yesChangeUsesr").attr("data-reqID", id);
 	$(".yesChangeUsesr").attr("data-type", userType);
@@ -9284,12 +9239,9 @@ function searchUsersofferAccepted(userType) {
 	var postData = JSON.stringify(postData);
 	console.log(postData);
 	if (userisIn == "local") {
-
 		var getStatUrl = apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
 	} else {
-
 		var getStatUrl = apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
-
 	}
 	$.ajax({
 		url: getStatUrl,
@@ -9597,11 +9549,9 @@ function searchUsersofferAccepted(userType) {
 					console.log(postData);
 
 					if (userisIn == "local") {
-
 						var getStatUrl =
 							apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
 					} else {
-
 						var getStatUrl =
 							apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
 					}
@@ -9948,12 +9898,9 @@ function searchUsersApprovedtoEsign(userType) {
 	console.log(postData);
 
 	if (userisIn == "local") {
-
 		var getStatUrl = apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
 	} else {
-
 		var getStatUrl = apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
-
 	}
 	$.ajax({
 		url: getStatUrl,
@@ -10009,8 +9956,6 @@ function searchUsersApprovedtoEsign(userType) {
 					firstClass: "first",
 				})
 				.on("page", function (event, num) {
-
-
 					if (primaryType == "LENDER") {
 						var fieldValueforSearch = "BORROWER";
 					} else {
@@ -10261,11 +10206,9 @@ function searchUsersApprovedtoEsign(userType) {
 					console.log(postData);
 
 					if (userisIn == "local") {
-
 						var getStatUrl =
 							apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
 					} else {
-
 						var getStatUrl =
 							apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
 					}
@@ -10318,12 +10261,10 @@ function searchUsersDisbursedloans() {
 
 	var userSelecctedOption = $(".choosenType").val();
 
-
 	var borrowerid = $(".borrowerid input").val();
 	borrowerid = borrowerid.substr(2);
 
 	var loanId = $(".loanid  input").val();
-
 
 	console.log("loanId " + loanId);
 	console.log("lender id " + lenderid);
@@ -10535,13 +10476,11 @@ function searchUsersDisbursedloans() {
 						var getStatUrl =
 							apiBaseURLOXY + suserId + "/loan/ADMIN/request/search";
 					} else {
-
 						var getStatUrl =
 							" https://fintech.oxyloans.com/oxyloans/v1/user/" +
 							suserId +
 							"/loan/ADMIN/request/search";
 					}
-
 
 					$.ajax({
 						url: getStatUrl,
@@ -10659,10 +10598,8 @@ function updateEMI_newFunc(emiID, loanID, emiNumber) {
 	const saccessToken = getCookie("saccessToken");
 	var postData = JSON.stringify(postData);
 	if (userisIn == "local") {
-
 		var updateEMI_url = apiBaseURLOXY + emiID + "/paymentDetails";
 	} else {
-
 		var updateEMI_url = apiBaseURLOXY + emiID + "/paymentDetails";
 	}
 
@@ -10704,7 +10641,6 @@ function updateEMI_newFunc(emiID, loanID, emiNumber) {
 }
 
 const viewExperianReport = (id) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -10766,7 +10702,6 @@ function borrowersRejectoffer() {
 	var getLoanId = $(".borrowerRejectofferBtn").attr("data-reqid");
 	var userId = $(".borrowerRejectofferBtn").attr("data-clickedid");
 	getLoanId = parseInt(getLoanId);
-
 
 	if (userisIn == "local") {
 		var updateEmiUrlCard = apiBaseURLOXY + getLoanId + "/rejectloanoffer";
@@ -10920,7 +10855,6 @@ function loadlendersLoansInfo() {
 }
 
 function loadborrowerUsersforlender() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -11052,7 +10986,6 @@ function loadborrowerUsersforlender() {
 }
 
 const downloadTotalLoanLendersInfo = (lenderId) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -11086,7 +11019,6 @@ const downloadTotalLoanLendersInfo = (lenderId) => {
 };
 
 const downloadTotalLoanLendersInfo1 = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -11122,7 +11054,6 @@ const downloadTotalLoanLendersInfo1 = () => {
 };
 
 function loadborrowersLoansInfo() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -11782,7 +11713,6 @@ $(document).ready(function () {
 		var enteredAppId = $("#applicationId").val();
 		var enteredTenure = $("#tenure").val();
 		var enteredemiAmount = $("#emiAmount").val();
-
 
 		enteredborrowerid = enteredborrowerid.trim();
 		enteredAppId = enteredAppId.trim();
@@ -13768,7 +13698,6 @@ function loadlenderswithdrawfundslist() {
 		page: {
 			pageNo: 1,
 			pageSize: 10,
-
 		},
 
 		firstName: "",
@@ -13787,31 +13716,23 @@ function loadlenderswithdrawfundslist() {
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
+			let totalEntries = data.totalCount;
 
+			const newobj = data.results.map((data, index) => {
+				const newobjnew = { ...data };
 
-			let  totalEntries = data.totalCount;
+				if (newobjnew.status == "ADMIN REJECTED") {
+					newobjnew["statusobj"] = "ADMINREJECTED";
+				} else if (newobjnew.status == "USER REJECTED") {
+					newobjnew["statusobj"] = "USERREJECTED";
+				} else if (newobjnew.status == "AUTO REJECTED") {
+					newobjnew["statusobj"] = "AUTOREJECTED";
+				} else {
+					newobjnew["statusobj"] = newobjnew.status;
+				}
 
-
-
-
-	   const newobj=data.results.map((data,index)=>{
-			   	const newobjnew={...data};
-
-                if (newobjnew.status=="ADMIN REJECTED"){
-                	newobjnew["statusobj"]="ADMINREJECTED";
-                }else if(newobjnew.status=="USER REJECTED"){
-                   newobjnew["statusobj"]="USERREJECTED";
-                }else if(newobjnew.status=="AUTO REJECTED"){
-                   newobjnew["statusobj"]="AUTOREJECTED";
-                     }else{
-                   newobjnew["statusobj"]=newobjnew.status;
-
-                }
-
-                return newobjnew;
-
-			   })
-
+				return newobjnew;
+			});
 
 			var template = document.getElementById(
 				"loadlenderswithdrawfundslistTpl"
@@ -13869,27 +13790,21 @@ function loadlenderswithdrawfundslist() {
 						contentType: "application/json",
 						dataType: "json",
 						success: function (data, textStatus, xhr) {
+							const newobjpagnation = data.results.map((data, index) => {
+								const newobjnewpag = { ...data };
 
-                           	   const newobjpagnation=data.results.map((data,index)=>{
-			   	const newobjnewpag={...data};
+								if (newobjnewpag.status == "ADMIN REJECTED") {
+									newobjnewpag["statusobj"] = "ADMINREJECTED";
+								} else if (newobjnewpag.status == "USER REJECTED") {
+									newobjnewpag["statusobj"] = "USERREJECTED";
+								} else if (newobjnewpag.status == "AUTO REJECTED") {
+									newobjnewpag["statusobj"] = "AUTOREJECTED";
+								} else {
+									newobjnewpag["statusobj"] = newobjnewpag.status;
+								}
 
-                if (newobjnewpag.status=="ADMIN REJECTED"){
-                	newobjnewpag["statusobj"]="ADMINREJECTED";
-                }else if(newobjnewpag.status=="USER REJECTED"){
-                   newobjnewpag["statusobj"]="USERREJECTED";
-                }else if(newobjnewpag.status=="AUTO REJECTED"){
-                   newobjnewpag["statusobj"]="AUTOREJECTED";
-                     }else{
-                   newobjnewpag["statusobj"]=newobjnewpag.status;
-
-                }
-
-                return newobjnewpag;
-
-			   })
-
-
-
+								return newobjnewpag;
+							});
 
 							var template = document.getElementById(
 								"loadlenderswithdrawfundslistTpl"
@@ -13975,24 +13890,21 @@ function searchlenderswithdrawalList() {
 		success: function (data, textStatus, xhr) {
 			let totalEntries = data.totalCount;
 
-	   const newobj=data.results.map((data,index)=>{
-			   	const newobjnew={...data};
+			const newobj = data.results.map((data, index) => {
+				const newobjnew = { ...data };
 
-                if (newobjnew.status=="ADMIN REJECTED"){
-                	newobjnew["statusobj"]="ADMINREJECTED";
-                }else if(newobjnew.status=="USER REJECTED"){
-                   newobjnew["statusobj"]="USERREJECTED";
-                }else if(newobjnew.status=="AUTO REJECTED"){
-                   newobjnew["statusobj"]="AUTOREJECTED";
-                     }else{
-                   newobjnew["statusobj"]=newobjnew.status;
+				if (newobjnew.status == "ADMIN REJECTED") {
+					newobjnew["statusobj"] = "ADMINREJECTED";
+				} else if (newobjnew.status == "USER REJECTED") {
+					newobjnew["statusobj"] = "USERREJECTED";
+				} else if (newobjnew.status == "AUTO REJECTED") {
+					newobjnew["statusobj"] = "AUTOREJECTED";
+				} else {
+					newobjnew["statusobj"] = newobjnew.status;
+				}
 
-                }
-
-                return newobjnew;
-
-			   })
-
+				return newobjnew;
+			});
 
 			var template = document.getElementById(
 				"loadlenderswithdrawfundslistTpl"
@@ -14000,9 +13912,6 @@ function searchlenderswithdrawalList() {
 			Mustache.parse(template);
 			var html = Mustache.to_html(template, { data: newobj });
 			$("#loadwithdrawfundslist").html(html);
-
-
-
 
 			$(".lenderswithdrawalPagination").hide();
 			$(".searchlenderswithdrawalPagination").show();
@@ -14067,27 +13976,21 @@ function searchlenderswithdrawalList() {
 						contentType: "application/json",
 						dataType: "json",
 						success: function (data, textStatus, xhr) {
+							const newobjpag = data.results.map((data, index) => {
+								const newobjnewpag = { ...data };
 
-                            const newobjpag=data.results.map((data,index)=>{
-			   	const newobjnewpag={...data};
+								if (newobjnewpag.status == "ADMIN REJECTED") {
+									newobjnewpag["statusobj"] = "ADMINREJECTED";
+								} else if (newobjnewpag.status == "USER REJECTED") {
+									newobjnewpag["statusobj"] = "USERREJECTED";
+								} else if (newobjnewpag.status == "AUTO REJECTED") {
+									newobjnewpag["statusobj"] = "AUTOREJECTED";
+								} else {
+									newobjnewpag["statusobj"] = newobjnewpag.status;
+								}
 
-                if (newobjnewpag.status=="ADMIN REJECTED"){
-                	newobjnewpag["statusobj"]="ADMINREJECTED";
-                }else if(newobjnewpag.status=="USER REJECTED"){
-                   newobjnewpag["statusobj"]="USERREJECTED";
-                }else if(newobjnewpag.status=="AUTO REJECTED"){
-                   newobjnewpag["statusobj"]="AUTOREJECTED";
-                     }else{
-                   newobjnewpag["statusobj"]=newobjnewpag.status;
-
-                }
-
-                return newobjnewpag;
-
-			   })
-
-
-
+								return newobjnewpag;
+							});
 
 							var template = document.getElementById(
 								"loadlenderswithdrawfundslistTpl"
@@ -14779,8 +14682,6 @@ function loadwalletBalances() {
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
-
-
 	if (userisIn == "local") {
 		//http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/
 		var getLenders =
@@ -15255,14 +15156,11 @@ function viewDoc1(doctype, id) {
 	const suserId = id;
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
-	var   doctype = doctype;
-
+	var doctype = doctype;
 
 	if (userisIn == "local") {
-
 		var getPAN = apiBaseURLOXY + suserId + "/download/" + doctype;
 	} else {
-
 		var getPAN = apiBaseURLOXY + suserId + "/download/" + doctype;
 	}
 	console.log(getPAN);
@@ -15513,7 +15411,6 @@ function getPaymentRecords(getStatus) {
 }
 
 function ThirtyDaysuploaded() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -15625,7 +15522,6 @@ function ThirtyDaysuploaded() {
 }
 
 function ThirtyDaysuploadeds() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -15633,9 +15529,7 @@ function ThirtyDaysuploadeds() {
 	let id = suserId;
 	let primaryType = sprimaryType;
 
-
 	if (userisIn == "local") {
-
 		var adminUrl = apiBaseURLOXY + "30/UPLOADED/getPaymentStatistics";
 	} else {
 		var adminUrl = apiBaseURLOXY + "30/" + userstatus + "/getPaymentStatistics";
@@ -15689,7 +15583,6 @@ function ThirtyDaysuploadeds() {
 						pageSize: 10,
 					};
 
-
 					if (userisIn == "local") {
 						//http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/
 						var adminUrl = apiBaseURLOXY + "30/UPLOADED/getPaymentStatistics";
@@ -15735,7 +15628,6 @@ function ThirtyDaysuploadeds() {
 }
 
 function status(StatusType) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -15796,7 +15688,6 @@ function status(StatusType) {
 					firstClass: "first",
 				})
 				.on("page", function (event, num) {
-
 					var postData = {
 						pageNo: num,
 						pageSize: "10",
@@ -15846,7 +15737,6 @@ function status(StatusType) {
 }
 
 function updatestatus(DOCUMNETID) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -15858,7 +15748,6 @@ function updatestatus(DOCUMNETID) {
 		var updateCommentUrl =
 			apiBaseURLOXY + DOCUMNETID + "/updatePaymentUploadHistoryStatus";
 	}
-
 
 	var postData = {
 		status: "APPROVED",
@@ -15892,7 +15781,6 @@ function showbox(DocumentId) {
 }
 
 function notyetreflected() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -15911,13 +15799,11 @@ function notyetreflected() {
 			"/updatePaymentUploadHistoryStatus";
 	}
 
-
 	var postData = {
 		status: "NOTYETREFLECTED",
 		comments: userstatus,
 	};
 	var postData = JSON.stringify(postData);
-
 
 	$.ajax({
 		url: updateCommentUrl,
@@ -16420,19 +16306,13 @@ $(document).ready(function () {
 	});
 });
 
-
 $(document).ready(function () {
 	$("#useremailandmobileActivation").click(function () {
-
 		sprimaryType = getCookie("sUserType");
 		saccessToken = getCookie("saccessToken");
 
-
 		var mobileNumber = $(".updateMobileNo").val();
 		var email = $("#userEmailActivation").val();
-
-
-
 
 		var isValid = true;
 
@@ -16450,11 +16330,9 @@ $(document).ready(function () {
 			$(".errormobileNumber").hide();
 		}
 
-
-
 		var postData = {
 			mobileNumber,
-			email
+			email,
 		};
 
 		var postData = JSON.stringify(postData);
@@ -16474,7 +16352,7 @@ $(document).ready(function () {
 				contentType: "application/json",
 				dataType: "json",
 				success: function (data, textStatus, xhr) {
-				$("#modal-UpdateSuccess-activation-Link").modal("show");
+					$("#modal-UpdateSuccess-activation-Link").modal("show");
 				},
 				error: function (xhr, textStatus, errorThrown) {
 					console.log("error");
@@ -16488,20 +16366,16 @@ $(document).ready(function () {
 	});
 });
 
-
 $(document).ready(function () {
 	$("#btnuseremailandmobile").click(function () {
-	
 		const sprimaryType = getCookie("sUserType");
 		const saccessToken = getCookie("saccessToken");
 
 		var UpdateUserId = $(".updateUserId").val();
 		var userEmail = $("#userEmail").val();
 		var userMobile = $("#userMobile").val();
-	
 
 		UpdateUserId = UpdateUserId.substring(2);
-
 
 		var isValid = true;
 
@@ -16512,8 +16386,7 @@ $(document).ready(function () {
 			$(".errorusername").hide();
 		}
 
-	
-        if (userMobile == "") {
+		if (userMobile == "") {
 			$(".erroruserMobile").show();
 			isValid = false;
 		} else {
@@ -16527,13 +16400,11 @@ $(document).ready(function () {
 			$(".errorEmail").hide();
 		}
 
-       var postData = {
+		var postData = {
 			id: UpdateUserId,
 			mobileNumber: userMobile,
 			email: userEmail,
-			
 		};
-
 
 		var postData = JSON.stringify(postData);
 
@@ -16569,7 +16440,6 @@ $(document).ready(function () {
 // view lender wallets status start
 
 function viewlenderwallet() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -16579,7 +16449,6 @@ function viewlenderwallet() {
 	let accessToken = saccessToken;
 
 	if (userisIn == "local") {
-	
 		var adminUrl = apiBaseURLOXY + "10/1/approvedLenderDetails";
 	} else {
 		var adminUrl = apiBaseURLOXY + "10/1/approvedLenderDetails";
@@ -16597,7 +16466,7 @@ function viewlenderwallet() {
 			var html = Mustache.to_html(template, {
 				data: data.lenderWalletInfo,
 			});
-			
+
 			$("#displaywallet").html(html);
 			var displayPageNo = data.totalLenders / 10;
 			displayPageNo = displayPageNo + 1;
@@ -16661,7 +16530,6 @@ function viewlenderwallet() {
 }
 
 function LENDERWALLET() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -16730,7 +16598,6 @@ function savecomments() {
 }
 
 function saveAdminCommentsbyadmin() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -16934,7 +16801,6 @@ function idfcdownload() {
 }
 
 function ecssearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17095,7 +16961,6 @@ function viewvannumber() {
 }
 
 const generatevan = async () => {
-
 	let suserId = getCookie("sUserId");
 	let sprimaryType = getCookie("sUserType");
 	let saccessToken = getCookie("saccessToken");
@@ -17140,7 +17005,6 @@ const lenderWalletDetails = () => {
 };
 
 const lenderwallet = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17215,7 +17079,6 @@ const lendersLoanInformationdownload = () => {
 };
 
 function lendersemiamount() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17336,7 +17199,6 @@ function lendersemiamount() {
 }
 
 function lendersemiamountsearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17348,7 +17210,7 @@ function lendersemiamountsearch() {
 	var Month = $("#monthvalue").val();
 	var year = $("#selectElementId").val();
 
-	 lenderid = lenderid.substr(2);
+	lenderid = lenderid.substr(2);
 
 	if (userisIn == "local") {
 		var actOnLoan = apiBaseURLOXY + lenderid + "/getLenderInfoBasedOnId";
@@ -17398,8 +17260,6 @@ function lendersemiamountsearch() {
 }
 
 function viewLenderemi(id) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17597,7 +17457,6 @@ function viewLoanLender(id) {
 }
 
 function borrowersemiamount() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17654,7 +17513,6 @@ function borrowersemiamount() {
 }
 
 function borrowersemiamountsearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17775,7 +17633,6 @@ function borrowersemiamountsearch() {
 }
 
 function viewborrowersemi(name) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17813,7 +17670,6 @@ function viewborrowersemi(name) {
 }
 
 function paidBorrowers() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -17850,7 +17706,6 @@ function paidBorrowers() {
 }
 
 function highestpaidborrowers() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18063,7 +17918,6 @@ function highestpaidborrowers() {
 }
 
 function highestpaidborrowersearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18275,8 +18129,6 @@ const userRejectOffers = (loanID) => {
 };
 
 function borrowersRejectoffers() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18315,8 +18167,6 @@ function borrowersRejectoffers() {
 
 //**********************************search borrower id  for disburse ///////
 const viewborrowerssearch = (status) => {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18365,8 +18215,6 @@ const viewborrowerssearch = (status) => {
 };
 
 const viewborrowers = (id) => {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18429,8 +18277,6 @@ const DisbursementDate = () => {
 };
 
 function DisbursementDatesave() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18482,15 +18328,11 @@ function DisbursementDatesave() {
 // ////////***search function for paid borrowersinfo/////
 
 function paidborrowerssearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 	let applicationId = $(".applicationID").val();
-	  applicationId = applicationId.substring(4);
-
-
-
+	applicationId = applicationId.substring(4);
 
 	if (userisIn == "local") {
 		var adminUrl = apiBaseURLOXY + applicationId + "/paidBorrowersInfo";
@@ -18519,8 +18361,6 @@ function paidborrowerssearch() {
 }
 
 function loadLenderEmiStats() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18619,7 +18459,6 @@ const uploaddisbursment = () => {
 };
 
 function readdisbursement(input) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -18750,8 +18589,6 @@ function updatedisbursedLoansinformation() {
 // ////////Application level approved /////////
 
 function applicationlevelapproved(borrowerid) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18796,8 +18633,6 @@ function applicationlevelapproved(borrowerid) {
 // ///////////////////new functionfor l4 start by livin/////
 
 function loadPendingLoansInformation() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -18958,13 +18793,11 @@ function loadPendingLoansInformation() {
 // ////////***search function for l4/////
 
 function searchdisbursed() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 	var lenderId = $(".lenderID").val();
 	var borrwerId = $(".borrowerID").val();
-
 
 	if (lenderId == "") {
 		var Id = borrwerId.substring(2);
@@ -18977,7 +18810,6 @@ function searchdisbursed() {
 	} else {
 		var adminUrl = apiBaseURLOXY + Id + "/searchByUserIdAndDisbursementPending";
 	}
-
 
 	$.ajax({
 		url: adminUrl,
@@ -19019,9 +18851,7 @@ function searchdisbursed() {
 	});
 }
 
-
 function search(appleval, noc) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -19290,11 +19120,7 @@ function lenderreferrslinfo() {
 	});
 }
 
-
-
-
 function referalEarningmonthWiseList() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -19306,7 +19132,7 @@ function referalEarningmonthWiseList() {
 	}
 
 	var postData = {
-		data:"2024-01-09",
+		data: "2024-01-09",
 		pageNo: 1,
 		pageSize: 10,
 	};
@@ -19349,19 +19175,15 @@ function referalEarningmonthWiseList() {
 				})
 				.on("page", function (event, num) {
 					var postData = {
-						data:"2024-01-09",
+						data: "2024-01-09",
 						pageNo: num,
 						pageSize: 10,
 					};
 
-
 					if (userisIn == "local") {
-
-						var adminUrl =
-							apiBaseURLOXY + "displayMonthlyReferrersAmount1";
+						var adminUrl = apiBaseURLOXY + "displayMonthlyReferrersAmount1";
 					} else {
-						var adminUrl =
-							apiBaseURLOXY + "displayMonthlyReferrersAmount1";
+						var adminUrl = apiBaseURLOXY + "displayMonthlyReferrersAmount1";
 					}
 
 					var postData = JSON.stringify(postData);
@@ -19559,7 +19381,6 @@ $(document).ready(function () {
 });
 ///////////add loan owner's info'''''///
 function addloanowners() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -19653,10 +19474,7 @@ function lenderreturnstodatabase() {
 	});
 }
 
-function createAdeal(dealId, loanrequestId, isTest=false) {
-
-
-
+function createAdeal(dealId, loanrequestId, isTest = false) {
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
 	const suserId = getCookie("sUserId");
@@ -19664,7 +19482,7 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 	// Basic Info
 	// $("#loadingSec").show();
 
-	let isValid=true;
+	let isValid = true;
 
 	var whatsappGroups = "";
 	$("input[type=checkbox]:checked").each(function () {
@@ -19753,15 +19571,12 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 	var dealFutureDate = $("#dealLunchDate").val();
 	var dealLaunchHoure = $("#dealLunchTimePicker").val();
 
-
-
 	if (fundsAcceptanceStartDate == "") {
 		$(".dealstartDateerror").show();
 		$("#loadingSec").hide();
 		isValid = false;
 	} else {
 		$(".dealstartDateerror").hide();
-
 	}
 
 	if (fundsAcceptanceEndDate == "") {
@@ -19770,25 +19585,19 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		isValid = false;
 	} else {
 		$(".dealEndDateerror").hide();
-
 	}
 
-      if (maxparticipationLimit == "") {
+	if (maxparticipationLimit == "") {
 		$(".participationmaxLimiterror").show();
 		$("#loadingSec").hide();
 		isValid = false;
 	} else {
 		$(".participationmaxLimiterror").hide();
-
 	}
-
-
 
 	if (anytimeROI == "") {
 		anytimeROI = null;
 	}
-
-
 
 	if (dealtype == "NORMAL") {
 		var dealsubtype = $("#dealsubtype").val();
@@ -19812,31 +19621,24 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		$(".errordealwaivertype").hide();
 	}
 
-
-	if(dealName == "") {
+	if (dealName == "") {
 		$(".dealLengtherror").html("Enter The deal Name");
 		$("#loadingSec").hide();
 		isValid = false;
-		setTimeout(()=>{
-	     $(".dealLengtherror").show();
-		},200)
-
-
+		setTimeout(() => {
+			$(".dealLengtherror").show();
+		}, 200);
 	} else {
 		$(".dealLengtherror").hide();
 	}
 
-
-   if(dealAmount == "") {
-	$(".dealloanamounterror").show();
-	$("#loadingSec").hide();
-	isValid = false;
+	if (dealAmount == "") {
+		$(".dealloanamounterror").show();
+		$("#loadingSec").hide();
+		isValid = false;
 	} else {
-	$(".dealloanamounterror").hide();
+		$(".dealloanamounterror").hide();
 	}
-
-
-
 
 	if (islifetimewaiver == "true") {
 		if (dealwaiverAmount == "") {
@@ -19866,8 +19668,6 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		$(".dealTypeError").hide();
 	}
 
-
-
 	if (anyTimeWith == "") {
 		$("#loadingSec").hide();
 		$(".anttimewithError").show();
@@ -19876,37 +19676,40 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		$(".anttimewithError").hide();
 	}
 
-    const loanActiveDatecheck = loanActiveDate.split("/");
+	const loanActiveDatecheck = loanActiveDate.split("/");
 	const fundsAcceptanceEndDatecheck = fundsAcceptanceEndDate.split("/");
-	const dateStart = new Date(`${fundsAcceptanceEndDatecheck[2]}/${fundsAcceptanceEndDatecheck[1]}/${fundsAcceptanceEndDatecheck[0]}`);
-	const dateEnd = new Date(`${loanActiveDatecheck[2]}/${loanActiveDatecheck[1]}/${loanActiveDatecheck[0]}`);
-
-	const diffInDays = Math.round(
-		(dateEnd - dateStart) / (1000 * 60 * 60 * 24)
+	const dateStart = new Date(
+		`${fundsAcceptanceEndDatecheck[2]}/${fundsAcceptanceEndDatecheck[1]}/${fundsAcceptanceEndDatecheck[0]}`
 	);
-	if (diffInDays < 5){
+	const dateEnd = new Date(
+		`${loanActiveDatecheck[2]}/${loanActiveDatecheck[1]}/${loanActiveDatecheck[0]}`
+	);
+
+	const diffInDays = Math.round((dateEnd - dateStart) / (1000 * 60 * 60 * 24));
+	if (diffInDays < 5) {
 		$("#loadingSec").hide();
-	     alert("the difference between the end of funds and the first interest dates is more than 5 days");
+		alert(
+			"the difference between the end of funds and the first interest dates is more than 5 days"
+		);
 		isValid = false;
 	} else {
 		$(".anttimewithError").hide();
 	}
-    if (mappedUsers=="") {
+	if (mappedUsers == "") {
 		$("#loadingSec").hide();
 		$(".borrowermappedIdError").show();
 		isValid = false;
-	 } else {
+	} else {
 		$(".borrowermappedIdError").hide();
-	 }
+	}
 
-	   if (mappedUsersLoanAmount=="") {
+	if (mappedUsersLoanAmount == "") {
 		$("#loadingSec").hide();
 		$(".borrowermappedloanamount").show();
 		isValid = false;
-	    } else {
+	} else {
 		$(".borrowermappedloanamount").hide();
-	  }
-
+	}
 
 	if (lenderparticipationType == "") {
 		$("#loadingSec").hide();
@@ -19939,8 +19742,6 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		$(".errorFeeStatus").hide();
 	}
 
-
-
 	if (dealOpenStatus == "FUTURE") {
 		if (dealFutureDate == "") {
 			$("#loadingSec").hide();
@@ -19970,18 +19771,18 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		}
 	}
 
-    if (dealId == 0 || dealId == "0") {
+	if (dealId == 0 || dealId == "0") {
 		var dealChatId = $("#dealWhatsappChatId").val();
 		var dealChatLink = $("#dealWhatsappDealLink").val();
 
-		if (dealChatId == "" &&  dealChatLink == null) {
+		if (dealChatId == "" && dealChatLink == null) {
 			var dealChatId = null;
 			var dealChatLink = null;
-		}else if(dealChatId != "" && dealChatLink == "") {
+		} else if (dealChatId != "" && dealChatLink == "") {
 			$("#loadingSec").hide();
 			$(".dealChatidLinkError").show();
 			isValid = false;
-		}else if (dealChatId == "" && dealChatLink != ""){
+		} else if (dealChatId == "" && dealChatLink != "") {
 			$("#loadingSec").hide();
 			$(".dealChatidError").show();
 			isValid = false;
@@ -19991,28 +19792,22 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		var dealChatLink = null;
 	}
 
-
-
 	if (miniparticipationLimit < 500) {
 		$("#loadingSec").hide();
-		$(".participationMinierror").html(
-			"The mini amount  INR 5000"
-		);
+		$(".participationMinierror").html("The mini amount  INR 5000");
 		$(".participationMinierror").show();
 		isValid = false;
 	} else {
 		$(".participationMinierror").hide();
 	}
 
-
-	if (duration=="") {
+	if (duration == "") {
 		$("#loadingSec").hide();
 		$(".dealDurationError").show();
 		isValid = false;
 	} else {
 		$(".dealDurationError").hide();
 	}
-
 
 	if (parseInt(miniparticipationLimit) > parseInt(maxparticipationLimit)) {
 		$("#loadingSec").hide();
@@ -20024,8 +19819,6 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 	} else {
 		$(".participationLimiterror").hide();
 	}
-
-
 
 	if (parseInt(maxparticipationLimit) > parseInt(dealAmount)) {
 		$("#loadingSec").hide();
@@ -20048,16 +19841,13 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 		foundsend[2] + "/" + foundsend[1] + "/" + foundsend[0]
 	);
 
-
-
-	   if (convertEnd < convertStart) {
-			$("#loadingSec").hide();
-			$(".errorfundsEndDate").show();
-			isValid = false;
-		} else {
-			$(".errorfundsEndDate").hide();
-		}
-
+	if (convertEnd < convertStart) {
+		$("#loadingSec").hide();
+		$(".errorfundsEndDate").show();
+		isValid = false;
+	} else {
+		$(".errorfundsEndDate").hide();
+	}
 
 	if (
 		(mappedUsersLoanAmount.length != null ||
@@ -20090,7 +19880,6 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 			);
 		}
 	}
-
 
 	if (userisIn == "local") {
 		var createAdeal = apiBaseURLOXY + "updateDealsInformation";
@@ -20162,54 +19951,51 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 	var postData = JSON.stringify(postData);
 	console.log(postData);
 
-
-	  if(isTest == false && dealtype == "TEST") {
+	if (isTest == false && dealtype == "TEST") {
 		$("#loadingSec").hide();
 		$("#isTestDealCreation").modal("show");
 		$("#isTestDealCreation #testDealCheck").attr(
 			"onclick",
-			"confimcreateAdeal('"+dealId + "','" + loanrequestId + "','true')"
+			"confimcreateAdeal('" + dealId + "','" + loanrequestId + "','true')"
 		);
 		isValid = false;
 	} else {
 		$("#isTestDealCreation").modal("hide");
 	}
 
-
-
 	if (isValid == true) {
+		let payouttype = "";
+		let roitype = "";
+		let monyhlypayout =
+			oxyPremiumMonthlyInterest != "" && newLendersMonthlyInterest != "";
+		let quartelyPayout =
+			oxyPremiumQuartelyInterest != "" && newLendersQuartelyInterest != "";
+		let yearly =
+			oxyPremiumYearlyInterest != "" && newLendersYearlyInterest != "";
+		let half = oxyPremiumHalfInterest != "" && newLendersHalfInterest != "";
 
-     let payouttype="";
-     let roitype="";
-     let monyhlypayout=oxyPremiumMonthlyInterest !=""&& newLendersMonthlyInterest!="";
-     let quartelyPayout=oxyPremiumQuartelyInterest!="" && newLendersQuartelyInterest!="";
-     let yearly= oxyPremiumYearlyInterest!="" && newLendersYearlyInterest!="";
-     let half= oxyPremiumHalfInterest  !="" && newLendersHalfInterest!=""
+		if (monyhlypayout == true) {
+			payouttype = "MONTHLY";
+			roitype = oxyPremiumMonthlyInterest + " % PM";
+		} else if (quartelyPayout == true) {
+			payouttype = "QUARTERLY";
+			roitype = oxyPremiumQuartelyInterest * 3 + "% PA";
+		} else if (half == true) {
+			payouttype = "HALFYEARLY";
+			roitype = oxyPremiumHalfInterest * 6 + "% PA";
+		} else if (yearly == true) {
+			payouttype = "YEARLY";
+			roitype = oxyPremiumYearlyInterest * 12 + "% PA";
+		}
 
-      if(monyhlypayout==true){
-       payouttype="MONTHLY";
-       roitype=oxyPremiumMonthlyInterest+" % PM";
-      }else if (quartelyPayout==true){
-       payouttype="QUARTERLY";
-       roitype=oxyPremiumQuartelyInterest * 3 +"% PA";
-      }else if(half==true){
-       payouttype="HALFYEARLY";
-       roitype=oxyPremiumHalfInterest * 6 +"% PA";
-      }else if(yearly==true){
-       payouttype="YEARLY";
-       roitype=oxyPremiumYearlyInterest * 12 +"% PA";
-      }
+		$(".amountLendEntered").html(dealAmount);
+		$(".dealNamePop").html(dealName);
+		$(".dealRoI").html(roitype);
+		$(".tupeOfInt").html(payouttype);
+		$(".tupeOfIntmin").html("INR " + miniparticipationLimit);
+		$(".tupeOfIntMax").html("INR " + maxparticipationLimit);
 
-     $(".amountLendEntered").html(dealAmount);
-     $(".dealNamePop").html(dealName);
-     $(".dealRoI").html(roitype);
-     $(".tupeOfInt").html(payouttype);
-     $(".tupeOfIntmin").html("INR "+miniparticipationLimit);
-     $(".tupeOfIntMax").html("INR "+maxparticipationLimit);
-
-
-     $("#createdealOverfeeeModalBox").modal("show");
-
+		$("#createdealOverfeeeModalBox").modal("show");
 
 		// $.ajax({
 		// 	url: createAdeal,
@@ -20251,19 +20037,16 @@ function createAdeal(dealId, loanrequestId, isTest=false) {
 	return isValid;
 }
 
-
-function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
-
-
+function confimcreateAdeal(dealId, loanrequestId = 0, isTest = false) {
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
 	const suserId = getCookie("sUserId");
 
 	// Basic Info
 
-	 $("#loadingSec").show();
+	$("#loadingSec").show();
 
-	 let isValid = true;
+	let isValid = true;
 
 	var whatsappGroups = "";
 	$("input[type=checkbox]:checked").each(function () {
@@ -20347,7 +20130,6 @@ function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
 	let dealwhatsappNotification = $("#dealwhatsappnotification").val();
 	let dealemailNotification = $("#dealemailnotification").val();
 
-
 	var names;
 	let fundsstart = fundsAcceptanceStartDate.split("/");
 	let foundsend = fundsAcceptanceEndDate.split("/");
@@ -20394,18 +20176,16 @@ function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
 		anytimeROI = null;
 	}
 
-
-
-
-    const loanActiveDatecheck = loanActiveDate.split("/");
+	const loanActiveDatecheck = loanActiveDate.split("/");
 	const fundsAcceptanceEndDatecheck = fundsAcceptanceEndDate.split("/");
-	const dateStart = new Date(`${fundsAcceptanceEndDatecheck[2]}/${fundsAcceptanceEndDatecheck[1]}/${fundsAcceptanceEndDatecheck[0]}`);
-	const dateEnd = new Date(`${loanActiveDatecheck[2]}/${loanActiveDatecheck[1]}/${loanActiveDatecheck[0]}`);
-
-	const diffInDays = Math.round(
-		(dateEnd - dateStart) / (1000 * 60 * 60 * 24)
+	const dateStart = new Date(
+		`${fundsAcceptanceEndDatecheck[2]}/${fundsAcceptanceEndDatecheck[1]}/${fundsAcceptanceEndDatecheck[0]}`
+	);
+	const dateEnd = new Date(
+		`${loanActiveDatecheck[2]}/${loanActiveDatecheck[1]}/${loanActiveDatecheck[0]}`
 	);
 
+	const diffInDays = Math.round((dateEnd - dateStart) / (1000 * 60 * 60 * 24));
 
 	var dealOpenStatus = $("#dealLunchType").val();
 	var dealFutureDate = $("#dealLunchDate").val();
@@ -20440,37 +20220,34 @@ function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
 		}
 	}
 
-     if (dealId == 0 || dealId == "0") {
+	if (dealId == 0 || dealId == "0") {
 		var dealChatId = $("#dealWhatsappChatId").val();
 		var dealChatLink = $("#dealWhatsappDealLink").val();
 
-		if (dealChatId == "" &&  dealChatLink == null) {
+		if (dealChatId == "" && dealChatLink == null) {
 			var dealChatId = null;
 			var dealChatLink = null;
-		}else if(dealChatId != "" && dealChatLink == "") {
+		} else if (dealChatId != "" && dealChatLink == "") {
 			$("#loadingSec").hide();
 			$(".dealChatidLinkError").show();
 			isValid = false;
-
-		}else if (dealChatId == "" && dealChatLink != ""){
+		} else if (dealChatId == "" && dealChatLink != "") {
 			$("#loadingSec").hide();
 			$(".dealChatidError").show();
 			isValid = false;
-
 		}
 	} else {
 		var dealChatId = null;
 		var dealChatLink = null;
 	}
 
-
-	   if (convertEnd < convertStart) {
-			$("#loadingSec").hide();
-			$(".errorfundsEndDate").show();
-			isValid = false;
-		} else {
-			$(".errorfundsEndDate").hide();
-		}
+	if (convertEnd < convertStart) {
+		$("#loadingSec").hide();
+		$(".errorfundsEndDate").show();
+		isValid = false;
+	} else {
+		$(".errorfundsEndDate").hide();
+	}
 
 	if (userisIn == "local") {
 		var createAdeal = apiBaseURLOXY + "updateDealsInformation";
@@ -20541,7 +20318,6 @@ function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
 
 	var postData = JSON.stringify(postData);
 	if (isValid == true) {
-
 		$.ajax({
 			url: createAdeal,
 			type: "PATCH",
@@ -20553,7 +20329,7 @@ function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
 
 				$("#loadingSec").hide();
 
-                $("#createdealOverfeeeModalBox").modal("hide");				// window.scrollTo(0, 0);
+				$("#createdealOverfeeeModalBox").modal("hide"); // window.scrollTo(0, 0);
 				$("#showdealSuccessMessage").modal("show");
 
 				notificationDealUsers(dealId, data.dealId, data.dealType);
@@ -20561,18 +20337,19 @@ function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				$("#loadingSec").hide();
-				 $("#createdealOverfeeeModalBox").modal("hide");
-				 	$("#isTestDealCreation").modal("hide");
+				$("#createdealOverfeeeModalBox").modal("hide");
+				$("#isTestDealCreation").modal("hide");
 				if (arguments[0].responseJSON.errorCode == 108) {
 					$("#showdealDealWarmimg").modal("show");
-				}else if (arguments[0].responseJSON.errorCode == 123) {
+				} else if (arguments[0].responseJSON.errorCode == 123) {
 					$("#showborrowerloanderrormessage").modal("show");
-				}else if (arguments[0].responseJSON.errorCode == 121) {
+				} else if (arguments[0].responseJSON.errorCode == 121) {
 					$("#showerrorfundsStartDate").modal("show");
-				}else{
-
-					$("#showborrowerloanderrormessage .errormessage").html("Something Went Wrong");
-				    $("#showborrowerloanderrormessage").modal("show");
+				} else {
+					$("#showborrowerloanderrormessage .errormessage").html(
+						"Something Went Wrong"
+					);
+					$("#showborrowerloanderrormessage").modal("show");
 				}
 
 				console.log("Error Something");
@@ -20584,25 +20361,6 @@ function confimcreateAdeal(dealId, loanrequestId=0, isTest=false) {
 	}
 	return isValid;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const notificationDealUsers = (dealId, creationId, dealType) => {
 	const sprimaryType = getCookie("sUserType");
@@ -20644,7 +20402,7 @@ const autoInvestment = (dealId, dealCreation, dealType) => {
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
 
-	let dealAutoInvestment="";
+	let dealAutoInvestment = "";
 	if (userisIn == "local") {
 		dealAutoInvestment = apiBaseURLOXY + `${dealCreation}/autolending`;
 	} else {
@@ -20751,13 +20509,11 @@ function loadapproverefereamount(readingCommentsOfRadhaSir) {
 				"****** You must login as a ADMIN before write comments for a borrower.****First login as a admin and then click on the link to write the comments."
 			);
 
-			if(userisIn=="local"){
-				  window.location = "http://182.18.139.198/new/userlogin";
-
-			}else{
-             window.location = "https://www.oxyloans.com/new/userlogin";
+			if (userisIn == "local") {
+				window.location = "http://182.18.139.198/new/userlogin";
+			} else {
+				window.location = "https://www.oxyloans.com/new/userlogin";
 			}
-
 		},
 		beforeSend: function (xhr) {
 			xhr.setRequestHeader("accessToken", saccessToken);
@@ -20765,22 +20521,20 @@ function loadapproverefereamount(readingCommentsOfRadhaSir) {
 	});
 }
 
-
 function loadapproverefereamount11() {
+	const suserId = getCookie("sUserId");
+	const sprimaryType = getCookie("sUserType");
+	const saccessToken = getCookie("saccessToken");
 
+	let adminUrl =
+		userisIn === "local"
+			? apiBaseURLOXY + "activLendersParicipationAmountAndCount"
+			: apiBaseURLOXY + "activLendersParicipationAmountAndCount";
 
-    const suserId = getCookie("sUserId");
-    const sprimaryType = getCookie("sUserType");
-    const saccessToken = getCookie("saccessToken");
-
-    let adminUrl = (userisIn === "local") ?
-        apiBaseURLOXY + "activLendersParicipationAmountAndCount" :
-        apiBaseURLOXY + "activLendersParicipationAmountAndCount";
-
-    var postdata = {
-        pageNo: 1,
-        pageSize: 10
-    };
+	var postdata = {
+		pageNo: 1,
+		pageSize: 10,
+	};
 
 	$.ajax({
 		url: adminUrl,
@@ -20788,86 +20542,83 @@ function loadapproverefereamount11() {
 		data: JSON.stringify(postdata),
 		contentType: "application/json",
 		headers: {
-			"accessToken": saccessToken
+			accessToken: saccessToken,
 		},
-		success: function(data, textStatus, xhr) {
+		success: function (data, textStatus, xhr) {
 			console.log(data);
 			$(".totalCount11").html(data.totalCount);
 
-			var template = document.getElementById("activeLendersResponse11").innerHTML;
-            Mustache.parse(template);
-            var html = Mustache.render(template, { data: data.activeLendersResponse }); // Render the template with the data
-            $("#activeLendersResponseContainer").html(html);
-			
-	
+			var template = document.getElementById(
+				"activeLendersResponse11"
+			).innerHTML;
+			Mustache.parse(template);
+			var html = Mustache.render(template, {
+				data: data.activeLendersResponse,
+			}); // Render the template with the data
+			$("#activeLendersResponseContainer").html(html);
 		},
-		error: function(xhr, textStatus, errorThrown) {
+		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-			alert("****** You must login as a ADMIN before write comments for a borrower.****First login as a admin and then click on the link to write the comments.");
-		}
+			alert(
+				"****** You must login as a ADMIN before write comments for a borrower.****First login as a admin and then click on the link to write the comments."
+			);
+		},
 	});
-	
 }
 
 function loadapproverefereamountlender() {
-
-
-    const suserId = getCookie("sUserId");
-    const sprimaryType = getCookie("sUserType");
-    const saccessToken = getCookie("saccessToken");
+	const suserId = getCookie("sUserId");
+	const sprimaryType = getCookie("sUserType");
+	const saccessToken = getCookie("saccessToken");
 
 	var lenderid = $(".id input").val();
 	lenderid = lenderid.substr(2);
 
-    let adminUrl = (userisIn === "local") ? 
-        apiBaseURLOXY + lenderid  + "/activLendersParicipationAmountAndCount" :
-        apiBaseURLOXY + lenderid  +"/activLendersParicipationAmountAndCount";
-
-  
+	let adminUrl =
+		userisIn === "local"
+			? apiBaseURLOXY + lenderid + "/activLendersParicipationAmountAndCount"
+			: apiBaseURLOXY + lenderid + "/activLendersParicipationAmountAndCount";
 
 	$.ajax({
 		url: adminUrl,
 		type: "GET",
 		contentType: "application/json",
 		headers: {
-			"accessToken": saccessToken
+			accessToken: saccessToken,
 		},
-		success: function(data, textStatus, xhr) {
+		success: function (data, textStatus, xhr) {
 			console.log(data);
-		
 
-			var template = document.getElementById("activeLendersResponse11").innerHTML;
-            Mustache.parse(template);
-            var html = Mustache.render(template, { data: data }); // Render the template with the data
-            $("#activeLendersResponseContainer").html(html);
-			
-	
+			var template = document.getElementById(
+				"activeLendersResponse11"
+			).innerHTML;
+			Mustache.parse(template);
+			var html = Mustache.render(template, { data: data }); // Render the template with the data
+			$("#activeLendersResponseContainer").html(html);
 		},
-		error: function(xhr, textStatus, errorThrown) {
+		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-			alert("****** You must login as a ADMIN before write comments for a borrower.****First login as a admin and then click on the link to write the comments.");
-		}
+			alert(
+				"****** You must login as a ADMIN before write comments for a borrower.****First login as a admin and then click on the link to write the comments."
+			);
+		},
 	});
-	
 }
 
-
-
 function loadapproverefereamount11search() {
+	const suserId = getCookie("sUserId");
+	const sprimaryType = getCookie("sUserType");
+	const saccessToken = getCookie("saccessToken");
 
+	let adminUrl =
+		userisIn === "local"
+			? apiBaseURLOXY + "activLendersParicipationAmountAndCount"
+			: apiBaseURLOXY + "activLendersParicipationAmountAndCount";
 
-    const suserId = getCookie("sUserId");
-    const sprimaryType = getCookie("sUserType");
-    const saccessToken = getCookie("saccessToken");
-
-    let adminUrl = (userisIn === "local") ?
-        apiBaseURLOXY + "activLendersParicipationAmountAndCount" :
-        apiBaseURLOXY + "activLendersParicipationAmountAndCount";
-
-    var postdata = {
-        pageNo: 1,
-        pageSize: 10
-    };
+	var postdata = {
+		pageNo: 1,
+		pageSize: 10,
+	};
 
 	$.ajax({
 		url: adminUrl,
@@ -20875,25 +20626,28 @@ function loadapproverefereamount11search() {
 		data: JSON.stringify(postdata),
 		contentType: "application/json",
 		headers: {
-			"accessToken": saccessToken
+			accessToken: saccessToken,
 		},
-		success: function(data, textStatus, xhr) {
+		success: function (data, textStatus, xhr) {
 			console.log(data);
 			$(".totalCount11").html(data.totalCount);
 
-			var template = document.getElementById("activeLendersResponse11").innerHTML;
-            Mustache.parse(template);
-            var html = Mustache.render(template, { data: data.activeLendersResponse }); // Render the template with the data
-            $("#activeLendersResponseContainer").html(html);
-			
-	
+			var template = document.getElementById(
+				"activeLendersResponse11"
+			).innerHTML;
+			Mustache.parse(template);
+			var html = Mustache.render(template, {
+				data: data.activeLendersResponse,
+			}); // Render the template with the data
+			$("#activeLendersResponseContainer").html(html);
 		},
-		error: function(xhr, textStatus, errorThrown) {
+		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-			alert("****** You must login as a ADMIN before write comments for a borrower.****First login as a admin and then click on the link to write the comments.");
-		}
+			alert(
+				"****** You must login as a ADMIN before write comments for a borrower.****First login as a admin and then click on the link to write the comments."
+			);
+		},
 	});
-	
 }
 function loadBoxforapproveamount(
 	suserId,
@@ -21344,7 +21098,6 @@ function viewDeals(type) {
 							contentType: "application/json",
 							dataType: "json",
 							success: function (data, textStatus, xhr) {
-							
 								var template =
 									document.getElementById("displayDealsScript").innerHTML;
 								Mustache.parse(template);
@@ -21626,7 +21379,6 @@ function holdreferenceamount(status) {
 }
 
 function lenderDashboardCallTest() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -21824,7 +21576,6 @@ function loadAprrovedReferencelist() {
 //////FETCH LOAN OWNER NAME///
 
 function getloanownernames() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -21861,8 +21612,6 @@ function getloanownernames() {
 //////edit reference details ************ start////
 
 function edit_ReferenceDetails() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -21947,7 +21696,6 @@ function edit_ReferenceDetails() {
 //////FETCH LENDER GROUP NAME///
 
 function getlendergroupname() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -22183,7 +21931,6 @@ function getoxyfoundingGroup() {
 }
 
 function getoxyfoundingGroupsearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -22344,7 +22091,6 @@ function autoGeneratedAgreements() {
 //***************displaylenderParticiaption******
 
 function displaylenderParticiaption() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -22864,8 +22610,6 @@ function whatsappcampagin() {
 //////FETCH DEAL NAMES///
 
 function fetchdealnames() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -22923,7 +22667,6 @@ function fetchdealnames() {
 // **********download lender wallets amount*****************
 
 function downloadLenderWallets() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -23199,7 +22942,6 @@ function viewClosedDeals() {
 }
 
 function getwhatsappGroupsnamess() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -23284,7 +23026,6 @@ function notificationforlender() {
 }
 
 function sendingWhatsAppNotification() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -23339,7 +23080,6 @@ function sendingWhatsAppNotification() {
 //****************To send mail to referres about the referral bonus*************
 
 function sendemailtoreferres() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -23370,7 +23110,6 @@ function sendemailtoreferres() {
 //////************cic repo and update ///////////////////////
 
 function cicaddinfo() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -23405,8 +23144,6 @@ function cicaddinfo() {
 	} else {
 		$(".errorcicDealID").hide();
 	}
-
-
 
 	if (userisIn == "local") {
 		var cicurl = apiBaseURLOXY + "addingCICdataBasedOnId";
@@ -23447,8 +23184,6 @@ function cicaddinfo() {
 				);
 
 				$("#modal-cicsuccessinfo").modal("show");
-
-
 			},
 			beforeSend: function (xhr) {
 				xhr.setRequestHeader("accessToken", saccessToken);
@@ -23493,8 +23228,6 @@ function cicupdate() {
 	} else {
 		$(".errorupdatecicuseric").hide();
 	}
-
-
 
 	if (userisIn == "local") {
 		var cicurl = apiBaseURLOXY + "updatingCICdataBasedOnUserId";
@@ -23549,7 +23282,6 @@ function cicupdate() {
 ///****************lender participation deal on admin side********************
 
 function lenderparticipationdeal() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -23620,7 +23352,6 @@ function lenderparticipationdeal() {
 		var participationDeal = apiBaseURLOXY + "updatingLenderDeal";
 	}
 
-
 	var postData = {
 		userId: userId,
 		groupId: groupId,
@@ -23665,8 +23396,6 @@ function lenderparticipationdeal() {
 //*************************EQUITY LENDERS*******************************
 
 function equityLenders() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -24895,7 +24624,6 @@ function updateLenderFeeapprove(id) {
 }
 
 function saveupdateLenderFee() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -25149,7 +24877,6 @@ function getUserQueries(status, usertype) {
 }
 
 function queryApproveandUpdateComments(tableId, userId, status) {
-	
 	$(".approveQueryCommentsBtn").attr("data-clickedid", tableId);
 	$(".approveQueryCommentsBtn").attr("data-userId", userId);
 	$(".approveQueryCommentsBtn").attr("data-status", status);
@@ -25157,7 +24884,6 @@ function queryApproveandUpdateComments(tableId, userId, status) {
 }
 
 function uploadQueryScreesShot(input) {
-
 	sprimaryType = getCookie("sUserType");
 	saccessToken = getCookie("saccessToken");
 
@@ -25215,7 +24941,6 @@ function uploadQueryScreesShot(input) {
 }
 
 function approveQuery() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -25224,7 +24949,7 @@ function approveQuery() {
 	let primaryType = sprimaryType;
 	let accessToken = saccessToken;
 
-	let isValid=true;
+	let isValid = true;
 
 	var tableId = $(".approveQueryCommentsBtn").attr("data-clickedid");
 	var status = $(".approveQueryCommentsBtn").attr("data-status");
@@ -25233,13 +24958,13 @@ function approveQuery() {
 	var updatedBy = $(".queyUpdatedBy").val();
 	var getuploadedDocumentId = $("#queryDocumnetId").val();
 
-alert(comments);
-	if(comments==""){
-    $(".commentsErrorMessage").show();
-    isValid=false;
-    alert(isValid);
-	}else{
-     $(".commentsErrorMessage").hide();
+	alert(comments);
+	if (comments == "") {
+		$(".commentsErrorMessage").show();
+		isValid = false;
+		alert(isValid);
+	} else {
+		$(".commentsErrorMessage").hide();
 	}
 
 	if (getuploadedDocumentId == "") {
@@ -25276,34 +25001,31 @@ alert(comments);
 	}
 
 	var postData = JSON.stringify(postData);
-alert(isValid);
+	alert(isValid);
 
-   if( isValid == true){
-       $.ajax({
-		url: adminUrl,
-		type: "PATCH",
-		data: postData,
-		contentType: "application/json",
-		dataType: "json",
-		success: function (data, textStatus, xhr) {
-			$("#modal-approveQueryCommentsUpdate").modal("hide");
-			window.scrollTo(0, 0);
-			$(".querySuccessMessage").show("slow");
-		},
+	if (isValid == true) {
+		$.ajax({
+			url: adminUrl,
+			type: "PATCH",
+			data: postData,
+			contentType: "application/json",
+			dataType: "json",
+			success: function (data, textStatus, xhr) {
+				$("#modal-approveQueryCommentsUpdate").modal("hide");
+				window.scrollTo(0, 0);
+				$(".querySuccessMessage").show("slow");
+			},
 
-		error: function (xhr, textStatus, errorThrown) {
-			console.log("Error Something");
-		},
-		beforeSend: function (xhr) {
-			xhr.setRequestHeader("accessToken", saccessToken);
-		},
-	  });
-     }else{
-
-        return isValid;
-     }
-    
-	
+			error: function (xhr, textStatus, errorThrown) {
+				console.log("Error Something");
+			},
+			beforeSend: function (xhr) {
+				xhr.setRequestHeader("accessToken", saccessToken);
+			},
+		});
+	} else {
+		return isValid;
+	}
 }
 
 function getChatIdForWhatsappBroadCast() {
@@ -25519,11 +25241,9 @@ function emailCampaign() {
 	var campaignsendertype = $(".emailcampaignSendername").val();
 	var campaignUserTo = $(".emailSenderId").val();
 
-
 	var whatsappImage = $(".emailwhatsappImage").val();
 	var sampleEmail = $(".emailSheesampleEmail").val();
 	var mobileNumber = $(".emailSheeTmobileNumber").val();
-
 
 	if (userisIn == "local") {
 		var emailcompaign = apiBaseURLOXY + "sendWhatsappAndEmailCampaign";
@@ -25532,7 +25252,6 @@ function emailCampaign() {
 	}
 
 	var postData = {
-
 		gmailCode: gmailcode,
 		spreadSheetId: spreadSheetId,
 		range: sheetname,
@@ -25543,7 +25262,7 @@ function emailCampaign() {
 		fromMail: campaignUserTo,
 		whatsappImage,
 		sampleEmail,
-		mobileNumber
+		mobileNumber,
 	};
 
 	var postData = JSON.stringify(postData);
@@ -25571,10 +25290,8 @@ function emailCampaign() {
 }
 
 function viewADDStatement(dealId, suserId) {
-
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
-
 
 	if (userisIn == "local") {
 		var getparticipationStatus =
@@ -25697,12 +25414,11 @@ function getdealLevelInterestInfo() {
 }
 
 function viewaddstatement(snois) {
-
 	let suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
-	 suserId = emiLenderid;
+	suserId = emiLenderid;
 	var dealId = emidealId;
 
 	if (userisIn == "local") {
@@ -25727,7 +25443,6 @@ function viewaddstatement(snois) {
 		dataType: "json",
 
 		success: function (data, textStatus, xhr) {
-
 			var filteredData = data.dealLevelLoanEmiCard[snois - 1];
 			console.log(filteredData);
 			var template = document.getElementById("filteredCARDInfo").innerHTML;
@@ -25966,20 +25681,15 @@ function runningDealInformation(dealType) {
 	});
 }
 
-
-
-
-
 function getfeepeningusers() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
 	if (userisIn == "local") {
-		var pendingusers = apiBaseURLOXY +  "lenders_fee_status";
+		var pendingusers = apiBaseURLOXY + "lenders_fee_status";
 	} else {
-		var pendingusers = apiBaseURLOXY  + "lenders_fee_status";
+		var pendingusers = apiBaseURLOXY + "lenders_fee_status";
 	}
 
 	$.ajax({
@@ -25989,7 +25699,7 @@ function getfeepeningusers() {
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-            $(".pendinguserhref").attr("href",data.lenderExcelDownload);
+			$(".pendinguserhref").attr("href", data.lenderExcelDownload);
 
 			if (data.length == 0) {
 				$("#feependingusernodata").show();
@@ -26015,28 +25725,26 @@ function getfeepeningusers() {
 }
 
 function feepaidUserInformationsearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
 	$("#loadingSec").show();
 
-	const type=$("#dealFeeTypeDropDown").val();
-	const startDate=$("#feePaidUsersStartDate").val();
-	const endDate=$("#feePaidUsersEndDate").val();
+	const type = $("#dealFeeTypeDropDown").val();
+	const startDate = $("#feePaidUsersStartDate").val();
+	const endDate = $("#feePaidUsersEndDate").val();
 
 	if (userisIn == "local") {
-		var feepaidUsers = apiBaseURLOXY+`lenderFee_excel_sheet`;
+		var feepaidUsers = apiBaseURLOXY + `lenderFee_excel_sheet`;
 	} else {
-		var feepaidUsers = apiBaseURLOXY+ `lenderFee_excel_sheet`;
+		var feepaidUsers = apiBaseURLOXY + `lenderFee_excel_sheet`;
 	}
-    var postData=JSON.stringify({
-    	lenderFeePayment:type,
-    	startDate:startDate,
-         endDate:endDate
-
-    });
+	var postData = JSON.stringify({
+		lenderFeePayment: type,
+		startDate: startDate,
+		endDate: endDate,
+	});
 	$.ajax({
 		url: feepaidUsers,
 		type: "POST",
@@ -26045,7 +25753,7 @@ function feepaidUserInformationsearch() {
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
 			console.log(data);
-      $(".feepaiduserhref").attr("href",data.downloadUrl);
+			$(".feepaiduserhref").attr("href", data.downloadUrl);
 			if (data.excelResponse.length == 0) {
 				$("#feepaidUserTable").empty();
 				$(".feepaidusernodata").show();
@@ -26075,27 +25783,22 @@ function feepaidUserInformationsearch() {
 	});
 }
 
-
-
-
 function feepaidUserInformation(type) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
-
 	$("#loadingSec").show();
 
 	if (userisIn == "local") {
-		var feepaidUsers = apiBaseURLOXY+ `lenderFee_excel_sheet`;
+		var feepaidUsers = apiBaseURLOXY + `lenderFee_excel_sheet`;
 	} else {
-		var feepaidUsers = apiBaseURLOXY+ `lenderFee_excel_sheet`;
+		var feepaidUsers = apiBaseURLOXY + `lenderFee_excel_sheet`;
 	}
 
 	var d = new Date();
 	var currYear = d.getFullYear();
-	let currMonthNo= d.getMonth()+1;
+	let currMonthNo = d.getMonth() + 1;
 
 	var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
 	var presentDate = String(d.getDate()).padStart(2, "0");
@@ -26104,19 +25807,15 @@ function feepaidUserInformation(type) {
 		presentDate = presentDate;
 	}
 
-	if(currMonthNo < 10){
-		currMonthNo=("0"+currMonthNo);
+	if (currMonthNo < 10) {
+		currMonthNo = "0" + currMonthNo;
 	}
 
-
-
-    var postData=JSON.stringify({
-    	lenderFeePayment:type,
-    	startDate:`${currYear}-${currMonthNo}-01`,
-         endDate:`${currYear}-${currMonthNo}-${presentDate}`,	
-
-    });
-
+	var postData = JSON.stringify({
+		lenderFeePayment: type,
+		startDate: `${currYear}-${currMonthNo}-01`,
+		endDate: `${currYear}-${currMonthNo}-${presentDate}`,
+	});
 
 	$.ajax({
 		url: feepaidUsers,
@@ -26125,17 +25824,15 @@ function feepaidUserInformation(type) {
 		contentType: "application/json",
 		dataType: "json",
 
-
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-            $(".feepaiduserhref").attr("href",data.downloadUrl);
+			$(".feepaiduserhref").attr("href", data.downloadUrl);
 
 			if (data.excelResponse.length == 0) {
 				$("#feepaidUserTable").empty();
 				$(".feepaidusernodata").show();
 				$("#loadingSec").hide();
-
 			} else {
 				$("#loadingSec").hide();
 				var template = document.getElementById(
@@ -26161,26 +25858,23 @@ function feepaidUserInformation(type) {
 	});
 }
 
-function loadDealsInterest(dealId,PaymentDate){
-
+function loadDealsInterest(dealId, PaymentDate) {
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
-
- const data=PaymentDate.split("-");
+	const data = PaymentDate.split("-");
 
 	if (userisIn == "local") {
-		var interestInfo = apiBaseURLOXY+ `dealsInterestAmountTotal`;
+		var interestInfo = apiBaseURLOXY + `dealsInterestAmountTotal`;
 	} else {
-		var interestInfo = apiBaseURLOXY+ `dealsInterestAmountTotal`;
+		var interestInfo = apiBaseURLOXY + `dealsInterestAmountTotal`;
 	}
 
-    var postData=JSON.stringify({
-    	 dealId:dealId,
-         paymentDate:`${data[2]}-${data[1]}-${data[0]}`
-    });
-
+	var postData = JSON.stringify({
+		dealId: dealId,
+		paymentDate: `${data[2]}-${data[1]}-${data[0]}`,
+	});
 
 	$.ajax({
 		url: interestInfo,
@@ -26189,63 +25883,45 @@ function loadDealsInterest(dealId,PaymentDate){
 		contentType: "application/json",
 		dataType: "json",
 
-
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-
-			if(data.length > 0){
-
-
-			if(data[0]?.dealLevelInterestPaymentsDto?.length==0){
-
-			$(".viewQueryAdminComments_"+dealId).show();
-
-			}else{
-
-
-							var template = document.getElementById(
-								"displayshowinterestSubInfoScript"
-							).innerHTML;
-							Mustache.parse(template);
-							var html = Mustache.render(template, data);
-							var html = Mustache.to_html(template, {
-								data: data[0].dealLevelInterestPaymentsDto,
-							});
-							$("#displayUserShowinterestInfo-"+dealId).html(html);
-							$(".viewQueryShowInterestPayments-"+dealId).show();
-
+			if (data.length > 0) {
+				if (data[0]?.dealLevelInterestPaymentsDto?.length == 0) {
+					$(".viewQueryAdminComments_" + dealId).show();
+				} else {
+					var template = document.getElementById(
+						"displayshowinterestSubInfoScript"
+					).innerHTML;
+					Mustache.parse(template);
+					var html = Mustache.render(template, data);
+					var html = Mustache.to_html(template, {
+						data: data[0].dealLevelInterestPaymentsDto,
+					});
+					$("#displayUserShowinterestInfo-" + dealId).html(html);
+					$(".viewQueryShowInterestPayments-" + dealId).show();
+				}
+			} else {
+				$(".viewQueryAdminComments_" + dealId).show();
 			}
-
-			}else{
-				$(".viewQueryAdminComments_"+dealId).show();
-
-			}
-
 		},
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-		  $(".viewQueryAdminComments_"+dealId).show();
+			$(".viewQueryAdminComments_" + dealId).show();
 			$("#loadingSec").hide();
-
 		},
 		beforeSend: function (xhr) {
 			xhr.setRequestHeader("accessToken", saccessToken);
 		},
 	});
-
-
 }
 
-
- function viewCurrentInterestAmount(dealId,PaymentDate){
-    console.log(dealId,PaymentDate);
+function viewCurrentInterestAmount(dealId, PaymentDate) {
+	console.log(dealId, PaymentDate);
 	$(".solidToggle_" + dealId).slideToggle("slow");
 	$(".viewQueryShowInterestPayments-" + dealId).show();
-	loadDealsInterest(dealId,PaymentDate);
- }
-
-
+	loadDealsInterest(dealId, PaymentDate);
+}
 
 function viewCurrentDealInfo(paymentDate) {
 	$(".solidToggle_" + paymentDate).slideToggle("slow");
@@ -26254,9 +25930,7 @@ function viewCurrentDealInfo(paymentDate) {
 }
 
 function interestPaysearch(status) {
-
-    $("#loadingSec").show();
-
+	$("#loadingSec").show();
 
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -26303,8 +25977,6 @@ function interestPaysearch(status) {
 			endDate;
 	}
 
-	
-
 	$.ajax({
 		url: interestPay,
 		type: "GET",
@@ -26314,20 +25986,20 @@ function interestPaysearch(status) {
 				$("#displayNoRecords").show();
 				$("#loadingSec").hide();
 			} else {
+				const newOrginalOutsideData = [];
 
-             const newOrginalOutsideData=[];
-           
-              for(var z=0; z < data.length; z++){
-             	let totalInterest=0;
-             	const newSubArray= {...data[z]};
-             	const itrateAray=newSubArray?.dealLevelInterestPaymentsDto.map((dataSub,index)=>{
-             		totalInterest+=(dataSub.currentValue/100) * (dataSub.rateOfInterest);
-             	});
-                 newSubArray["interestCalculation"]=totalInterest;
-                  newOrginalOutsideData.push(newSubArray);
-             	}
-
-
+				for (var z = 0; z < data.length; z++) {
+					let totalInterest = 0;
+					const newSubArray = { ...data[z] };
+					const itrateAray = newSubArray?.dealLevelInterestPaymentsDto.map(
+						(dataSub, index) => {
+							totalInterest +=
+								(dataSub.currentValue / 100) * dataSub.rateOfInterest;
+						}
+					);
+					newSubArray["interestCalculation"] = totalInterest;
+					newOrginalOutsideData.push(newSubArray);
+				}
 
 				var template = document.getElementById(
 					"displayInterestScript"
@@ -26337,25 +26009,20 @@ function interestPaysearch(status) {
 				var html = Mustache.to_html(template, { data: newOrginalOutsideData });
 				$("#loadDealsInfo").html(html);
 
-
-
-
 				for (var i = 0; i < data.length; i++) {
 					$(".showinterestinfopayment").each(function (index, value) {
 						var paymentDate = $(this).attr("data-Id");
 						if (data[i].paymentDate == paymentDate) {
+							const getData = data[i].dealLevelInterestPaymentsDto;
 
-							const getData=data[i].dealLevelInterestPaymentsDto;
-
-							const NewData=getData.map((data,index)=>{
-								const subData={
+							const NewData = getData.map((data, index) => {
+								const subData = {
 									...data,
-									totalInterest: (data.currentValue/100)* data.rateOfInterest
-							};
+									totalInterest:
+										(data.currentValue / 100) * data.rateOfInterest,
+								};
 								return subData;
-							
 							});
-
 
 							var template = document.getElementById(
 								"displayshowinterestInfoScript"
@@ -26370,16 +26037,15 @@ function interestPaysearch(status) {
 					});
 				}
 
-                       setTimeout(()=>{
-                        $("#loadingSec").hide();
-                       },1000);
-					
+				setTimeout(() => {
+					$("#loadingSec").hide();
+				}, 1000);
 			}
 		},
 
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-				$("#loadingSec").hide();
+			$("#loadingSec").hide();
 			$(".modal-body #searchbody").html(arguments[0].responseJSON.errorMessage);
 			if (arguments[0].responseJSON.errorCode == 404) {
 				$("#modal-searchcall-showinterestdata").modal("show");
@@ -26391,40 +26057,52 @@ function interestPaysearch(status) {
 	});
 }
 
-
-function getInterestInformationsearch(status="INITIATED"){
-
-    const suserId = getCookie("sUserId");
+function getInterestInformationsearch(status = "INITIATED") {
+	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
 
 	var month = $("#interestmonth").val();
 	var year = $("#interestPayYear").val();
 	var startdate = $("#interestStartDateval").val();
-     var enddate = $("#interestEndDatevalKnow").val();
-	 let interestPay ="";
+	var enddate = $("#interestEndDatevalKnow").val();
+	let interestPay = "";
 
-		if (userisIn == "local") {
-			 interestPay =
-				"http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/currentDateDeals/"+month+"/"+year+"?status="+status+"&startDate="+startdate+"&endDate="+enddate;
-		   } else {
-		        interestPay =
-				"https://fintech.oxyloans.com/oxyloans/v1/user/currentDateDeals/"+month+"/"+year+"?status="+status+"&startDate="+startdate+"&endDate="+enddate;
-		};
+	if (userisIn == "local") {
+		interestPay =
+			"http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/currentDateDeals/" +
+			month +
+			"/" +
+			year +
+			"?status=" +
+			status +
+			"&startDate=" +
+			startdate +
+			"&endDate=" +
+			enddate;
+	} else {
+		interestPay =
+			"https://fintech.oxyloans.com/oxyloans/v1/user/currentDateDeals/" +
+			month +
+			"/" +
+			year +
+			"?status=" +
+			status +
+			"&startDate=" +
+			startdate +
+			"&endDate=" +
+			enddate;
+	}
 
-		
-
-	 $.ajax({
+	$.ajax({
 		url: interestPay,
 		type: "GET",
 		contentType: "application/json",
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
-
 			if (data.length == 0) {
 				$("#displayNoRecords").show();
-			
-			  } else {
+			} else {
 				var template = document.getElementById(
 					"displayshowinterestInfoScript"
 				).innerHTML;
@@ -26432,22 +26110,18 @@ function getInterestInformationsearch(status="INITIATED"){
 				var html = Mustache.render(template, data);
 				var html = Mustache.to_html(template, { data: data });
 				$("#loadDealsInfo").html(html);
-
-			};
+			}
 		},
-		error: function (xhr, textStatus, errorThrown) {
-		},
+		error: function (xhr, textStatus, errorThrown) {},
 
 		beforeSend: function (xhr) {
 			xhr.setRequestHeader("accessToken", accessToken);
 		},
 	});
-
 }
 
-function getInterestInformation(status="INITIATED"){
-
-  const suserId = getCookie("sUserId");
+function getInterestInformation(status = "INITIATED") {
+	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
 
@@ -26469,7 +26143,7 @@ function getInterestInformation(status="INITIATED"){
 
 	var currMonth = month[d.getMonth()];
 	var currYear = d.getFullYear();
-	let currMonthNo= d.getMonth()+1;
+	let currMonthNo = d.getMonth() + 1;
 
 	var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
 	var presentDate = String(d.getDate()).padStart(2, "0");
@@ -26478,18 +26152,34 @@ function getInterestInformation(status="INITIATED"){
 		presentDate = presentDate;
 	}
 
-	if(currMonthNo < 10){
-		currMonthNo=("0"+currMonthNo);
+	if (currMonthNo < 10) {
+		currMonthNo = "0" + currMonthNo;
 	}
 
-	 let interestPay ="";
-		if (userisIn == "local") {
-			 interestPay =
-				"http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/currentDateDeals/"+currMonth+"/"+currYear+"?status="+status+"&startDate=01"+"&endDate="+presentDate;
-		   } else {
-		        interestPay =
-				"https://fintech.oxyloans.com/oxyloans/v1/user/currentDateDeals/"+currMonth+"/"+currYear+"?status="+status+"&startDate=01"+"&endDate="+presentDate;
-		};
+	let interestPay = "";
+	if (userisIn == "local") {
+		interestPay =
+			"http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/currentDateDeals/" +
+			currMonth +
+			"/" +
+			currYear +
+			"?status=" +
+			status +
+			"&startDate=01" +
+			"&endDate=" +
+			presentDate;
+	} else {
+		interestPay =
+			"https://fintech.oxyloans.com/oxyloans/v1/user/currentDateDeals/" +
+			currMonth +
+			"/" +
+			currYear +
+			"?status=" +
+			status +
+			"&startDate=01" +
+			"&endDate=" +
+			presentDate;
+	}
 
 	$.ajax({
 		url: interestPay,
@@ -26497,10 +26187,10 @@ function getInterestInformation(status="INITIATED"){
 		contentType: "application/json",
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
-		console.log(data);
+			console.log(data);
 			if (data.length == 0) {
 				$("#displayNoRecords").show();
-			  } else {
+			} else {
 				var template = document.getElementById(
 					"displayshowinterestInfoScript"
 				).innerHTML;
@@ -26508,27 +26198,23 @@ function getInterestInformation(status="INITIATED"){
 				var html = Mustache.render(template, data);
 				var html = Mustache.to_html(template, { data: data });
 				$("#loadDealsInfo").html(html);
-			};
+			}
 		},
-		error: function (xhr, textStatus, errorThrown) {
-		},
+		error: function (xhr, textStatus, errorThrown) {},
 		beforeSend: function (xhr) {
 			xhr.setRequestHeader("accessToken", accessToken);
 		},
 	});
 }
 
-
 function getInterestInfo(status) {
-
-	setTimeout(()=>{
-     $("#loadingSec").show();
-	},200);
+	setTimeout(() => {
+		$("#loadingSec").show();
+	}, 200);
 
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
-
 
 	var d = new Date();
 	var month = new Array();
@@ -26558,9 +26244,6 @@ function getInterestInfo(status) {
 	if (presentDate < 10) {
 		presentDate = presentDate.substring(1);
 	}
-
-
-  
 
 	if (status == "EXECUTED") {
 		$(".exceutedFilesInfo").show();
@@ -26618,29 +26301,30 @@ function getInterestInfo(status) {
 		}
 	}
 
-	
 	$.ajax({
 		url: interestPay,
 		type: "GET",
 
 		success: function (data, textStatus, xhr) {
 			if (data.length == 0) {
-				   $("#loadingSec").hide();
+				$("#loadingSec").hide();
 				$("#displayNoRecords").show();
 			} else {
+				const newOrginalOutsideData = [];
 
-            const newOrginalOutsideData=[];
-           
-             for(var z=0; z < data.length; z++){
-             	let totalInterest=0;
-             	const newSubArray= {...data[z]};
-             	const itrateAray=newSubArray?.dealLevelInterestPaymentsDto.map((dataSub,index)=>{
-             		totalInterest+=(dataSub.currentValue/100) * (dataSub.rateOfInterest);
-             	});
-                 newSubArray["interestCalculation"]=totalInterest;
-                  newOrginalOutsideData.push(newSubArray);
-             	}
-              
+				for (var z = 0; z < data.length; z++) {
+					let totalInterest = 0;
+					const newSubArray = { ...data[z] };
+					const itrateAray = newSubArray?.dealLevelInterestPaymentsDto.map(
+						(dataSub, index) => {
+							totalInterest +=
+								(dataSub.currentValue / 100) * dataSub.rateOfInterest;
+						}
+					);
+					newSubArray["interestCalculation"] = totalInterest;
+					newOrginalOutsideData.push(newSubArray);
+				}
+
 				var template = document.getElementById(
 					"displayInterestScript"
 				).innerHTML;
@@ -26653,17 +26337,17 @@ function getInterestInfo(status) {
 					$(".showinterestinfopayment").each(function (index, value) {
 						var paymentDate = $(this).attr("data-Id");
 						if (data[i].paymentDate == paymentDate) {
-							const getData=data[i].dealLevelInterestPaymentsDto;
+							const getData = data[i].dealLevelInterestPaymentsDto;
 
-							const NewData=getData.map((data,index)=>{
-								const subData={
+							const NewData = getData.map((data, index) => {
+								const subData = {
 									...data,
-									totalInterest: (data.currentValue/100)* data.rateOfInterest
-							};
+									totalInterest:
+										(data.currentValue / 100) * data.rateOfInterest,
+								};
 								return subData;
-							
 							});
-                           
+
 							var template = document.getElementById(
 								"displayshowinterestInfoScript"
 							).innerHTML;
@@ -26677,15 +26361,14 @@ function getInterestInfo(status) {
 					});
 				}
 
-				setTimeout(()=>{
-                  $("#loadingSec").hide();
-				},1500);
-				   
+				setTimeout(() => {
+					$("#loadingSec").hide();
+				}, 1500);
 			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-				   $("#loadingSec").hide();
+			$("#loadingSec").hide();
 			$(".modal-body #searchbody").html(arguments[0].responseJSON.errorMessage);
 			if (arguments[0].responseJSON.errorCode == 404) {
 				$("#modal-searchcall-showinterestdata").modal("show");
@@ -26699,8 +26382,8 @@ function getInterestInfo(status) {
 
 //****** payment current month  date ***********************
 
-function updateCurrentmonthpaymentdate(dealId, noLenders,amount, paymentdate) {
-    $("#modal-currentmonth-paymentdate").modal("show");
+function updateCurrentmonthpaymentdate(dealId, noLenders, amount, paymentdate) {
+	$("#modal-currentmonth-paymentdate").modal("show");
 	var updatedDate = $("#paymentDate").val();
 	$("#modal-currentmonth-paymentdate .dealpaymentBtn").attr(
 		"onclick",
@@ -26800,14 +26483,12 @@ function approveingInterestPay(
 }
 
 function h2hApprovingUser(originalPaymentDateh2h) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
 	let primaryType = sprimaryType;
 	let accessToken = saccessToken;
-
 
 	if (primaryType == "PAYMENTSADMIN") {
 		var approvingUser = "bhargav";
@@ -26954,7 +26635,6 @@ function currentDealUsersInterest(dealId, paymentdate) {
 //********approved interest  START**********************
 
 function approvedInterestPay(dealId, paymentdate, status, orginalDate) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -27024,7 +26704,6 @@ function approvedInterestPay(dealId, paymentdate, status, orginalDate) {
 //**************** changing approved user to on hold*********************
 
 function interestOnHoldUsers() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -27121,8 +26800,6 @@ function interestOnHoldUsers() {
 }
 
 function reflectDbChanges() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -27170,12 +26847,10 @@ function confirmTOoutputfolder() {
 }
 
 function movefoldertoh2hdoc() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 	let foldername = getCookie("outputfolder");
-
 
 	let primaryType = sprimaryType;
 	let accessToken = saccessToken;
@@ -27368,9 +27043,7 @@ function dealbasedAgreements() {
 	});
 }
 
-
 function knowmembershipSearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -27378,24 +27051,19 @@ function knowmembershipSearch() {
 	var startdate = $("#membershipKnowstartDate").val();
 	var endDate = $("#membershipKnowEndDate").val();
 
-
-
-$("#loadingSec").show();
+	$("#loadingSec").show();
 
 	if (userisIn == "local") {
-		var getrefereeInfo =
-			apiBaseURLOXY  + "validityExpireBetweenDates";
+		var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
 	} else {
-		var getrefereeInfo =
-			apiBaseURLOXY  + "validityExpireBetweenDates";
+		var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
 	}
 
 	var postData = {
 		pageNo: 1,
 		pageSize: 10,
-		startDate:startdate,
-		endDate:endDate
-
+		startDate: startdate,
+		endDate: endDate,
 	};
 	var postData = JSON.stringify(postData);
 
@@ -27406,13 +27074,11 @@ $("#loadingSec").show();
 		contentType: "application/json",
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
-		console.log(data);
-		$("#loadingSec").hide();
+			console.log(data);
+			$("#loadingSec").hide();
 
-             $(".knowmembershipPagination").hide();
-             $(".SearchknowmembershipPagination").show();
-
-
+			$(".knowmembershipPagination").hide();
+			$(".SearchknowmembershipPagination").show();
 
 			var template = document.getElementById("membershipKnoWScript").innerHTML;
 			Mustache.parse(template);
@@ -27421,7 +27087,6 @@ $("#loadingSec").show();
 				data: data.memberShipValidityResponse,
 			});
 			$("#membershipKnoWTable").html(html);
-
 
 			var displayPageNo = data.count / 10;
 			displayPageNo = displayPageNo + 1;
@@ -27443,23 +27108,19 @@ $("#loadingSec").show();
 					firstClass: "first",
 				})
 				.on("page", function (event, num) {
-
 					$("#loadingSec").show();
 
 					var postData = {
 						pageNo: num,
 						pageSize: 10,
-						startDate:startdate,
-		                endDate:endDate
-
+						startDate: startdate,
+						endDate: endDate,
 					};
 
 					if (userisIn == "local") {
-						var getrefereeInfo =
-							apiBaseURLOXY   + "validityExpireBetweenDates";
+						var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
 					} else {
-						var getrefereeInfo =
-							apiBaseURLOXY  + "validityExpireBetweenDates";
+						var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
 					}
 
 					var postData = JSON.stringify(postData);
@@ -27470,23 +27131,22 @@ $("#loadingSec").show();
 						contentType: "application/json",
 						dataType: "json",
 						success: function (data, textStatus, xhr) {
-                             $("#loadingSec").hide();
+							$("#loadingSec").hide();
 							$(".knowmembershipPagination").hide();
 
-							var template =
-								document.getElementById("membershipKnoWScript").innerHTML;
+							var template = document.getElementById(
+								"membershipKnoWScript"
+							).innerHTML;
 							Mustache.parse(template);
 							var html = Mustache.render(template, data);
 							var html = Mustache.to_html(template, {
 								data: data.memberShipValidityResponse,
 							});
 							$("#membershipKnoWTable").html(html);
-
 						},
 						error: function (xhr, textStatus, errorThrown) {
 							$("#loadingSec").hide();
 							console.log("Error Something");
-
 						},
 
 						beforeSend: function (xhr) {
@@ -27505,37 +27165,32 @@ $("#loadingSec").show();
 }
 
 function knowmembership() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
 
+	const d = new Date();
 
-		const d=new Date();
+	var currentYear = d.getFullYear();
+	var currentMonth =
+		d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1;
+	var lastDate = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+	var currentDate = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
 
-		var currentYear=d.getFullYear();
-		var currentMonth=d.getMonth()+1 < 10 ? `0${d.getMonth()+1}` : d.getMonth()+1 ;
-		var lastDate = new Date(d.getFullYear(), d.getMonth() + 1, 0);
-		var currentDate=d.getDate() < 10 ?  `0${d.getDate()}` : d.getDate();
-
-	    var startdate = `${currentYear}-${currentMonth}-01`;
-	    var endDate = `${currentYear}-${currentMonth}-${currentDate}`;
-
+	var startdate = `${currentYear}-${currentMonth}-01`;
+	var endDate = `${currentYear}-${currentMonth}-${currentDate}`;
 
 	if (userisIn == "local") {
-		var getrefereeInfo =
-			apiBaseURLOXY  + "validityExpireBetweenDates";
+		var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
 	} else {
-		var getrefereeInfo =
-			apiBaseURLOXY  + "validityExpireBetweenDates";
+		var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
 	}
 
 	var postData = {
 		pageNo: 1,
 		pageSize: 10,
-		startDate:startdate,
-		endDate:endDate
-
+		startDate: startdate,
+		endDate: endDate,
 	};
 	var postData = JSON.stringify(postData);
 
@@ -27546,92 +27201,84 @@ function knowmembership() {
 		contentType: "application/json",
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
-		console.log(data);
+			console.log(data);
 
-
-          if(data.count==0){
-          $(".knowDataMembership").show();
-
-          }else{
-
-
-             $(".SearchknowmembershipPagination").hide();
-			var template = document.getElementById("membershipKnoWScript").innerHTML;
-			Mustache.parse(template);
-			var html = Mustache.render(template, data);
-			var html = Mustache.to_html(template, {
-				data: data.memberShipValidityResponse,
-			});
-			$("#membershipKnoWTable").html(html);
-
-
-			var displayPageNo = data.count / 10;
-			displayPageNo = displayPageNo + 1;
-			$(".knowmembershipPagination")
-				.bootpag({
-					total: displayPageNo,
-					page: 1,
-					maxVisible: 5,
-					leaps: true,
-					firstLastUse: true,
-					first: "←",
-					last: "→",
-					wrapClass: "pagination",
-					activeClass: "active",
-					disabledClass: "disabled",
-					nextClass: "next",
-					prevClass: "prev",
-					lastClass: "last",
-					firstClass: "first",
-				})
-				.on("page", function (event, num) {
-					var postData = {
-						pageNo: num,
-						pageSize: 10,
-						startDate:startdate,
-		                endDate:endDate
-
-					};
-
-					if (userisIn == "local") {
-						var getrefereeInfo =
-							apiBaseURLOXY   + "validityExpireBetweenDates";
-					} else {
-						var getrefereeInfo =
-							apiBaseURLOXY  + "validityExpireBetweenDates";
-					}
-
-					var postData = JSON.stringify(postData);
-					$.ajax({
-						url: getrefereeInfo,
-						type: "POST",
-						data: postData,
-						contentType: "application/json",
-						dataType: "json",
-						success: function (data, textStatus, xhr) {
-							  $(".SearchknowmembershipPagination").hide();
-
-							var template =
-								document.getElementById("membershipKnoWScript").innerHTML;
-							Mustache.parse(template);
-							var html = Mustache.render(template, data);
-							var html = Mustache.to_html(template, {
-								data: data.memberShipValidityResponse,
-							});
-							$("#membershipKnoWTable").html(html);
-
-						},
-						error: function (xhr, textStatus, errorThrown) {
-							console.log("Error Something");
-						},
-						beforeSend: function (xhr) {
-							xhr.setRequestHeader("accessToken", accessToken);
-						},
-					});
+			if (data.count == 0) {
+				$(".knowDataMembership").show();
+			} else {
+				$(".SearchknowmembershipPagination").hide();
+				var template = document.getElementById(
+					"membershipKnoWScript"
+				).innerHTML;
+				Mustache.parse(template);
+				var html = Mustache.render(template, data);
+				var html = Mustache.to_html(template, {
+					data: data.memberShipValidityResponse,
 				});
+				$("#membershipKnoWTable").html(html);
 
-          }
+				var displayPageNo = data.count / 10;
+				displayPageNo = displayPageNo + 1;
+				$(".knowmembershipPagination")
+					.bootpag({
+						total: displayPageNo,
+						page: 1,
+						maxVisible: 5,
+						leaps: true,
+						firstLastUse: true,
+						first: "←",
+						last: "→",
+						wrapClass: "pagination",
+						activeClass: "active",
+						disabledClass: "disabled",
+						nextClass: "next",
+						prevClass: "prev",
+						lastClass: "last",
+						firstClass: "first",
+					})
+					.on("page", function (event, num) {
+						var postData = {
+							pageNo: num,
+							pageSize: 10,
+							startDate: startdate,
+							endDate: endDate,
+						};
 
+						if (userisIn == "local") {
+							var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
+						} else {
+							var getrefereeInfo = apiBaseURLOXY + "validityExpireBetweenDates";
+						}
+
+						var postData = JSON.stringify(postData);
+						$.ajax({
+							url: getrefereeInfo,
+							type: "POST",
+							data: postData,
+							contentType: "application/json",
+							dataType: "json",
+							success: function (data, textStatus, xhr) {
+								$(".SearchknowmembershipPagination").hide();
+
+								var template = document.getElementById(
+									"membershipKnoWScript"
+								).innerHTML;
+								Mustache.parse(template);
+								var html = Mustache.render(template, data);
+								var html = Mustache.to_html(template, {
+									data: data.memberShipValidityResponse,
+								});
+								$("#membershipKnoWTable").html(html);
+							},
+							error: function (xhr, textStatus, errorThrown) {
+								console.log("Error Something");
+							},
+							beforeSend: function (xhr) {
+								xhr.setRequestHeader("accessToken", accessToken);
+							},
+						});
+					});
+			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
@@ -27643,7 +27290,6 @@ function knowmembership() {
 }
 
 function searchLenderReferralId() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -27760,7 +27406,6 @@ function searchLenderReferralId() {
 }
 
 function lenderDealStatisticsInfo() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const accessToken = getCookie("saccessToken");
@@ -27873,7 +27518,6 @@ function lenderDealStatisticsInfo() {
 }
 
 const resolvedQueries = (status, usertype) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -28008,8 +27652,6 @@ const resolvedQueries = (status, usertype) => {
 };
 
 const countofpendingquery = (queryStatus, userType) => {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -28049,7 +27691,6 @@ const countofpendingquery = (queryStatus, userType) => {
 /**************** Lender Deal Withdrawal Request start by livin*****************/
 
 const lenderDealWithdrawalRequest = (userType) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -28064,7 +27705,7 @@ const lenderDealWithdrawalRequest = (userType) => {
 	var postData = {
 		pageNo: 1,
 		pageSize: 10,
-		userType
+		userType,
 	};
 
 	var postData = JSON.stringify(postData);
@@ -28118,7 +27759,7 @@ const lenderDealWithdrawalRequest = (userType) => {
 						var postData = {
 							pageNo: num,
 							pageSize: 10,
-							userType
+							userType,
 						};
 
 						var postData = JSON.stringify(postData);
@@ -28185,8 +27826,6 @@ function updatefdexecutedInfo(loanId) {
 }
 
 const confirmFdClosedRepaymentInfo = () => {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -28280,7 +27919,6 @@ function dealwithdrawalRejectAlert(Id, dealId) {
 }
 
 function approvedDealwithdrawalConfirms(Id, dealId, status, curreentDate) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -28396,7 +28034,6 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	$("#partnerSubmission-submit-flow").click(function () {
-
 		const suserId = getCookie("sUserId");
 		const sprimaryType = getCookie("sUserType");
 		const saccessToken = getCookie("saccessToken");
@@ -28788,8 +28425,6 @@ function copyThePartnerUrl(utmName) {
 }
 
 function approveingwithdrawalPrincipal(userid) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -28832,8 +28467,6 @@ function approveingwithdrawalPrincipal(userid) {
 }
 
 function h2hPrincipalApprovedUsers(account, userid) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29010,7 +28643,6 @@ function moveWalletConfirmation(dealId) {
 }
 
 function loadingLenderWallets(dealId) {
-
 	$(".dealPrincipal_Btn").attr("disabled", true);
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -29148,8 +28780,6 @@ function loadingLenderWallets(dealId) {
 //*************************Partial Approve Users*******************************
 
 function partialApprovedUsersinitiated(dealId, status) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29202,7 +28832,6 @@ function partialApprovedUsersinitiated(dealId, status) {
 }
 
 function moveinitiatedTransaction(status, dealId) {
-
 	$("#h2hPrincipalUsers").attr("disabled", true);
 
 	const suserId = getCookie("sUserId");
@@ -29253,7 +28882,6 @@ const moveinitiatedTransactionprincipal = (status, dealId) => {
 };
 
 const moveinitiatedprincipal = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29296,7 +28924,6 @@ const moveinitiatedprincipal = () => {
 };
 
 const transactionsalertInfo = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29347,7 +28974,6 @@ const transactionsalertInfo = () => {
 };
 
 const currentMonthTransactionsalertInfo = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29409,7 +29035,6 @@ const downloadTransactionExcel = () => {
 };
 
 const downloadUtmUsers = (primarytype) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29447,7 +29072,6 @@ const readCmsDatepopup = () => {
 
 $(document).ready(() => {
 	$("#readCMSReportsd").click(() => {
-
 		const suserId = getCookie("sUserId");
 		const sprimaryType = getCookie("sUserType");
 		const saccessToken = getCookie("saccessToken");
@@ -29494,7 +29118,6 @@ $(document).ready(() => {
 
 $(document).ready(() => {
 	$("#readCMSReportsm").click(() => {
-
 		const suserId = getCookie("sUserId");
 		const sprimaryType = getCookie("sUserType");
 		const saccessToken = getCookie("saccessToken");
@@ -29544,7 +29167,6 @@ $(document).ready(() => {
 });
 
 const oxycmsoutputfileslist = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29864,7 +29486,6 @@ function loadCmsStatus() {
 }
 
 function cmsSelectDateOptionsSearch() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -29896,50 +29517,36 @@ function cmsSelectDateOptionsSearch() {
 		contentType: "application/json",
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
-
-
-				if(cmsSearchUserType=="Student"){
-			      if(data.length==0){
-				$("#displaycmsStudentfiles").html(
-					'<tr id="displayNoRecords" class="displayRequests"><td colspan="12"><b>No Record found!</b></td></tr> '
-				);
-						$("#nodatacmsStudentFiles").show();
-
-					}else{
-						    const template = document.getElementById(
-					"studentdisplayCmsFolderList"
-				).innerHTML;
-				Mustache.parse(template);
-				const html = Mustache.render(template, { data });
-				$("#displaycmsStudentfiles").html(html);
-
-					}
-
-
-				}else{
-
-					if(data.length==0){
-
-				$("#displaycmsoutputfolderFiles").html(
-					'<tr id="displayNoRecords" class="displayRequests"><td colspan="12"><b>No Record found!</b></td></tr> '
-				);
-
-					}else{
-						var template = document.getElementById(
-					"displayDealsCmsFolderList"
-				).innerHTML;
-				Mustache.parse(template);
-				var html = Mustache.render(template, data);
-				var html = Mustache.to_html(template, { data: data });
-				$("#displaycmsoutputfolderFiles").html(html);
-
-					}
-
-
-
+			console.log(data);
+			if (cmsSearchUserType == "Student") {
+				if (data.length == 0) {
+					$("#displaycmsStudentfiles").html(
+						'<tr id="displayNoRecords" class="displayRequests"><td colspan="12"><b>No Record found!</b></td></tr> '
+					);
+					$("#nodatacmsStudentFiles").show();
+				} else {
+					const template = document.getElementById(
+						"studentdisplayCmsFolderList"
+					).innerHTML;
+					Mustache.parse(template);
+					const html = Mustache.render(template, { data });
+					$("#displaycmsStudentfiles").html(html);
 				}
-
-
+			} else {
+				if (data.length == 0) {
+					$("#displaycmsoutputfolderFiles").html(
+						'<tr id="displayNoRecords" class="displayRequests"><td colspan="12"><b>No Record found!</b></td></tr> '
+					);
+				} else {
+					var template = document.getElementById(
+						"displayDealsCmsFolderList"
+					).innerHTML;
+					Mustache.parse(template);
+					var html = Mustache.render(template, data);
+					var html = Mustache.to_html(template, { data: data });
+					$("#displaycmsoutputfolderFiles").html(html);
+				}
+			}
 		},
 
 		error: function (request, error) {
@@ -30907,12 +30514,10 @@ function readBulkInviteThroughDoc(input) {
 					$("#modal-fileUploadedSuccessfully").modal("show");
 				} else {
 					$("#modal-uploadBulkInvite").modal("hide");
-
 				}
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				$("#modal-uploadBulkInvite").hide();
-
 			},
 			beforeSend: function (xhr) {
 				xhr.setRequestHeader("accessToken", accessToken);
@@ -33222,7 +32827,6 @@ function loadcmsBoxes() {
 }
 
 const verifyCmsLOGIN = () => {
-
 	const cmspass = $(".cmspassword").val();
 	const isProd = userisIn === "prod";
 	const isLocal = userisIn === "local";
@@ -33231,19 +32835,16 @@ const verifyCmsLOGIN = () => {
 		(cmspass === "Kofee@1919" && isProd) || (cmspass === "Test@123" && isLocal);
 
 	if (isValid) {
-
 		writeCookie("cmsSkip", true);
 		$(".cmsLoginPass").hide();
 		$(".cmsBoxCard,.searchcmsapplication").show();
 	} else {
-
 		$(".errorCms").show();
 		$(".errorCms").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 	}
 };
 
 const verifypaymentVerifyStudent = () => {
-
 	const verifypass = $(".paymentverifyLoginpassword").val();
 	const isProd = userisIn === "prod";
 	const isLocal = userisIn === "local";
@@ -33263,7 +32864,6 @@ const verifypaymentVerifyStudent = () => {
 };
 
 function loadverifyBoxes() {
-
 	const fdcookies = getCookie("fdverifySkip");
 	if (fdcookies == "false" || fdcookies == false || fdcookies == "") {
 		$(".fdverifypaymentlogin").show();
@@ -33275,13 +32875,11 @@ function loadverifyBoxes() {
 }
 
 const initiatingNotification = (dealId) => {
-
 	$(".sendEmailNotification").attr("data-reqid", dealId);
 	$("#intiateTheDealamountPrincipal").modal("show");
 };
 
 const submitEmailNotificationDeal = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -33345,7 +32943,6 @@ const submitEmailNotificationDeal = async () => {
 };
 
 const checkFirstInterestDate = () => {
-
 	const fundsStartDate = $("#fundsAcceptanceStartDate").val();
 	const firstInterestDate = $("#loanActiveDate").val();
 
@@ -33365,7 +32962,6 @@ const checkFirstInterestDate = () => {
 };
 
 const fetchWhatsappChatID = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -33406,7 +33002,6 @@ const fetchWhatsappChatID = async () => {
 };
 
 function w2wWithdrawalhistory(userType) {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -33421,7 +33016,7 @@ function w2wWithdrawalhistory(userType) {
 	var postData = {
 		pageNo: 1,
 		pageSize: 10,
-		userType
+		userType,
 	};
 
 	var postData = JSON.stringify(postData);
@@ -33437,29 +33032,26 @@ function w2wWithdrawalhistory(userType) {
 			if (data.walletTransferLenderToLenderResponseDto == null) {
 				$("#displayNoRecords").show();
 			} else {
-
-
 				let totalEntries = data.totalCount;
 
-				   const newobj=data.walletTransferLenderToLenderResponseDto.map((data,index)=>{
-			   	const newobjnew={...data};
-                if (newobjnew.status=="ADMIN REJECTED"){
-                	newobjnew["statusobj"]="ADMINREJECTED";
-                }else if(newobjnew.status=="USER REJECTED"){
-                   newobjnew["statusobj"]="USERREJECTED";
-                }else if(newobjnew.status=="AUTO REJECTED"){
-                   newobjnew["statusobj"]="AUTOREJECTED";
-                     }else{
-                   newobjnew["statusobj"]=newobjnew.status;
+				const newobj = data.walletTransferLenderToLenderResponseDto.map(
+					(data, index) => {
+						const newobjnew = { ...data };
+						if (newobjnew.status == "ADMIN REJECTED") {
+							newobjnew["statusobj"] = "ADMINREJECTED";
+						} else if (newobjnew.status == "USER REJECTED") {
+							newobjnew["statusobj"] = "USERREJECTED";
+						} else if (newobjnew.status == "AUTO REJECTED") {
+							newobjnew["statusobj"] = "AUTOREJECTED";
+						} else {
+							newobjnew["statusobj"] = newobjnew.status;
+						}
 
-                }
+						return newobjnew;
+					}
+				);
 
-                return newobjnew;
-
-			   })
-
-
-               console.log(newobj);
+				console.log(newobj);
 
 				var template = document.getElementById(
 					"loadlenderswalletTowallethistoryTpl"
@@ -33493,7 +33085,7 @@ function w2wWithdrawalhistory(userType) {
 						var postData = {
 							pageNo: num,
 							pageSize: "10",
-							userType
+							userType,
 						};
 						var postData = JSON.stringify(postData);
 						if (userisIn == "local") {
@@ -33512,19 +33104,22 @@ function w2wWithdrawalhistory(userType) {
 							success: function (data, textStatus, xhr) {
 								console.log(data);
 
-                 const newobjnewpagination=data.walletTransferLenderToLenderResponseDto.map((data,index)=>{
-			    	const newobjnewpag={...data};
-                     if (newobjnewpag.status=="ADMIN REJECTED"){
-                	newobjnewpag["statusobj"]="ADMINREJECTED";
-                    }else if(newobjnewpag.status=="USER REJECTED"){
-                   newobjnewpag["statusobj"]="USERREJECTED";
-                     }else if(newobjnewpag.status=="AUTO REJECTED"){
-                   newobjnewpag["statusobj"]="AUTOREJECTED";
-                     }else{
-                     newobjnewpag["statusobj"]=newobjnewpag.status;
-                  }
-                    return newobjnewpag;
-			   });
+								const newobjnewpagination =
+									data.walletTransferLenderToLenderResponseDto.map(
+										(data, index) => {
+											const newobjnewpag = { ...data };
+											if (newobjnewpag.status == "ADMIN REJECTED") {
+												newobjnewpag["statusobj"] = "ADMINREJECTED";
+											} else if (newobjnewpag.status == "USER REJECTED") {
+												newobjnewpag["statusobj"] = "USERREJECTED";
+											} else if (newobjnewpag.status == "AUTO REJECTED") {
+												newobjnewpag["statusobj"] = "AUTOREJECTED";
+											} else {
+												newobjnewpag["statusobj"] = newobjnewpag.status;
+											}
+											return newobjnewpag;
+										}
+									);
 
 								var template = document.getElementById(
 									"loadlenderswalletTowallethistoryTpl"
@@ -33561,7 +33156,6 @@ const approveW2W = (status, id) => {
 };
 
 const lenderw2wapproval = async () => {
-
 	$(".lenderwithdrawwalletBtn").attr("disabled", true);
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -33588,7 +33182,6 @@ const lenderw2wapproval = async () => {
 		});
 
 		if (response.ok) {
-
 			if (status == "REJECTED") {
 				$(".wallet_text .w2werrormessage").html(
 					"You have successfully rejected the request."
@@ -33618,9 +33211,7 @@ const lenderw2wapproval = async () => {
 	}
 };
 
-
 const offlineInterestPrincipal = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -33706,7 +33297,7 @@ const updatenewMembershipFee = () => {
 	const saccessToken = getCookie("saccessToken");
 
 	const feeAmount = $("#membershipamount").val();
-	const  lenderFeePayments= $("#membershipFeeTenure").val();
+	const lenderFeePayments = $("#membershipFeeTenure").val();
 
 	let isValid = true;
 
@@ -33719,7 +33310,6 @@ const updatenewMembershipFee = () => {
 			? ($(".errormembershipTenure").show(), false)
 			: ($(".errormembershipTenure").hide(), true);
 
-
 	const feeUpdate =
 		userisIn == "local"
 			? apiBaseURLOXY + "lenders_fee_details_upadate"
@@ -33728,7 +33318,6 @@ const updatenewMembershipFee = () => {
 	const postData = JSON.stringify({
 		feeAmount,
 		lenderFeePayments,
-
 	});
 	console.log(postData);
 
@@ -34063,7 +33652,6 @@ const knowCollegeInfo = (location) => {
 };
 
 const getInfoCollages = (type, name, agent) => {
-
 	let postData;
 	if (type === "university") {
 		postData = {
@@ -34112,7 +33700,6 @@ const getInfoCollages = (type, name, agent) => {
 };
 
 const dealNotification = async () => {
-	
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -34711,7 +34298,6 @@ const principalPaidMoreInfo = (dealId) => {
 };
 
 const pendingH2HFiles = () => {
-
 	let suserId = getCookie("sUserId");
 	let sprimaryType = getCookie("sUserType");
 	let saccessToken = getCookie("saccessToken");
@@ -35307,7 +34893,6 @@ const holdAmountRequest = () => {
 };
 
 const holdamountList = (loadType) => {
-	
 	let suserId = getCookie("sUserId");
 	let sprimaryType = getCookie("sUserType");
 	let saccessToken = getCookie("saccessToken");
@@ -35380,7 +34965,6 @@ const holdamountList = (loadType) => {
 };
 
 const submitholdrequest = (userid, holdamount, status) => {
-
 	$(`.hold_subUser-${userid}${holdamount}${status}`).slideToggle(
 		"slow",
 		function () {
@@ -36872,7 +36456,6 @@ const fdFundsTrasfer = async () => {
 	const fdAmountFetch = parseInt($(".fdAmount").html());
 	const remark = $("#fdFundTransferRemarks").val();
 
-
 	let isuserid = userId != "";
 	let feeamountvalid = feeAmount == "" ? null : feeAmount;
 	let isamountTrasferAmount =
@@ -36885,11 +36468,12 @@ const fdFundsTrasfer = async () => {
 		userId != "" &&
 		amountFromSystem != "" &&
 		isamountTrasferAmount == true &&
-		fetchFdamount != true  && remaksfdamount!="";
+		fetchFdamount != true &&
+		remaksfdamount != "";
 
 	$(".transferBorrowerId")[isuserid ? "hide" : "show"]();
 	$(".transferFdAmount")[isamountTrasferAmount ? "hide" : "show"]();
-		$(".remarksError")[remaksfdamount ? "hide" : "show"]();
+	$(".remarksError")[remaksfdamount ? "hide" : "show"]();
 
 	if (fetchFdamount) {
 		$(".transferFdAmount").html("You are Giving more than the FD amount.");
@@ -36900,7 +36484,7 @@ const fdFundsTrasfer = async () => {
 		userId,
 		amountFromSystem,
 		feeAmount: feeamountvalid,
-		fdFundTransferRemarks:remark
+		fdFundTransferRemarks: remark,
 	};
 
 	const postDataJson = JSON.stringify(postData);
@@ -37160,12 +36744,11 @@ const addTheBorrowerLoansOfferToDeal = async () => {
 	const ifsc = $("#loanUserIfsccode").val();
 	const loanType = $("#loanType").val();
 
-
 	const bankChoosen = $(".editbankDetailsStudent").attr("data-choosenbankName");
 	const bankName = $(".editbankDetailsStudent").attr("data-bankName");
 	const leadBy = $(".editbankDetailsStudent").attr("data-leadBy");
 	const consultancy = $(".editbankDetailsStudent").attr("data-consultancy");
-	const roi = 	$("#userloandROI").val();
+	const roi = $("#userloandROI").val();
 	const fundingType = $(".editbankDetailsStudent").attr("data-fundingType");
 	const country = $(".editbankDetailsStudent").attr("data-country");
 	const university = $(".editbankDetailsStudent").attr("data-university");
@@ -37261,7 +36844,6 @@ const addTheBorrowerLoansOfferToDeal = async () => {
 };
 
 const uploadFdPaymentStatusHDFC = (status, bank) => {
-
 	let suserId = getCookie("sUserId");
 	let sprimaryType = getCookie("sUserType");
 	let saccessToken = getCookie("saccessToken");
@@ -38791,7 +38373,6 @@ const searchFdStats = async (status) => {
 };
 
 const downloadFdInvoice = (url) => {
-
 	var sourcePath = JSON.stringify(url);
 	var contentTypeCheck = ".pdf";
 	if (sourcePath.indexOf(contentTypeCheck) != -1) {
@@ -38818,7 +38399,6 @@ const downloadClosaedInvoice = (url) => {
 };
 
 const searchDownloadInvoice = async (status) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -38885,33 +38465,27 @@ const searchDownloadInvoice = async (status) => {
 	}
 };
 
-
-
-
-const numberOfRegisteredUsers = async (pageNo  , pageSize ) => {
-
+const numberOfRegisteredUsers = async (pageNo, pageSize) => {
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
-
 
 	const paymentUpdateUrl = `${apiBaseURLOXY}numberOfRegisteredUsers`;
 	// const paymentUpdateUrl = ``;
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
-	const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Adding 1 because getMonth() returns zero-based month
-	const day = String(currentDate.getDate()).padStart(2, '0');
-	
+	const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Adding 1 because getMonth() returns zero-based month
+	const day = String(currentDate.getDate()).padStart(2, "0");
+
 	const date = `${year}-${month}-${day}`;
 	console.log(date);
-	const postData ={
-		"pageNo":1,
-	"pageSize":10,
-	"startDate":"2024-02-01",
-	"endDate":date,
-	"primaryType":"LENDER"
-	}
-	
+	const postData = {
+		pageNo: 1,
+		pageSize: 10,
+		startDate: "2024-02-01",
+		endDate: date,
+		primaryType: "LENDER",
+	};
 
 	const postDataJson = JSON.stringify(postData);
 
@@ -38959,91 +38533,90 @@ const numberOfRegisteredUsers = async (pageNo  , pageSize ) => {
 				});
 				$("#displayfdinvoiceList11").html(html);
 
+				console.log(data.count);
+				var displayPageNo = data.count;
+				displayPageNo = Math.ceil(displayPageNo / 10); // Calculate total pages
+				console.log(data.count);
+				/*888888888888888*/
+				$(".dashBoardPagination")
+					.bootpag({
+						total: displayPageNo,
+						page: 1,
+						maxVisible: 5,
+						leaps: true,
+						firstLastUse: true,
+						first: "←",
+						last: "→",
+						wrapClass: "pagination",
+						activeClass: "active",
+						disabledClass: "disabled",
+						nextClass: "next",
+						prevClass: "prev",
+						lastClass: "last",
+						firstClass: "first",
+					})
+					.on("page", function (event, num) {
+						$(".content4").html("Page " + num); // or some ajax content loading...
+						//   var postData =  {
+						//       "page": {
+						//         "pageNo": num,
+						//         "pageSize": 5
+						//       },
+						//       "sortBy":"loanId",
+						//       "sortOrder" : "DESC"
+						//   };
 
-				console.log(data.count)
-				 var displayPageNo = data.count;
-            displayPageNo = Math.ceil(displayPageNo / 10); // Calculate total pages			
-            console.log(data.count);
-        /*888888888888888*/
-         $('.dashBoardPagination').bootpag({
-                  total: displayPageNo,
-                  page: 1,
-                  maxVisible: 5,
-                  leaps: true,
-                  firstLastUse: true,
-                  first: '←',
-                  last: '→',
-                  wrapClass: 'pagination',
-                  activeClass: 'active',
-                  disabledClass: 'disabled',
-                  nextClass: 'next',
-                  prevClass: 'prev',
-                  lastClass: 'last',
-                  firstClass: 'first'
-              }).on("page", function(event, num){
-                  $(".content4").html("Page " + num); // or some ajax content loading...
-                //   var postData =  {
-                //       "page": {
-                //         "pageNo": num,
-                //         "pageSize": 5
-                //       },
-                //       "sortBy":"loanId",
-                //       "sortOrder" : "DESC"
-                //   };
+						var postData = {
+							pageNo: num,
+							pageSize: 5,
+							startDate: "2024-02-01",
+							endDate: date,
+							primaryType: "LENDER",
+						};
 
-				  var postData ={
-					"pageNo":num,
-				"pageSize":5,
-				"startDate":"2024-02-01",
-				"endDate":date,
-				"primaryType":"LENDER"
-				}
+						var postData = JSON.stringify(postData);
+						console.log(postData);
+						$.ajax({
+							url: paymentUpdateUrl,
+							type: "POST",
+							data: postData,
+							contentType: "application/json",
+							dataType: "json",
+							success: function (response, textStatus, xhr) {
+								console.log("data");
+								console.log(response);
 
-                  var postData = JSON.stringify(postData);
-                  console.log(postData);
-                        $.ajax({
-                            url:paymentUpdateUrl,
-                            type:"POST",
-                            data:postData,
-                            contentType:"application/json",
-                            dataType:"json",
-                            success: function(response,textStatus,xhr){
-								console.log("data")
-                             console.log(response);
-                        
+								const newArray = [];
+								response.userDataList.map((data, index) => {
+									newArray.push({
+										userId: data.userId,
+										userName: data.userName,
+										mobileNumber: data.mobileNumber,
+										panNumber: data.panNumber,
+										address: data.address,
+										email: data.email,
+										primaryType: data.primaryType,
+										registeredDate: data.registeredDate,
+									});
+								});
 
-
-							  const newArray = [];
-							  response.userDataList.map((data, index) => {
-					newArray.push({
-						userId: data.userId,
-						userName: data.userName,
-						mobileNumber: data.mobileNumber,
-						panNumber: data.panNumber,
-						address: data.address,
-						email: data.email,
-						primaryType: data.primaryType,
-						registeredDate: data.registeredDate,
+								const template = document.getElementById(
+									"scriptfdinvoiceList11"
+								).innerHTML;
+								Mustache.parse(template);
+								const html = Mustache.to_html(template, {
+									data: newArray,
+								});
+								$("#displayfdinvoiceList11").html(html);
+							},
+							error: function (xhr, textStatus, errorThrown) {
+								console.log("Error Something");
+							},
+							beforeSend: function (xhr) {
+								xhr.setRequestHeader("accessToken", saccessToken);
+							},
+						});
 					});
-				});
-
-				const template = document.getElementById(
-					"scriptfdinvoiceList11"
-				).innerHTML;
-				Mustache.parse(template);
-				const html = Mustache.to_html(template, {
-					data: newArray,
-				});$("#displayfdinvoiceList11").html(html);
-                              
-                           },
-                        error: function(xhr,textStatus,errorThrown){
-                          console.log('Error Something');
-                        },
-                        beforeSend: function(xhr) {
-                          xhr.setRequestHeader("accessToken",saccessToken);
-                  }
-              });
-            });    
 			}
 		}
 	} catch (error) {
@@ -39053,7 +38626,6 @@ const numberOfRegisteredUsers = async (pageNo  , pageSize ) => {
 };
 
 const numberOfRegistered11 = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39065,11 +38637,11 @@ const numberOfRegistered11 = async () => {
 	const type = $(".choosetype").val();
 
 	const postData = {
-		"pageNo":1,
-		"pageSize":10,
+		pageNo: 1,
+		pageSize: 10,
 		startDate,
 		endDate,
-		"primaryType":type
+		primaryType: type,
 	};
 
 	const postDataJson = JSON.stringify(postData);
@@ -39126,87 +38698,80 @@ const numberOfRegistered11 = async () => {
 };
 
 const NewLenderWalletAmount = async () => {
-    const suserId = getCookie("sUserId");
+	const suserId = getCookie("sUserId");
 	const currentUrl = window.location.href;
 
-// Create a URL object
-    const url = new URL(currentUrl);
+	// Create a URL object
+	const url = new URL(currentUrl);
 
-// Use URLSearchParams to get the query parameters
-    const params = new URLSearchParams(url.search);
+	// Use URLSearchParams to get the query parameters
+	const params = new URLSearchParams(url.search);
 
-// Get the value of the userId parameter
-    const userId = params.get('userId');
-    console.log(userId); 
-    const sprimaryType = getCookie("sUserType");
-    const saccessToken = getCookie("saccessToken");
+	// Get the value of the userId parameter
+	const userId = params.get("userId");
+	console.log(userId);
+	const sprimaryType = getCookie("sUserType");
+	const saccessToken = getCookie("saccessToken");
 
-    const paymentUpdateUrl = `http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/newLenderWalletAmount`;
+	const paymentUpdateUrl = `http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/newLenderWalletAmount`;
 
-    const startDate = $(".registerStartdate").val();
-    const endDate = $(".registerUserEnddate").val();
-    const type = $(".choosetype").val();
+	const startDate = $(".registerStartdate").val();
+	const endDate = $(".registerUserEnddate").val();
+	const type = $(".choosetype").val();
 
-    const postData = {
-        "userId": userId,
-        "pageSize": 5,
-        "pageNo": 1,
-        "searchType": "DESC"
-    };
+	const postData = {
+		userId: userId,
+		pageSize: 5,
+		pageNo: 1,
+		searchType: "DESC",
+	};
 
-    const postDataJson = JSON.stringify(postData);
+	const postDataJson = JSON.stringify(postData);
 
-    try {
-        const response = await fetch(paymentUpdateUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                accessToken: saccessToken,
-            },
-            body: postDataJson,
-        });
+	try {
+		const response = await fetch(paymentUpdateUrl, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				accessToken: saccessToken,
+			},
+			body: postDataJson,
+		});
 
-        if (!response.ok) {
-            $(".fdinvoiceNodata").show();
-            throw new Error("Request failed with status " + response.status);
-        } else if (response.ok) {
-            const data = await response.json();
+		if (!response.ok) {
+			$(".fdinvoiceNodata").show();
+			throw new Error("Request failed with status " + response.status);
+		} else if (response.ok) {
+			const data = await response.json();
 
-            console.log(data);
+			console.log(data);
 
-                const newArray = [];
-                data.map((data, index) => {
-                    console.log(data)
-                    newArray.push({
-                        sno: data.sno,
-                        amount: data.amount,
-                        currentWalletLoadAmount: data.currentWalletLoadAmount,
-                        walletLoaded: data.walletLoaded,
-                        remarks: data.remarks,
+			const newArray = [];
+			data.map((data, index) => {
+				console.log(data);
+				newArray.push({
+					sno: data.sno,
+					amount: data.amount,
+					currentWalletLoadAmount: data.currentWalletLoadAmount,
+					walletLoaded: data.walletLoaded,
+					remarks: data.remarks,
+				});
+			});
 
-                    })
-
-                });
-
-                const template = document.getElementById(
-                    "scriptfdinvoice111"
-                ).innerHTML;
-                Mustache.parse(template);
-                const html = Mustache.to_html(template, {
-                    data: newArray,
-                });
-                $("#displayfdinvoiceList12").html(html);
-            }
-        } catch (error) {
-        $(".fdmonthlyNodata").show();
-        console.info("Error Something Went Wrong");
-    }
+			const template = document.getElementById("scriptfdinvoice111").innerHTML;
+			Mustache.parse(template);
+			const html = Mustache.to_html(template, {
+				data: newArray,
+			});
+			$("#displayfdinvoiceList12").html(html);
+		}
+	} catch (error) {
+		$(".fdmonthlyNodata").show();
+		console.info("Error Something Went Wrong");
+	}
 };
 
-
-
 const ListOfMembershipPaidLenders = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39224,7 +38789,6 @@ const ListOfMembershipPaidLenders = async () => {
 				"Content-Type": "application/json",
 				accessToken: saccessToken,
 			},
-
 		});
 
 		if (!response.ok) {
@@ -39241,7 +38805,7 @@ const ListOfMembershipPaidLenders = async () => {
 				console.log("data");
 				const newArray = [];
 				data.map((data, index) => {
-					console.log(data.userId)
+					console.log(data.userId);
 					newArray.push({
 						userId: data.userId,
 						transactionAmount: data.transactionAmount,
@@ -39254,12 +38818,12 @@ const ListOfMembershipPaidLenders = async () => {
 						lastName: data.lastName,
 						comments: data.comments,
 						validityDate: data.validityDate,
-						lenderRenewalStatus:data.lenderRenewalStatus,
+						lenderRenewalStatus: data.lenderRenewalStatus,
 						feeStatus: data.feeStatus,
 						mobileNumber: data.mobileNumber,
 						lenderMembership: data.lenderMembership,
 						paymentType: data.paymentType,
-						lenderFeeLoadedDate: data.lenderFeeLoadedDate
+						lenderFeeLoadedDate: data.lenderFeeLoadedDate,
 						// transactionAmount: data.transactionAmount,
 						// mobileNumber: data.mobileNumber,
 						// panNumber: data.panNumber,
@@ -39269,15 +38833,14 @@ const ListOfMembershipPaidLenders = async () => {
 						// registeredDate: data.registeredDate,
 
 						// {
-						
+
 						// }
 					});
-					console.log(data.userId)
+					console.log(data.userId);
 				});
 
-				const template = document.getElementById(
-					"scriptfdinvoice111"
-				).innerHTML;
+				const template =
+					document.getElementById("scriptfdinvoice111").innerHTML;
 				Mustache.parse(template);
 				const html = Mustache.to_html(template, {
 					data: newArray,
@@ -39299,14 +38862,14 @@ const userValidityUpdation = async () => {
 
 	// Create a URL object
 	const url = new URL(urlString);
-	
+
 	// Get the search parameters
 	const searchParams = new URLSearchParams(url.search);
-	
+
 	// Extract userId and validityDate
-	const userId = searchParams.get('userId');
+	const userId = searchParams.get("userId");
 	var validityDate = $("#input1").val();
-	
+
 	// Print the extracted values
 	console.log("userId:", userId);
 	console.log("validityDate:", validityDate);
@@ -39315,12 +38878,11 @@ const userValidityUpdation = async () => {
 	const startDate = $(".registerStartdate").val();
 	const endDate = $(".registerUserEnddate").val();
 	const type = $(".choosetype").val();
-	var postData ={
-		"userId": userId,
-		"validityDate": validityDate
-		
-		} 
-		const postDataJson = JSON.stringify(postData);
+	var postData = {
+		userId: userId,
+		validityDate: validityDate,
+	};
+	const postDataJson = JSON.stringify(postData);
 	try {
 		const response = await fetch(paymentUpdateUrl, {
 			method: "PATCH",
@@ -39337,21 +38899,17 @@ const userValidityUpdation = async () => {
 		} else if (response.ok) {
 			const data = await response;
 
-			// console.log(data); 	
-						
+			// console.log(data);
+
 			$("#modal-transactiondanger").modal("show");
 			// Display the response data in the success modal
 			$("#modal-transactiondanger .modal-body").html("Successfully updated");
-			console.log("data1")
+			console.log("data1");
 			// console.log(data[0].feeStatus)
 			if (data.length == 0) {
 				$(".fdinvoiceNodata").show();
 			} else {
 				console.log("data");
-		
-	
-				
-		
 
 				// const template = document.getElementById(
 				// 	"scriptfdinvoice111"
@@ -39360,36 +38918,34 @@ const userValidityUpdation = async () => {
 				// const html = Mustache.to_html(template, {
 				// 	data: newArray,
 				// });
-				// $("#displayfdinvoiceList12").html(html);  
+				// $("#displayfdinvoiceList12").html(html);
 			}
 		}
 	} catch (error) {
 		$(".fdmonthlyNodata").show();
-		console.log(error)
+		console.log(error);
 		console.info("Error Something Went Wrong");
 	}
 };
-const numberOfRegisteredUsers111 = async (pageNo  , pageSize ) => {
-
+const numberOfRegisteredUsers111 = async (pageNo, pageSize) => {
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
 	const startDate = $(".registerStartdate").val();
-    const endDate = $(".registerUserEnddate").val();
-    const type = $(".choosetype").val();
+	const endDate = $(".registerUserEnddate").val();
+	const type = $(".choosetype").val();
 
 	const paymentUpdateUrl = `${apiBaseURLOXY}numberOfRegisteredUsers`;
 	// const paymentUpdateUrl = ``;
 
-	const postData ={
-		"pageNo":pageNo,
-	"pageSize":50,
-	"startDate":startDate,
-	"endDate":endDate,
-	"primaryType":type
-	}
-	
+	const postData = {
+		pageNo: pageNo,
+		pageSize: 50,
+		startDate: startDate,
+		endDate: endDate,
+		primaryType: type,
+	};
 
 	const postDataJson = JSON.stringify(postData);
 
@@ -39445,7 +39001,6 @@ const numberOfRegisteredUsers111 = async (pageNo  , pageSize ) => {
 };
 
 const searchfdmonthlyInfo = async (status) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39519,8 +39074,6 @@ const searchfdmonthlyInfo = async (status) => {
 };
 
 const searchFdoptions = async (status) => {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39567,7 +39120,6 @@ const searchFdoptions = async (status) => {
 					);
 				});
 			} else if (inputType == "bank") {
-
 				$("#fundingTypelist").empty();
 				data.searchTypes.map((data, index) => {
 					$("#fundingTypelist").append(
@@ -39585,8 +39137,6 @@ const searchFdoptions = async (status) => {
 };
 
 const searchfdclosedInfo = async (status) => {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39648,7 +39198,6 @@ const searchfdclosedInfo = async (status) => {
 };
 
 const searchingFdListUsers = async (status) => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39706,7 +39255,6 @@ const searchingFdListUsers = async (status) => {
 };
 
 const fdExecutedPaymentDetails = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39856,7 +39404,6 @@ const editPendingLoanAmount = (
 };
 
 const formeditlenderPendingAmount = () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -39942,11 +39489,7 @@ const formeditlenderPendingAmount = () => {
 	return isValid;
 };
 
-
-
-
 const generateh2hfilependingamount = async () => {
-
 	let suserId = getCookie("sUserId");
 	let sprimaryType = getCookie("sUserType");
 	let saccessToken = getCookie("saccessToken");
@@ -40005,10 +39548,7 @@ const selectThedafaultValues = () => {
 	console.info(month, day, year);
 };
 
-
-
 function uploadExcelImage() {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40041,7 +39581,7 @@ function uploadExcelImage() {
 		enctype: "multipart/form-data",
 
 		success: function (data, textStatus, xhr) {
-			bulkinviteImage=data.downloadUrl;
+			bulkinviteImage = data.downloadUrl;
 		},
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
@@ -40054,117 +39594,98 @@ function uploadExcelImage() {
 	});
 }
 
-const sampleEmail=()=>{
-
-	setTimeout(()=>{
-
-		 const projectType = $("#projectType").val();
-          if(projectType=="bmv"){
-          	$("#array_sampleEmail").val("Hi@BMV.money");
-            }else if (projectType=="oxybricks"){
-          	$("#array_sampleEmail").val("support@oxyloans.com");
-            }else if (projectType=="oxyloans"){
-          	$("#array_sampleEmail").val("support@oxyloans.com");
-            }else if(projectType=="erice"){
-          	$("#array_sampleEmail").val("Hi@BMV.money");
-          }
-
-	},3000);
+const sampleEmail = () => {
+	setTimeout(() => {
+		const projectType = $("#projectType").val();
+		if (projectType == "bmv") {
+			$("#array_sampleEmail").val("Hi@BMV.money");
+		} else if (projectType == "oxybricks") {
+			$("#array_sampleEmail").val("support@oxyloans.com");
+		} else if (projectType == "oxyloans") {
+			$("#array_sampleEmail").val("support@oxyloans.com");
+		} else if (projectType == "erice") {
+			$("#array_sampleEmail").val("Hi@BMV.money");
+		}
+	}, 3000);
 };
 
-
-const sendBulkInviteExcel= async () => {
-
+const sendBulkInviteExcel = async () => {
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
 	const inputType = $("#excelfileupload")[0];
 	const projectType = $("#projectType").val();
-    const InviteType=$("#inviteType").val();
-    const bulkinviteMessage=$("#bulkinviteMessage").val();
-     const userInviteType=$("#bulkinviteUserType").val();
-    const inviteUserId=$("#useriviteId").val()?.substring(2);
+	const InviteType = $("#inviteType").val();
+	const bulkinviteMessage = $("#bulkinviteMessage").val();
+	const userInviteType = $("#bulkinviteUserType").val();
+	const inviteUserId = $("#useriviteId").val()?.substring(2);
 
 	var fd = new FormData();
 	var files = inputType.files[0];
-    fd.append("BULKINVITE", files);
-    fd.append("projectType", projectType);
-    fd.append("inviteType", InviteType);
-    fd.append("message", bulkinviteMessage);
-    fd.append("userType", userInviteType);
-    fd.append("userid", inviteUserId);
+	fd.append("BULKINVITE", files);
+	fd.append("projectType", projectType);
+	fd.append("inviteType", InviteType);
+	fd.append("message", bulkinviteMessage);
+	fd.append("userType", userInviteType);
+	fd.append("userid", inviteUserId);
 
-   if(InviteType=="sampleemail"){
+	if (InviteType == "sampleemail") {
+		let mailSubject = $("#array_mailSubject").val();
+		let sampleEmail = $("#array_sampleEmail").val();
+		let mailDispalyName = $("#array_mailDispalyName").val();
 
-   let mailSubject=$("#array_mailSubject").val();
-   let sampleEmail=$("#array_sampleEmail").val();
-   let mailDispalyName=$("#array_mailDispalyName").val();
+		if (bulkinviteImage != null) {
+			var whatsappImage = bulkinviteImage;
+		} else {
+			var whatsappImage = bulkinviteImage;
+		}
 
-     if(bulkinviteImage!=null){
-      var whatsappImage=bulkinviteImage;
-      }else{
-       var whatsappImage=bulkinviteImage;
-     }
+		fd.append("imageUrl", whatsappImage);
+		fd.append("sampleEmail", sampleEmail);
+		fd.append("mailDispalyName", mailDispalyName);
+		fd.append("mailSubject", mailSubject);
+	} else if (InviteType == "email") {
+		let mailSubject = $("#array_mailSubject").val();
+		let mailDispalyName = $("#array_mailDispalyName").val();
 
-         fd.append("imageUrl", whatsappImage);
-          fd.append("sampleEmail", sampleEmail);
-         fd.append("mailDispalyName", mailDispalyName);
-         fd.append("mailSubject", mailSubject);
+		if (bulkinviteImage != null) {
+			var whatsappImage = bulkinviteImage;
+		} else {
+			var whatsappImage = bulkinviteImage;
+		}
 
+		fd.append("imageUrl", whatsappImage);
+		fd.append("mailSubject", mailSubject);
+		fd.append("mailDispalyName", mailDispalyName);
+	} else if (InviteType == "samplemsg") {
+		if (bulkinviteImage != null) {
+			var whatsappImage = bulkinviteImage;
+		} else {
+			var whatsappImage = bulkinviteImage;
+		}
 
-   }else if (InviteType=="email"){
+		let sampleMobile = $("#array_sampleMobile").val();
 
-   let mailSubject=$("#array_mailSubject").val();
-   let mailDispalyName=$("#array_mailDispalyName").val();
-
-
-
-      if(bulkinviteImage!=null){
-      var whatsappImage=bulkinviteImage;
-      }else{
-       var whatsappImage=bulkinviteImage;
-     }
-
-
-          fd.append("imageUrl", whatsappImage);
-          fd.append("mailSubject", mailSubject);
-         fd.append("mailDispalyName", mailDispalyName);
-
-   }else if (InviteType=="samplemsg"){
-
-
-      if(bulkinviteImage!=null){
-      var whatsappImage=bulkinviteImage;
-      }else{
-       var whatsappImage=bulkinviteImage;
-     }
-
-
-   let sampleMobile=$("#array_sampleMobile").val();
-
-   fd.append("sampleMobile",sampleMobile);
-   fd.append("imageUrl",whatsappImage);
-
-   }else if (InviteType=="whatsapp"){
-
-      if(bulkinviteImage!=null){
-      var whatsappImage=bulkinviteImage;
-      }else{
-       var whatsappImage=bulkinviteImage;
-     }
-      fd.append("imageUrl", whatsappImage);
-
-   }
+		fd.append("sampleMobile", sampleMobile);
+		fd.append("imageUrl", whatsappImage);
+	} else if (InviteType == "whatsapp") {
+		if (bulkinviteImage != null) {
+			var whatsappImage = bulkinviteImage;
+		} else {
+			var whatsappImage = bulkinviteImage;
+		}
+		fd.append("imageUrl", whatsappImage);
+	}
 
 	const fdsearchListType = `${apiBaseURLOXY}inviteCampaignThroughExcel`;
 
 	$.ajax({
-			url: fdsearchListType,
-			type: "POST",
-			data: fd,
-			contentType: false,
-			processData: false,
+		url: fdsearchListType,
+		type: "POST",
+		data: fd,
+		contentType: false,
+		processData: false,
 
 		success: function (data, textStatus, xhr) {
 			$(".lenderParticipationinDeal").show("show");
@@ -40177,48 +39698,51 @@ const sendBulkInviteExcel= async () => {
 		beforeSend: function (xhr) {
 			xhr.setRequestHeader("accessToken", saccessToken);
 		},
-	})
-
+	});
 };
 
-
-const excelPreviewMessage=()=>{
-
+const excelPreviewMessage = () => {
 	const projectType = $("#projectType").val();
-    const bulkinviteMessage=$("#bulkinviteMessage").val();
+	const bulkinviteMessage = $("#bulkinviteMessage").val();
 
+	if (bulkinviteImage != null) {
+		var whatsappImage = bulkinviteImage;
+	} else {
+		var whatsappImage = bulkinviteImage;
+	}
 
-      if(bulkinviteImage!=null){
-      var whatsappImage=bulkinviteImage;
-      }else{
-       var whatsappImage=bulkinviteImage;
-     }
+	if (projectType == "bmv") {
+		$(".excelsheetUploadImage").attr(
+			"src",
+			"https://bmv.money/assets/img/BMVMONEYLOGO.png"
+		);
+	} else if (projectType == "oxybricks") {
+		$(".excelsheetUploadImage").attr(
+			"src",
+			"https://oxybricks.world/assets/images/oxybricks.jpg"
+		);
+	} else if (projectType == "oxyloans") {
+		$(".excelsheetUploadImage").attr(
+			"src",
+			"https://assets.thehansindia.com/hansindia-bucket/7423_loans.jpg"
+		);
+	} else if (projectType == "erice") {
+		$(".excelsheetUploadImage").attr(
+			"src",
+			"https://erice.in/web/images/h2.png"
+		);
+	}
 
-    if(projectType=="bmv"){
-    $(".excelsheetUploadImage").attr("src","https://bmv.money/assets/img/BMVMONEYLOGO.png");
-    }else if (projectType=="oxybricks"){
-    	$(".excelsheetUploadImage").attr("src","https://oxybricks.world/assets/images/oxybricks.jpg");
-    }else if (projectType=="oxyloans"){
-      $(".excelsheetUploadImage").attr("src","https://assets.thehansindia.com/hansindia-bucket/7423_loans.jpg");
-    }else if (projectType=="erice"){
-    $(".excelsheetUploadImage").attr("src","https://erice.in/web/images/h2.png");
-    }
-
-   if(whatsappImage){
-   	 $(".largeImagePart").show();
-   	 $(".largeImagesrc").attr("src",whatsappImage);
-
-   }
-    $(".previewContent").empty();
-    $(".previewContent").html(bulkinviteMessage);
+	if (whatsappImage) {
+		$(".largeImagePart").show();
+		$(".largeImagesrc").attr("src", whatsappImage);
+	}
+	$(".previewContent").empty();
+	$(".previewContent").html(bulkinviteMessage);
 	$("#modal-previewEmail").modal("show");
-}
-
-
-
+};
 
 const registerLenderDownload = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40229,10 +39753,7 @@ const registerLenderDownload = async () => {
 	const endDate = $(".registerUserEnddate").val();
 	const lenderInterest1 = $(".lenderInterest1").val();
 
-	const postData = {status:lenderInterest1,
-		startDate,
-		endDate,
-	};
+	const postData = { status: lenderInterest1, startDate, endDate };
 
 	const postDataJson = JSON.stringify(postData);
 
@@ -40252,8 +39773,8 @@ const registerLenderDownload = async () => {
 		} else if (response.ok) {
 			const data = await response.json();
 			console.log(data);
-                  
-			console.log(data.afterApprovalFiles.length)
+
+			console.log(data.afterApprovalFiles.length);
 			// if (data.afterApprovalFiles.length == 0) {
 			// 	$(".fdinvoiceNodata").show();
 
@@ -40271,11 +39792,14 @@ const registerLenderDownload = async () => {
 			// 	const html = Mustache.render(template, { data: newArray });
 			// 	console.log()
 			// 	document.getElementById("displayPendingFilesData").innerHTML = html;
-				
-	
+
 			// }
 
-			if (data.afterApprovalFiles.length == null || data.afterApprovalFiles.length == "null" || data.afterApprovalFiles.length == 0) {
+			if (
+				data.afterApprovalFiles.length == null ||
+				data.afterApprovalFiles.length == "null" ||
+				data.afterApprovalFiles.length == 0
+			) {
 				$("#displaypendingH2h").show();
 			} else {
 				let template = document.getElementById(
@@ -40283,7 +39807,7 @@ const registerLenderDownload = async () => {
 				).innerHTML;
 				Mustache.parse(template);
 				let html = Mustache.render(template, { data: data.afterApprovalFiles });
-				console.log(html)
+				console.log(html);
 				$("#displayPendingFilesData22").html(html);
 			}
 		}
@@ -40293,9 +39817,7 @@ const registerLenderDownload = async () => {
 	}
 };
 
-
 const lenderdashboardGraphs = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40307,14 +39829,12 @@ const lenderdashboardGraphs = async () => {
 	const month = date.getMonth() + 1;
 	const year = date.getFullYear();
 
-   	const currentDate= day < 10 ? `0${day}` : day;
-	 const currentMonth= month < 10 ? `0${month}` : month;
-
-
+	const currentDate = day < 10 ? `0${day}` : day;
+	const currentMonth = month < 10 ? `0${month}` : month;
 
 	const postData = {
-		startDate:`${year}-${currentMonth}-01`,
-		endDate:`${year}-${currentMonth}-${currentDate}`
+		startDate: `${year}-${currentMonth}-01`,
+		endDate: `${year}-${currentMonth}-${currentDate}`,
 	};
 
 	const postDataJson = JSON.stringify(postData);
@@ -40335,31 +39855,43 @@ const lenderdashboardGraphs = async () => {
 		} else if (response.ok) {
 			const data = await response.json();
 
-
-
- var ctx = document.getElementById('myChart').getContext("2d");
-  myChart=new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['active Lenders', 'monthly Fee', 'quarterly Fee', 'halfyearly fee','1 year Fee','5 years Fee','10 Years fee','life Time'],
-      datasets: [{
-        label: 'Oxyloans Metrics',
-        data: [data[0].activeLenders, data[0].monthlyPaidFeeLenders, data[0].quarterlyPaidFeeLenders, data[0].halfyearlyPaidFeeLenders,data[0].yearlyPaidFeeLenders,data[0].fiveYearsPaidFeeLenders,data[0].tenYearsPaidFeeLenders,data[0].lifeTimeFeeLenders],
-        borderWidth: 1
-      }]
-    },
-
-  });
-
+			var ctx = document.getElementById("myChart").getContext("2d");
+			myChart = new Chart(ctx, {
+				type: "line",
+				data: {
+					labels: [
+						"active Lenders",
+						"monthly Fee",
+						"quarterly Fee",
+						"halfyearly fee",
+						"1 year Fee",
+						"5 years Fee",
+						"10 Years fee",
+						"life Time",
+					],
+					datasets: [
+						{
+							label: "Oxyloans Metrics",
+							data: [
+								data[0].activeLenders,
+								data[0].monthlyPaidFeeLenders,
+								data[0].quarterlyPaidFeeLenders,
+								data[0].halfyearlyPaidFeeLenders,
+								data[0].yearlyPaidFeeLenders,
+								data[0].fiveYearsPaidFeeLenders,
+								data[0].tenYearsPaidFeeLenders,
+								data[0].lifeTimeFeeLenders,
+							],
+							borderWidth: 1,
+						},
+					],
+				},
+			});
 		}
-	} catch (error) {
-
-	}
+	} catch (error) {}
 };
 
-
 const dashboardgraphViewFunction = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40371,7 +39903,7 @@ const dashboardgraphViewFunction = async () => {
 
 	const postData = {
 		startDate,
-		endDate
+		endDate,
 	};
 
 	const postDataJson = JSON.stringify(postData);
@@ -40394,60 +39926,70 @@ const dashboardgraphViewFunction = async () => {
 
 			console.log(data);
 
-			if(myChart instanceof Chart) {
-              myChart.destroy();
-              }
+			if (myChart instanceof Chart) {
+				myChart.destroy();
+			}
 
-
-setTimeout(()=>{
-var ctx = document.getElementById('myChart').getContext("2d");
- myChart=new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['active Lenders', 'monthly Fee', 'quarterly Fee', 'halfyearly fee','1 year Fee','5 years Fee','10 Years fee','life Time'],
-      datasets: [{
-        label: 'Oxyloans Metrics',
-        data: [ data[0].activeLenders, data[0].monthlyPaidFeeLenders, data[0].quarterlyPaidFeeLenders, data[0].halfyearlyPaidFeeLenders,data[0].yearlyPaidFeeLenders,data[0].fiveYearsPaidFeeLenders,data[0].tenYearsPaidFeeLenders,data[0].lifeTimeFeeLenders],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
-},1000);
-
+			setTimeout(() => {
+				var ctx = document.getElementById("myChart").getContext("2d");
+				myChart = new Chart(ctx, {
+					type: "line",
+					data: {
+						labels: [
+							"active Lenders",
+							"monthly Fee",
+							"quarterly Fee",
+							"halfyearly fee",
+							"1 year Fee",
+							"5 years Fee",
+							"10 Years fee",
+							"life Time",
+						],
+						datasets: [
+							{
+								label: "Oxyloans Metrics",
+								data: [
+									data[0].activeLenders,
+									data[0].monthlyPaidFeeLenders,
+									data[0].quarterlyPaidFeeLenders,
+									data[0].halfyearlyPaidFeeLenders,
+									data[0].yearlyPaidFeeLenders,
+									data[0].fiveYearsPaidFeeLenders,
+									data[0].tenYearsPaidFeeLenders,
+									data[0].lifeTimeFeeLenders,
+								],
+								borderWidth: 1,
+							},
+						],
+					},
+					options: {
+						scales: {
+							y: {
+								beginAtZero: true,
+							},
+						},
+					},
+				});
+			}, 1000);
 		}
-	} catch (error) {
-
-	}
+	} catch (error) {}
 };
 
+const cmsbeforefileSearchonchmage = () => {
+	const selected = $("#cmsbeforefileSearch").val();
 
-
-const cmsbeforefileSearchonchmage=()=>{
-
-	const selected=$("#cmsbeforefileSearch").val();
-
-	if(selected=="cmsbeforefile"){
+	if (selected == "cmsbeforefile") {
 		$(".cmsbeforestartdatediv").show();
 		$(".cmsbeforeenddatediv").show();
 		$(".cmsbeforefilestatus").show();
-	}else{
+	} else {
 		$(".cmsbeforestartdatediv").hide();
 		$(".cmsbeforeenddatediv").hide();
 		$(".cmsbeforefilestatus").hide();
-	};
-}
-
+	}
+};
 
 const cmsbeforefilesList = async () => {
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40459,9 +40001,9 @@ const cmsbeforefilesList = async () => {
 	const fileStatus = $("#cmsbeforefileexcution").val();
 
 	const postData = {
-	    date,
+		date,
 		endDate,
-		fileStatus
+		fileStatus,
 	};
 
 	const postDataJson = JSON.stringify(postData);
@@ -40485,9 +40027,7 @@ const cmsbeforefilesList = async () => {
 
 			if (data.length == 0) {
 				$(".oxydisplayNodata").show();
-
 			} else {
-
 				$(".oxydisplayNodata").hide();
 				const template = document.getElementById(
 					"partnerdisplayDealsCmsFolderList"
@@ -40505,12 +40045,7 @@ const cmsbeforefilesList = async () => {
 	}
 };
 
-
-
-
 function referralEarningMonthWise(passingdate) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40519,20 +40054,31 @@ function referralEarningMonthWise(passingdate) {
 	let primaryType = sprimaryType;
 	let accessToken = saccessToken;
 
-	    const searchmonth=$("#referralEarnigMonthwise").val();
-        const searchyear =$("#referalEarningYearwise").val();
+	const searchmonth = $("#referralEarnigMonthwise").val();
+	const searchyear = $("#referalEarningYearwise").val();
 
- const monthNames = ["January", "February", "March", "April", "May", "June",
-   "July", "August", "September", "October", "November", "December"
-];
+	const monthNames = [
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December",
+	];
 
 	const date = new Date();
 	const day = date.getDate();
 	const month = date.getMonth() + 1;
 	const year = date.getFullYear();
 
-   	const currentDate= day < 10 ? `0${day}` : day;
-	 const currentMonth= month < 10 ? `0${month}` : month;
+	const currentDate = day < 10 ? `0${day}` : day;
+	const currentMonth = month < 10 ? `0${month}` : month;
 
 	if (userisIn == "local") {
 		var getborrowers =
@@ -40542,31 +40088,21 @@ function referralEarningMonthWise(passingdate) {
 			"https://fintech.oxyloans.com/oxyloans/v1/user/displayMonthlyAmount";
 	}
 
-
-
-
-
-    if(passingdate!="search"){
-    	var postData = {
-		pageNo: 1,
-		pageSize: 10,
-		month: currentMonth,
-        year:year
-	};
-
-    }else{
-
-    	var postData = {
-		pageNo: 1,
-		pageSize: 10,
-		month:searchmonth,
-        year:searchyear
-
-	};
-
-    }
-
-
+	if (passingdate != "search") {
+		var postData = {
+			pageNo: 1,
+			pageSize: 10,
+			month: currentMonth,
+			year: year,
+		};
+	} else {
+		var postData = {
+			pageNo: 1,
+			pageSize: 10,
+			month: searchmonth,
+			year: searchyear,
+		};
+	}
 
 	var postData = JSON.stringify(postData);
 
@@ -40577,14 +40113,16 @@ function referralEarningMonthWise(passingdate) {
 		contentType: "application/json",
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
-            console.log(data);
+			console.log(data);
 
-			 let totalEntries = data.count;
-			 if (data.lenderReferenceAmountResponse.length == 0) {
+			let totalEntries = data.count;
+			if (data.lenderReferenceAmountResponse.length == 0) {
 				$("#displayReferalMonthlyEarnings").html("");
-                  $('#displayReferalMonthlyEarnings').append("<tr><td colspan='12'>No data found</td></tr>");
-				  // $("#noRecordFound").show();
-			    } else {
+				$("#displayReferalMonthlyEarnings").append(
+					"<tr><td colspan='12'>No data found</td></tr>"
+				);
+				// $("#noRecordFound").show();
+			} else {
 				var template = document.getElementById(
 					"referalEarningMonthWiseScript"
 				).innerHTML;
@@ -40593,7 +40131,7 @@ function referralEarningMonthWise(passingdate) {
 				var html = Mustache.to_html(template, {
 					data: data.lenderReferenceAmountResponse,
 				});
-               $("#displayReferalMonthlyEarnings").html(html);
+				$("#displayReferalMonthlyEarnings").html(html);
 
 				var displayPageNo = data.count / 10;
 				displayPageNo = displayPageNo + 1;
@@ -40616,29 +40154,23 @@ function referralEarningMonthWise(passingdate) {
 						firstClass: "first",
 					})
 					.on("page", function (event, num) {
+						if (passingdate != "search") {
+							var postData = {
+								pageNo: num,
+								pageSize: 10,
+								month: currentMonth,
+								year: year,
+							};
+						} else {
+							var postData = {
+								pageNo: num,
+								pageSize: 10,
+								month: searchmonth,
+								year: searchyear,
+							};
+						}
 
-            if(passingdate!="search"){
-        	var postData = {
-	         	pageNo: num,
-		       pageSize: 10,
-		       month: currentMonth,
-              year:year
-	        };
-
-        }else{
-
-    	var postData = {
-		 pageNo: num,
-		 pageSize: 10,
-		 month:searchmonth,
-          year:searchyear
-
-	};
-
-    }
-
-
-					var postData = JSON.stringify(postData);
+						var postData = JSON.stringify(postData);
 
 						if (userisIn == "local") {
 							var getborrowers =
@@ -40656,25 +40188,24 @@ function referralEarningMonthWise(passingdate) {
 							success: function (data, textStatus, xhr) {
 								$("#noRecordFound").hide();
 
+								if (data.lenderReferenceAmountResponse.length == 0) {
+									$("#displayReferalMonthlyEarnings").html("");
+									$("#displayReferalMonthlyEarnings").append(
+										"<tr><td colspan='12'>No data found</td></tr>"
+									);
+									// $("#noRecordFound").show();
+								} else {
+									var template = document.getElementById(
+										"referalEarningMonthWiseScript"
+									).innerHTML;
+									Mustache.parse(template);
+									var html = Mustache.render(template, data);
+									var html = Mustache.to_html(template, {
+										data: data.lenderReferenceAmountResponse,
+									});
+								}
 
-				if (data.lenderReferenceAmountResponse.length == 0) {
-				$("#displayReferalMonthlyEarnings").html("");
-                  $('#displayReferalMonthlyEarnings').append("<tr><td colspan='12'>No data found</td></tr>");
-				  // $("#noRecordFound").show();
-			    }else{
-			    var template = document.getElementById(
-					"referalEarningMonthWiseScript"
-				).innerHTML;
-				Mustache.parse(template);
-				var html = Mustache.render(template, data);
-				var html = Mustache.to_html(template, {
-					data: data.lenderReferenceAmountResponse,
-				});
-
-			    }
-
-
-               $("#displayReferalMonthlyEarnings").html(html);
+								$("#displayReferalMonthlyEarnings").html(html);
 							},
 							error: function (xhr, textStatus, errorThrown) {
 								console.log("Error Something");
@@ -40688,25 +40219,23 @@ function referralEarningMonthWise(passingdate) {
 		},
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-
-
 		},
 		beforeSend: function (xhr) {
 			xhr.setRequestHeader("accessToken", saccessToken);
 		},
 	});
-
 }
 
+const myreferalMonthWiseBreakUp = async (subrefealId) => {
+	const curentpage = document.querySelectorAll(
+		".viewreferalMonthlyPagination > ul > li.active > a"
+	);
+	let activepageno = "";
+	curentpage.forEach(function (anchor) {
+		activepageno = anchor.textContent;
+	});
 
-const myreferalMonthWiseBreakUp=async (subrefealId)=>{
-	const curentpage=document.querySelectorAll(".viewreferalMonthlyPagination > ul > li.active > a");
-     let activepageno = "";
-     curentpage.forEach(function(anchor) {
-     activepageno=anchor.textContent;
-    });
-
-     	const suserId = getCookie("sUserId");
+	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
@@ -40714,17 +40243,16 @@ const myreferalMonthWiseBreakUp=async (subrefealId)=>{
 	let primaryType = sprimaryType;
 	let accessToken = saccessToken;
 
-	 const searchmonth=$("#referralEarnigMonthwise").val();
-     const searchyear =$("#referalEarningYearwise").val();
+	const searchmonth = $("#referralEarnigMonthwise").val();
+	const searchyear = $("#referalEarningYearwise").val();
 
 	const date = new Date();
 	const day = date.getDate();
 	const month = date.getMonth() + 1;
 	const year = date.getFullYear();
 
-   	const currentDate= day < 10 ? `0${day}` : day;
-	 const currentMonth= month < 10 ? `0${month}` : month;
-
+	const currentDate = day < 10 ? `0${day}` : day;
+	const currentMonth = month < 10 ? `0${month}` : month;
 
 	if (userisIn == "local") {
 		var getborrowers =
@@ -40734,48 +40262,44 @@ const myreferalMonthWiseBreakUp=async (subrefealId)=>{
 			"https://fintech.oxyloans.com/oxyloans/v1/user/displayMonthlyAmount";
 	}
 
-    if(searchmonth !="" &&  searchyear !=""){
-    	var postData = {
-		pageNo: activepageno,
-		pageSize: 10,
-		month:searchmonth,
-        year:searchyear
-	};
-    }else{
-    	var postData = {
-		pageNo: activepageno,
-		pageSize: 10,
-        month: currentMonth,
-        year:year
-
-	};
-
-    }
+	if (searchmonth != "" && searchyear != "") {
+		var postData = {
+			pageNo: activepageno,
+			pageSize: 10,
+			month: searchmonth,
+			year: searchyear,
+		};
+	} else {
+		var postData = {
+			pageNo: activepageno,
+			pageSize: 10,
+			month: currentMonth,
+			year: year,
+		};
+	}
 	var postData = JSON.stringify(postData);
 
-
-		$.ajax({
+	$.ajax({
 		url: getborrowers,
 		type: "POST",
 		data: postData,
 		contentType: "application/json",
 		dataType: "json",
 		success: function (data, textStatus, xhr) {
-            console.log(data);
+			console.log(data);
 
+			const getuser = data.lenderReferenceAmountResponse.find(
+				(data, index) => data.referrerId == subrefealId
+			);
+			console.log(getuser);
 
-
-           const getuser=data.lenderReferenceAmountResponse.find((data,index)=>data.referrerId==subrefealId);
-           console.log(getuser);
-
-			 let totalEntries = getuser.lenderReferralsResponse.length;
-			 if (totalEntries == 0 || totalEntries == null) {
+			let totalEntries = getuser.lenderReferralsResponse.length;
+			if (totalEntries == 0 || totalEntries == null) {
 				$("#displayReferalMonthlyEarnings").html("");
-                  $('#displayReferalMonthlyEarnings').append("<tr><td colspan='12'>No data found</td></tr>");
-
-			    } else {
-
-
+				$("#displayReferalMonthlyEarnings").append(
+					"<tr><td colspan='12'>No data found</td></tr>"
+				);
+			} else {
 				var template = document.getElementById(
 					"monthwiseEarningSubScript"
 				).innerHTML;
@@ -40784,10 +40308,8 @@ const myreferalMonthWiseBreakUp=async (subrefealId)=>{
 				var html = Mustache.to_html(template, {
 					data: getuser.lenderReferralsResponse,
 				});
-               $("#lenderpaymentinfosubamount").html(html);
-               $("#modal-viewPaymentstatus-subpayment-referral").modal("show");
-
-
+				$("#lenderpaymentinfosubamount").html(html);
+				$("#modal-viewPaymentstatus-subpayment-referral").modal("show");
 			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
@@ -40797,36 +40319,23 @@ const myreferalMonthWiseBreakUp=async (subrefealId)=>{
 			xhr.setRequestHeader("accessToken", saccessToken);
 		},
 	});
+};
 
-
-}
-
-
-
-const choosenparticipationLenderType=()=>{
-	const participcationLenderType=$("#participcationLenderType").val();
-	if(participcationLenderType=="NEW"){
-	 alert("You have chosen NewLender participation only");
+const choosenparticipationLenderType = () => {
+	const participcationLenderType = $("#participcationLenderType").val();
+	if (participcationLenderType == "NEW") {
+		alert("You have chosen NewLender participation only");
 	}
+};
 
-}
-
-
-const choosenparticipationfeeType=()=>{
-	const feeParticipation=$("#feeParticipation").val();
-	if(feeParticipation=="OPTIONAL"){
-	 alert("You have chosen the fee status as optional only.");
+const choosenparticipationfeeType = () => {
+	const feeParticipation = $("#feeParticipation").val();
+	if (feeParticipation == "OPTIONAL") {
+		alert("You have chosen the fee status as optional only.");
 	}
-
-}
-
-
-
-
+};
 
 function topLendingUser(limit) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40837,7 +40346,7 @@ function topLendingUser(limit) {
 	var d = new Date();
 
 	var currYear = d.getFullYear();
-	let currMonthNo= d.getMonth()+1;
+	let currMonthNo = d.getMonth() + 1;
 
 	var firstDay = new Date(d.getFullYear(), d.getMonth(), 1);
 	var presentDate = String(d.getDate()).padStart(2, "0");
@@ -40846,23 +40355,20 @@ function topLendingUser(limit) {
 		presentDate = presentDate;
 	}
 
-	if(currMonthNo < 10){
-		currMonthNo=("0"+currMonthNo);
+	if (currMonthNo < 10) {
+		currMonthNo = "0" + currMonthNo;
 	}
 
-      const postData={
-
-        	limit:limit,
-            startDate:`${currYear}-${currMonthNo}-01`,
-            endDate:`${currYear}-${currMonthNo}-${presentDate}`
-      }
+	const postData = {
+		limit: limit,
+		startDate: `${currYear}-${currMonthNo}-01`,
+		endDate: `${currYear}-${currMonthNo}-${presentDate}`,
+	};
 
 	if (userisIn == "local") {
-		var approveInterestPay =
-			apiBaseURLOXY + "TopFiftyLenders_excel_sheet";
+		var approveInterestPay = apiBaseURLOXY + "TopFiftyLenders_excel_sheet";
 	} else {
-		var approveInterestPay =
-			apiBaseURLOXY + "TopFiftyLenders_excel_sheet";
+		var approveInterestPay = apiBaseURLOXY + "TopFiftyLenders_excel_sheet";
 	}
 
 	$.ajax({
@@ -40874,22 +40380,17 @@ function topLendingUser(limit) {
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-		   $(".topLendingUserExcel").attr("href",data.downloadLink);
-			if(data.listResponse.length==0){
-			$(".topLendingNoData").show();
-
-			}else{
-
-			var template = document.getElementById(
-				"topLendingScript"
-			).innerHTML;
-			Mustache.parse(template);
-			var html = Mustache.render(template, data);
-			var html = Mustache.to_html(template, {
-				data: data.listResponse,
-			});
-			$("#topLendingTable").html(html);
-
+			$(".topLendingUserExcel").attr("href", data.downloadLink);
+			if (data.listResponse.length == 0) {
+				$(".topLendingNoData").show();
+			} else {
+				var template = document.getElementById("topLendingScript").innerHTML;
+				Mustache.parse(template);
+				var html = Mustache.render(template, data);
+				var html = Mustache.to_html(template, {
+					data: data.listResponse,
+				});
+				$("#topLendingTable").html(html);
 			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
@@ -40902,11 +40403,7 @@ function topLendingUser(limit) {
 	});
 }
 
-
-
-
 function topLendingUserSearch() {
-
 	$("#loadingSec").show();
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -40915,25 +40412,20 @@ function topLendingUserSearch() {
 	let primaryType = sprimaryType;
 	let accessToken = saccessToken;
 
+	let limit = $("#topLendingUserCountLimit").val();
+	let startDate = $("#topLendingStartDate").val();
+	let endDate = $("#topLendingEndDated").val();
 
-     let limit=$("#topLendingUserCountLimit").val();
-      let startDate=$("#topLendingStartDate").val();
-      let endDate=$("#topLendingEndDated").val();
-
-      const postData={
-        	limit:limit,
-            startDate:startDate,
-            endDate:endDate
-      }
-
+	const postData = {
+		limit: limit,
+		startDate: startDate,
+		endDate: endDate,
+	};
 
 	if (userisIn == "local") {
-
-		var approveInterestPay =
-			apiBaseURLOXY +"TopFiftyLenders_excel_sheet";
+		var approveInterestPay = apiBaseURLOXY + "TopFiftyLenders_excel_sheet";
 	} else {
-		var approveInterestPay =
-			apiBaseURLOXY + "TopFiftyLenders_excel_sheet";
+		var approveInterestPay = apiBaseURLOXY + "TopFiftyLenders_excel_sheet";
 	}
 
 	$.ajax({
@@ -40946,27 +40438,22 @@ function topLendingUserSearch() {
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-	      $("#loadingSec").hide();
-            $(".topLendingUserExcel").attr("href",data.downloadLink);
-			if(data.listResponse.length==0){
+			$("#loadingSec").hide();
+			$(".topLendingUserExcel").attr("href", data.downloadLink);
+			if (data.listResponse.length == 0) {
 				$(".topLendingNoData").show();
-
-			}else{
-
-			var template = document.getElementById(
-				"topLendingScript"
-			).innerHTML;
-			Mustache.parse(template);
-			var html = Mustache.render(template, data);
-			var html = Mustache.to_html(template, {
-				data: data.listResponse,
-			});
-			$("#topLendingTable").html(html);
+			} else {
+				var template = document.getElementById("topLendingScript").innerHTML;
+				Mustache.parse(template);
+				var html = Mustache.render(template, data);
+				var html = Mustache.to_html(template, {
+					data: data.listResponse,
+				});
+				$("#topLendingTable").html(html);
 			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
-
-	         $("#loadingSec").hide();
+			$("#loadingSec").hide();
 			console.log("Error Something");
 		},
 
@@ -40976,12 +40463,7 @@ function topLendingUserSearch() {
 	});
 }
 
-
-
-
 function topReferralUser(limit) {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -40991,15 +40473,15 @@ function topReferralUser(limit) {
 
 	if (userisIn == "local") {
 		var approveInterestPay =
-			apiBaseURLOXY +limit+ "/highestTop3ReferralBonusLenders";
+			apiBaseURLOXY + limit + "/highestTop3ReferralBonusLenders";
 	} else {
 		var approveInterestPay =
-			apiBaseURLOXY +limit+ "/highestTop3ReferralBonusLenders";
+			apiBaseURLOXY + limit + "/highestTop3ReferralBonusLenders";
 	}
 
 	$.ajax({
 		url: approveInterestPay,
-	    type: "POST",
+		type: "POST",
 		data: JSON.stringify(postData),
 		contentType: "application/json",
 		dataType: "json",
@@ -41007,22 +40489,17 @@ function topReferralUser(limit) {
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-		   $(".topreferalUserExcel").attr("href",data.downloadLink);
-			if(data.highestBonusList.length==0){
-			$(".topReferalNoData").show();
-
-			}else{
-
-			var template = document.getElementById(
-				"topReferalScript"
-			).innerHTML;
-			Mustache.parse(template);
-			var html = Mustache.render(template, data);
-			var html = Mustache.to_html(template, {
-				data: data.highestBonusList,
-			});
-			$("#topReferalTable").html(html);
-
+			$(".topreferalUserExcel").attr("href", data.downloadLink);
+			if (data.highestBonusList.length == 0) {
+				$(".topReferalNoData").show();
+			} else {
+				var template = document.getElementById("topReferalScript").innerHTML;
+				Mustache.parse(template);
+				var html = Mustache.render(template, data);
+				var html = Mustache.to_html(template, {
+					data: data.highestBonusList,
+				});
+				$("#topReferalTable").html(html);
 			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
@@ -41034,14 +40511,9 @@ function topReferralUser(limit) {
 		},
 	});
 }
-
-
-
-
 
 function topReferralUserSearch() {
-
-     $("#loadingSec").show();
+	$("#loadingSec").show();
 
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
@@ -41050,14 +40522,14 @@ function topReferralUserSearch() {
 	let primaryType = sprimaryType;
 	let accessToken = saccessToken;
 
-	let limit=$("#topreferralUserCountLimit").val();
+	let limit = $("#topreferralUserCountLimit").val();
 
 	if (userisIn == "local") {
 		var approveInterestPay =
-			apiBaseURLOXY +limit+ "/highestTop3ReferralBonusLenders";
+			apiBaseURLOXY + limit + "/highestTop3ReferralBonusLenders";
 	} else {
 		var approveInterestPay =
-			apiBaseURLOXY +limit+ "/highestTop3ReferralBonusLenders";
+			apiBaseURLOXY + limit + "/highestTop3ReferralBonusLenders";
 	}
 
 	$.ajax({
@@ -41066,29 +40538,24 @@ function topReferralUserSearch() {
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-			 $("#loadingSec").hide();
+			$("#loadingSec").hide();
 
-		   $(".topreferalUserExcel").attr("href",data.downloadLink);
-			if(data.highestBonusList.length==0){
-			$(".topReferalNoData").show();
-
-			}else{
-
-			var template = document.getElementById(
-				"topReferalScript"
-			).innerHTML;
-			Mustache.parse(template);
-			var html = Mustache.render(template, data);
-			var html = Mustache.to_html(template, {
-				data: data.highestBonusList,
-			});
-			$("#topReferalTable").html(html);
-
+			$(".topreferalUserExcel").attr("href", data.downloadLink);
+			if (data.highestBonusList.length == 0) {
+				$(".topReferalNoData").show();
+			} else {
+				var template = document.getElementById("topReferalScript").innerHTML;
+				Mustache.parse(template);
+				var html = Mustache.render(template, data);
+				var html = Mustache.to_html(template, {
+					data: data.highestBonusList,
+				});
+				$("#topReferalTable").html(html);
 			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
-			  $("#loadingSec").hide();
+			$("#loadingSec").hide();
 		},
 
 		beforeSend: function (xhr) {
@@ -41096,11 +40563,8 @@ function topReferralUserSearch() {
 		},
 	});
 }
-
 
 function activeLenderParticipation() {
-
-
 	const suserId = getCookie("sUserId");
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
@@ -41109,11 +40573,9 @@ function activeLenderParticipation() {
 	let accessToken = saccessToken;
 
 	if (userisIn == "local") {
-		var approveInterestPay =
-			apiBaseURLOXY + "activLendersParicipationAmount";
+		var approveInterestPay = apiBaseURLOXY + "activLendersParicipationAmount";
 	} else {
-		var approveInterestPay =
-			apiBaseURLOXY +"activLendersParicipationAmount";
+		var approveInterestPay = apiBaseURLOXY + "activLendersParicipationAmount";
 	}
 
 	$.ajax({
@@ -41122,22 +40584,19 @@ function activeLenderParticipation() {
 		success: function (data, textStatus, xhr) {
 			console.log(data);
 
-		   $(".downloadActiveParticipation").attr("href",data.downloadLink);
-			if(data.activeUserList.length==0){
-			$("#displayNoRecordsParticipation").show();
-
-			}else{
-
-			var template = document.getElementById(
-				"activeLenderParticippationScript"
-			).innerHTML;
-			Mustache.parse(template);
-			var html = Mustache.render(template, data);
-			var html = Mustache.to_html(template, {
-				data: data.activeUserList,
-			});
-			$("#displayActiveLendersParticpation").html(html);
-
+			$(".downloadActiveParticipation").attr("href", data.downloadLink);
+			if (data.activeUserList.length == 0) {
+				$("#displayNoRecordsParticipation").show();
+			} else {
+				var template = document.getElementById(
+					"activeLenderParticippationScript"
+				).innerHTML;
+				Mustache.parse(template);
+				var html = Mustache.render(template, data);
+				var html = Mustache.to_html(template, {
+					data: data.activeUserList,
+				});
+				$("#displayActiveLendersParticpation").html(html);
 			}
 		},
 		error: function (xhr, textStatus, errorThrown) {
@@ -41150,56 +40609,21 @@ function activeLenderParticipation() {
 	});
 }
 
-
-
-
 function borrowerfddata() {
-
 	let sprimaryType = getCookie("sUserType");
-	let  accessToken = getCookie("saccessToken");
-   
-   if (userisIn == "local") {
-	   var fdExcel = apiBaseURLOXY + "borrower_fd_data/";
-   } else {
-	   var fdExcel = apiBaseURLOXY + "borrower_fd_data/";
-   }
-   
-   $.ajax({
-	   url: fdExcel,
-	   type: "GET",
-	   success: function (data, textStatus, xhr) {
-   
-	   $(".fdExcelSheetDownload").attr("href",data.downloadUrl);
-		   
-	   },
-	   error: function (xhr, textStatus, errorThrown) {
-		   console.log("Error Something");
-	   },
-	   beforeSend: function (xhr) {
-		   xhr.setRequestHeader("accessToken", accessToken);
-	   },
-   });
-}
+	let accessToken = getCookie("saccessToken");
 
-
-function fetchDownloadExcelSheetOfFD() {
-
-	 let sprimaryType = getCookie("sUserType");
-	 let  accessToken = getCookie("saccessToken");
-	
 	if (userisIn == "local") {
-		var fdExcel = apiBaseURLOXY + "fd_amount_excel_sheet/";
+		var fdExcel = apiBaseURLOXY + "borrower_fd_data/";
 	} else {
-		var fdExcel = apiBaseURLOXY + "fd_amount_excel_sheet/";
+		var fdExcel = apiBaseURLOXY + "borrower_fd_data/";
 	}
-	
+
 	$.ajax({
 		url: fdExcel,
 		type: "GET",
 		success: function (data, textStatus, xhr) {
-
-		$(".fdExcelSheetDownload").attr("href",data.downloadUrl);
-			
+			$(".fdExcelSheetDownload").attr("href", data.downloadUrl);
 		},
 		error: function (xhr, textStatus, errorThrown) {
 			console.log("Error Something");
@@ -41210,246 +40634,252 @@ function fetchDownloadExcelSheetOfFD() {
 	});
 }
 
+function fetchDownloadExcelSheetOfFD() {
+	let sprimaryType = getCookie("sUserType");
+	let accessToken = getCookie("saccessToken");
 
+	if (userisIn == "local") {
+		var fdExcel = apiBaseURLOXY + "fd_amount_excel_sheet/";
+	} else {
+		var fdExcel = apiBaseURLOXY + "fd_amount_excel_sheet/";
+	}
 
-function updateUserDob(dob,userid){
+	$.ajax({
+		url: fdExcel,
+		type: "GET",
+		success: function (data, textStatus, xhr) {
+			$(".fdExcelSheetDownload").attr("href", data.downloadUrl);
+		},
+		error: function (xhr, textStatus, errorThrown) {
+			console.log("Error Something");
+		},
+		beforeSend: function (xhr) {
+			xhr.setRequestHeader("accessToken", accessToken);
+		},
+	});
+}
 
-	const newDob=dob.split("-");
+function updateUserDob(dob, userid) {
+	const newDob = dob.split("-");
 
+	$("#userOldDobUpdatDate").val(dob);
+	$(".updateUserBtn").attr("data-id", userid);
+	$("#userDobUpdatDate").val(`${newDob[0]}`);
+	$("#modal-comments-updateUserDob").modal("show");
+}
 
-     $("#userOldDobUpdatDate").val(dob);
-     $(".updateUserBtn").attr("data-id",userid);
-     $("#userDobUpdatDate").val(`${newDob[0]}`);
-     $("#modal-comments-updateUserDob").modal("show");
+function updateUserDobOnProfile() {
+	const sprimaryType = getCookie("sUserType");
+	const saccessToken = getCookie("saccessToken");
+
+	var userDob = $("#userOldDobUpdatDate").val();
+	var userNewDob = $("#userDobUpdatDate").val().split("/");
+	var userId = $(".updateUserBtn").attr("data-id");
+
+	var isValid = true;
+
+	if (userNewDob == "") {
+		$(".errorDobUpdate").show();
+		isValid = false;
+	} else {
+		$(".errorDobUpdate").hide();
+	}
+
+	var postData = {
+		userId: userId,
+		orginalDob: `${userNewDob[2]}-${userNewDob[1]}-${userNewDob[0]}`,
+	};
+
+	var postData = JSON.stringify(postData);
+
+	if (userisIn == "local") {
+		var updateDobDOB = apiBaseURLOXY + "user_dob";
+	} else {
+		var updateDobDOB = apiBaseURLOXY + "user_dob";
+	}
+
+	if (isValid == true) {
+		$.ajax({
+			url: updateDobDOB,
+			type: "PATCH",
+			data: postData,
+			contentType: "application/json",
+			dataType: "json",
+			success: function (data, textStatus, xhr) {
+				$("#modal-comments-updateUserDob").modal("hide");
+				$("#modal-commentSuccesss").modal("show");
+			},
+			error: function (xhr, textStatus, errorThrown) {
+				console.error("error");
+				$("#modal-comments-updateUserDob").modal("hide");
+			},
+			beforeSend: function (xhr) {
+				xhr.setRequestHeader("accessToken", saccessToken);
+			},
+		});
+	}
+	return isValid;
+}
+
+function submitHoldINterestAmount() {
+	const sprimaryType = getCookie("sUserType");
+	const saccessToken = getCookie("saccessToken");
+
+	var userid = $("#hold_InterestUser_id").val();
+	var userdealId = $("#holdUser_Interest_deal_id").val();
+	var holdAmount = $("#hold_Interest_amount").val();
+	let requestDate = $("#hold_Date_amount").val();
+	var comments = $(".hold-Interest_amount-text").val();
+
+	var isValid = true;
+
+	if (userid == "") {
+		$(".error_Interest_Hold_UserId").show();
+		isValid = false;
+	} else {
+		$(".error_Interest_Hold_UserId").hide();
+	}
+
+	if (userdealId == "") {
+		$(".error_Interest_Hold_DealId").show();
+		isValid = false;
+	} else {
+		$(".error_Interest_Hold_DealId").hide();
+	}
+
+	if (holdAmount == "") {
+		$(".error_Interest_Hold_Amount").show();
+		isValid = false;
+	} else {
+		$(".error_Interest_Hold_Amount").hide();
+	}
+
+	if (requestDate == "") {
+		$(".error_Interest_Hold_Date").show();
+		isValid = false;
+	} else {
+		$(".error_Interest_Hold_Date").hide();
+	}
+
+	if (comments == "") {
+		$(".error_Interest_Comments").show();
+		isValid = false;
+	} else {
+		$(".error_Interest_Comments").hide();
+	}
+
+	let interestUpdateDate =
+		requestDate != "" ? requestDate.split("-") : requestDate;
+
+	var postData = {
+		userId: userid.substring(2),
+		dealId: userdealId,
+		remarks: comments,
+		amount: holdAmount,
+		day: interestUpdateDate[2],
+		month: interestUpdateDate[1],
+		year: interestUpdateDate[0],
+	};
+
+	var postData = JSON.stringify(postData);
+
+	console.log(postData);
+
+	if (userisIn == "local") {
+		var updateInterestAmount = apiBaseURLOXY + "interest_hold_amount";
+	} else {
+		var updateInterestAmount = apiBaseURLOXY + "interest_hold_amount";
+	}
+
+	if (isValid == true) {
+		$.ajax({
+			url: updateInterestAmount,
+			type: "PATCH",
+			data: postData,
+			contentType: "application/json",
+			dataType: "json",
+			success: function (data, textStatus, xhr) {
+				$("#modal-holdrequestedSubmitted").modal("show");
+			},
+			error: function (xhr, textStatus, errorThrown) {
+				console.log("error");
+			},
+			beforeSend: function (xhr) {
+				xhr.setRequestHeader("accessToken", saccessToken);
+			},
+		});
+	}
+	return isValid;
+}
+
+const monthlydealSumaraySearchRequest = async () => {
+	const search = $("#choosendealSummaryStatus").val();
+
+	if (search == "dealpaticipationstatus") {
+		if (userisIn == "local") {
+			var fdExcel = apiBaseURLOXY + "RunningDeals_excel_sheet";
+		} else {
+			var fdExcel = apiBaseURLOXY + "RunningDeals_excel_sheet";
+		}
+
+		const month = $("#choosenMonth").val();
+		const year = $("#dealSummaryYear").val();
+		const status = $("#choosendealSummaryStatus").val();
+
+		const queryParams = {
+			year: year,
+			month: month,
+			dealpaticipationstatus: status,
+		};
+
+		await fetchDealSummary(fdExcel, queryParams);
+	} else if (search == "borrowerclosingstatus") {
+		if (userisIn == "local") {
+			var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
+		} else {
+			var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
+		}
+
+		const month = $("#choosenMonth").val();
+		const year = $("#dealSummaryYear").val();
+		const status = $("#choosendealSummaryStatus").val();
+		const queryParams = {
+			year: year,
+			month: month,
+			borrowerclosingstatus: status,
+		};
+		await fetchDealSummary(fdExcel, queryParams);
+	} else if (search == "NOTATACHIEVED" || search == "ACHIEVED") {
+		if (userisIn == "local") {
+			var fdExcel = apiBaseURLOXY + "Deals_excel_sheet";
+		} else {
+			var fdExcel = apiBaseURLOXY + "Deals_excel_sheet";
+		}
+
+		const status = $("#choosendealSummaryStatus").val();
+		const start = $("#dealSummaryStartInPut").val();
+		const end = $("#dealSummaryEndInPut").val();
+		const queryParams = {
+			startDate: start,
+			endDate: end,
+			dealParticipationStatus: status,
+		};
+		await dealsExcelSheetDownload(fdExcel, queryParams);
+	} else if (search == "CLOSED") {
+		if (userisIn == "local") {
+			var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
+		} else {
+			var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
+		}
+
+		const start = $("#dealSummaryStartInPut").val();
+		const end = $("#dealSummaryEndInPut").val();
+		const queryParams = { startDate: start, endDate: end };
+		await dealsExcelSheetDownload(fdExcel, queryParams);
+	}
 };
 
-       function  updateUserDobOnProfile() {
-
-		const sprimaryType = getCookie("sUserType");
-		const saccessToken = getCookie("saccessToken");
-		
-		var userDob = $("#userOldDobUpdatDate").val();
-		var userNewDob = $("#userDobUpdatDate").val().split("/");
-		var userId = $(".updateUserBtn").attr("data-id");
-	
-		var isValid = true;
-
-		if (userNewDob == "") {
-			$(".errorDobUpdate").show();
-			isValid = false;
-		} else {
-			$(".errorDobUpdate").hide();
-		}
-
-       var postData = {
-			 userId:userId,
-            orginalDob:`${userNewDob[2]}-${userNewDob[1]}-${userNewDob[0]}`			
-		};
-
-		var postData = JSON.stringify(postData);
-
-		if (userisIn == "local") {
-			var updateDobDOB = apiBaseURLOXY + "user_dob";
-		} else {
-			var updateDobDOB = apiBaseURLOXY + "user_dob";
-		}
-
-		if (isValid == true) {
-			$.ajax({
-				url: updateDobDOB,
-				type: "PATCH",
-				data: postData,
-				contentType: "application/json",
-				dataType: "json",
-				success: function (data, textStatus, xhr) {
-					$("#modal-comments-updateUserDob").modal("hide");
-					$("#modal-commentSuccesss").modal("show");
-				},
-				error: function (xhr, textStatus, errorThrown) {
-					console.error("error");
-					$("#modal-comments-updateUserDob").modal("hide");
-				},
-				beforeSend: function (xhr) {
-					xhr.setRequestHeader("accessToken", saccessToken);
-				},
-			});
-		}
-		return isValid;
-
-
-}
-
-       function submitHoldINterestAmount(){
- 
-	    const sprimaryType = getCookie("sUserType");
-		const saccessToken = getCookie("saccessToken");
-
-		var userid = $("#hold_InterestUser_id").val();
-		var userdealId = $("#holdUser_Interest_deal_id").val();
-		var holdAmount = $("#hold_Interest_amount").val();
-		let requestDate = $("#hold_Date_amount").val();
-		var comments = $(".hold-Interest_amount-text").val();
-	
-		var isValid = true;
-
-		if (userid == "") {
-			$(".error_Interest_Hold_UserId").show();
-			isValid = false;
-		} else {
-			$(".error_Interest_Hold_UserId").hide();
-		}
-
-	
-        if (userdealId == "") {
-			$(".error_Interest_Hold_DealId").show();
-			isValid = false;
-		} else {
-			$(".error_Interest_Hold_DealId").hide();
-		}
-
-		if (holdAmount == "") {
-			$(".error_Interest_Hold_Amount").show();
-			isValid = false;
-		} else {
-			$(".error_Interest_Hold_Amount").hide();
-		}
-
-
-		 if (requestDate == "") {
-			$(".error_Interest_Hold_Date").show();
-			isValid = false;
-		} else {
-			$(".error_Interest_Hold_Date").hide();
-
-		}
-
-		if (comments == "") {
-			$(".error_Interest_Comments").show();
-			isValid = false;
-		} else {
-			$(".error_Interest_Comments").hide();
-		}
-
-      let interestUpdateDate=requestDate!="" ? requestDate.split("-"):requestDate;
-
-       var postData = {
-		    userId:userid.substring(2),
-            dealId:userdealId,
-            remarks:comments,
-            amount:holdAmount,
-            day:interestUpdateDate[2],
-            month:interestUpdateDate[1],
-            year:interestUpdateDate[0]
-			
-		};
-
-
-		var postData = JSON.stringify(postData);
-
-		console.log(postData);
-
-		if (userisIn == "local") {
-			var updateInterestAmount = apiBaseURLOXY + "interest_hold_amount";
-		} else {
-			var updateInterestAmount = apiBaseURLOXY + "interest_hold_amount";
-		}
-		
-
-		if (isValid == true) {
-			$.ajax({
-				url: updateInterestAmount,
-				type: "PATCH",
-				data: postData,
-				contentType: "application/json",
-				dataType: "json",
-				success: function (data, textStatus, xhr) {
-					$("#modal-holdrequestedSubmitted").modal("show");
-				},
-				error: function (xhr, textStatus, errorThrown) {
-					console.log("error");
-				},
-				beforeSend: function (xhr) {
-					xhr.setRequestHeader("accessToken", saccessToken);
-				},
-			});
-		}
-		return isValid;
-}
-
-
-
-const monthlydealSumaraySearchRequest=async ()=>{
-
-	const search=$("#choosendealSummaryStatus").val();
-
-
-	if(search=="dealpaticipationstatus"){
-
-	if (userisIn == "local") {
-		var fdExcel = apiBaseURLOXY + "RunningDeals_excel_sheet";
-	} else {
-		var fdExcel = apiBaseURLOXY + "RunningDeals_excel_sheet";
-	}
-
-    const month=$("#choosenMonth").val();
-    const year=$("#dealSummaryYear").val();
-    const status=$("#choosendealSummaryStatus").val();
-
-	const queryParams = { year: year, month: month ,dealpaticipationstatus:status};
-
-     await  fetchDealSummary(fdExcel, queryParams);
-	} else if(search=="borrowerclosingstatus"){
-
-	if (userisIn == "local") {
-		var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
-	} else {
-		var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
-	}
-
-     const month=$("#choosenMonth").val();
-     const year=$("#dealSummaryYear").val();
-     const status=$("#choosendealSummaryStatus").val();
- 	 const queryParams = { year: year, month: month ,borrowerclosingstatus:status};
-     await  fetchDealSummary(fdExcel, queryParams);
-	} 
-	 else if(search=="NOTATACHIEVED" || search=="ACHIEVED"){
-
-	if (userisIn == "local") {
-		var fdExcel = apiBaseURLOXY + "Deals_excel_sheet";
-	} else {
-		var fdExcel = apiBaseURLOXY + "Deals_excel_sheet";
-	}
-
-     const status=$("#choosendealSummaryStatus").val();
-     const start=$("#dealSummaryStartInPut").val();
-     const end=$("#dealSummaryEndInPut").val();
- 	 const queryParams = { startDate: start, endDate: end ,dealParticipationStatus:status};
-     await  dealsExcelSheetDownload(fdExcel, queryParams);
-	}
-
-	else if(search=="CLOSED"){
-
-	if (userisIn == "local") {
-		var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
-	} else {
-		var fdExcel = apiBaseURLOXY + "ClosedDeals_excel_sheet";
-	}
-
-
-     const start=$("#dealSummaryStartInPut").val();
-     const end=$("#dealSummaryEndInPut").val();
- 	 const queryParams = { startDate: start, endDate: end };
-     await  dealsExcelSheetDownload(fdExcel, queryParams);
-	}
-
-
-}
-
-
-
-
 // anjan code
-
 
 function h2hApprovingUser(originalPaymentDateh2h) {
 	const suserId = getCookie("sUserId");
@@ -41492,9 +40922,11 @@ function h2hApprovingUser(originalPaymentDateh2h) {
 		});
 	});
 
+
+	
 	var paymentdate = $("#paymentcurrentDate").val();
 	var approveDealId = $("#approvedealID").val();
-
+localStorage.setItem("viewpagedealId" ,approveDealId)
 	var getTypeofSubmit = document.querySelectorAll(
 		'input[id="selectAll"]:checked'
 	).length;
@@ -41559,11 +40991,12 @@ function h2hApprovingUser(originalPaymentDateh2h) {
 				$(".modal-body #principalError").html(xhr.responseJSON.errorMessage);
 				console.log("err");
 				$("#modal-principalErrorMeaages").modal("show");
-				setTimeout(function () {
-					// Navigate to the new URL after 3 seconds
-					
-					window.location = "http://182.18.139.198/new/admin/viewDeals?status=closed";
-				}, 3000);
+				// setTimeout(function () {
+				// 	// Navigate to the new URL after 3 seconds
+
+				// 	window.location =
+				// 		"http://182.18.139.198/new/admin/viewDeals?status=closed";
+				// }, 3000);
 			}
 		},
 
@@ -41572,7 +41005,6 @@ function h2hApprovingUser(originalPaymentDateh2h) {
 		},
 	});
 }
-
 
 function retunrPrincipalAmount(dealId) {
 	$(".partiallyprincipalRetunrs").hide();
@@ -41676,7 +41108,8 @@ function retunrPrincipalAmount(dealId) {
 				$("#modal-principalErrorMeaages").modal("show");
 				setTimeout(function () {
 					// Navigate to the new URL after 3 seconds
-					window.location.href = "http://182.18.139.198/new/admin/viewDeals?status=closed";
+					window.location.href =
+						"http://182.18.139.198/new/admin/viewDeals?status=closed";
 				}, 3000);
 			}
 		},
@@ -41722,10 +41155,12 @@ const generateh2hfilependingamount11 = async (fileName) => {
 		});
 
 		if (!response.ok) {
+			$("#modal-confirm-generateFile11").modal("hide");
 			$("#modal-approve-withdrawfunds11").modal("hide");
 			throw new Error("Network response was not ok");
 		} else if (response.status === 200) {
 			console.log(response);
+			$("#modal-confirm-generateFile11").modal("hide");
 			$("#modal-approve-withdrawfunds11").modal("hide");
 			$("#modal-approve-success").modal("show");
 
@@ -41734,6 +41169,7 @@ const generateh2hfilependingamount11 = async (fileName) => {
 			}, 5000);
 		}
 	} catch (error) {
+		$("#modal-confirm-generateFile11").modal("hide");
 		$("#modal-approve-withdrawfunds11").modal("hide");
 		console.log("Error Something", error);
 	}
@@ -41891,38 +41327,37 @@ function loadlenderswithdrawfundslist() {
 	});
 }
 
+function dealsExcelSheetDownload(baseUrl, queryParams) {
+	let sprimaryType = getCookie("sUserType");
+	let accessToken = getCookie("saccessToken");
 
-function dealsExcelSheetDownload(baseUrl ,queryParams) {
+	$("#loadingSec").show();
 
-	 let sprimaryType = getCookie("sUserType");
-	 let  accessToken = getCookie("saccessToken");
+	const url = `${baseUrl}`;
+	const postData = {
+		startDate: queryParams.startDate,
+		endDate: queryParams.endDate,
+		dealParticipationStatus: queryParams.dealParticipationStatus,
+	};
 
-		$("#loadingSec").show();
-
-     const url = `${baseUrl}`;
-     const postData={
-     startDate:queryParams.startDate,
-    endDate: queryParams.endDate,
-    dealParticipationStatus:queryParams.dealParticipationStatus
-
-     }
-	
 	$.ajax({
 		url: url,
 		type: "POST",
-		data:JSON.stringify(postData),
+		data: JSON.stringify(postData),
 		contentType: "application/json",
-	    dataType: "json",
+		dataType: "json",
 		success: function (data, textStatus, xhr) {
-	     console.log(data);
-	   $("#loadingSec").hide();
-	     $(".downloadExcelDiv").show();
+			console.log(data);
+			$("#loadingSec").hide();
+			$(".downloadExcelDiv").show();
 
-	     $(".dealsummaryDownloadUrl").attr("href",data.downloadUrl);
+			$(".dealsummaryDownloadUrl").attr("href", data.downloadUrl);
 
-	     if (data.length == 0 || data?.borrowersDealsResponseDto.length==0) {
+			if (data.length == 0 || data?.borrowersDealsResponseDto.length == 0) {
 				$("#displayPaytmTransactions").html("");
-                $('#displayPaytmTransactions').append("<tr><td colspan=12>No data found</td></tr>");
+				$("#displayPaytmTransactions").append(
+					"<tr><td colspan=12>No data found</td></tr>"
+				);
 				$(".displayNoRecords").show();
 			} else {
 				var template = document.getElementById("displayPaytm").innerHTML;
@@ -41931,12 +41366,10 @@ function dealsExcelSheetDownload(baseUrl ,queryParams) {
 					data: data.borrowersDealsResponseDto,
 				});
 				$("#displayPaytmTransactions").html(html);
-
 			}
-			
 		},
 		error: function (xhr, textStatus, errorThrown) {
-			 $("#loadingSec").hide();
+			$("#loadingSec").hide();
 			console.log("Error Something");
 		},
 		beforeSend: function (xhr) {
@@ -41945,25 +41378,25 @@ function dealsExcelSheetDownload(baseUrl ,queryParams) {
 	});
 }
 
+function fetchDealSummary(baseUrl, queryParams) {
+	let sprimaryType = getCookie("sUserType");
+	let accessToken = getCookie("saccessToken");
 
-function fetchDealSummary(baseUrl,queryParams) {
+	const url = `${baseUrl}?${$.param(queryParams)}`;
 
-	 let sprimaryType = getCookie("sUserType");
-	 let  accessToken = getCookie("saccessToken");
-	
-     const url = `${baseUrl}?${$.param(queryParams)}`;
+	$("#loadingSec").show();
 
-      $("#loadingSec").show();
-	
 	$.ajax({
 		url: url,
 		type: "GET",
 		success: function (data, textStatus, xhr) {
-	     console.log(data);
-          $("#loadingSec").hide();
-	     if (data.length == 0) {
-	         $("#displayPaytmTransactions").html("");
-                $('#displayPaytmTransactions').append("<tr><td colspan=12>No data found</td></tr>");
+			console.log(data);
+			$("#loadingSec").hide();
+			if (data.length == 0) {
+				$("#displayPaytmTransactions").html("");
+				$("#displayPaytmTransactions").append(
+					"<tr><td colspan=12>No data found</td></tr>"
+				);
 				$(".displayNoRecords").show();
 			} else {
 				var template = document.getElementById("displayPaytm").innerHTML;
@@ -41972,12 +41405,10 @@ function fetchDealSummary(baseUrl,queryParams) {
 					data: data,
 				});
 				$("#displayPaytmTransactions").html(html);
-
 			}
-			
 		},
 		error: function (xhr, textStatus, errorThrown) {
-			  $("#loadingSec").hide();
+			$("#loadingSec").hide();
 			console.log("Error Something");
 		},
 		beforeSend: function (xhr) {

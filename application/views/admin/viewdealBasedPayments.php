@@ -270,11 +270,14 @@ $orginalPaymentDate =  isset($_GET['orginalPaymentDate']) ? $_GET['orginalPaymen
                 <p id="principalError"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="okButton">Ok</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 
@@ -332,11 +335,29 @@ function checkAll(e) {
 </script>
 
 
-
 <script type="text/javascript">
 window.onload = approveingInterestPay('<?php echo $dealId ?>', '<?php echo $currentMonthPaymentDate?>', 'onhold',
     '<?php echo $orginalPaymentDate?>');
 </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#okButton").on("click", function() {
+        var approveDealId = $("#approvedealID").val();
+        var currentUrl = window.location.href;
+
+        if (currentUrl.includes("localhost") || currentUrl.includes("182.18.139.198")) {
+            // Local environment
+            window.location.href = "http://182.18.139.198/new/admin/viewDeals?dealId=" + approveDealId;
+        } else {
+            // Live environment
+            window.location.href = "https://oxyloans.com/admin/viewDeals?dealId=" + approveDealId;
+        }
+    });
+});
+</script>
+
+
 
 
 <script src="<?php echo base_url(); ?>/assets/js/mustache.js"></script>
