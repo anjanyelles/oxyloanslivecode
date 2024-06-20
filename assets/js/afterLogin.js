@@ -1,4 +1,4 @@
-let userisIn = "local";
+let userisIn = "prod";
 
 let baseUrl="";
 let folderName = "FEOxyLoans";

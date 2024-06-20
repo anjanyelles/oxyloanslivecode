@@ -1,4 +1,4 @@
-let userisIn = "local";
+let userisIn = "prod";
 
 let currentDisburdedBtnObj = "";
 let currentL4RejectBtnObj = "";
@@ -38713,7 +38713,11 @@ const NewLenderWalletAmount = async () => {
 	const sprimaryType = getCookie("sUserType");
 	const saccessToken = getCookie("saccessToken");
 
-	const paymentUpdateUrl = `http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/newLenderWalletAmount`;
+	// const paymentUpdateUrl = `http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/newLenderWalletAmount`;
+	paymentUpdateUrl =
+	userisIn === "local"
+		? "http://ec2-15-207-239-145.ap-south-1.compute.amazonaws.com:8080/oxyloans/v1/user/newLenderWalletAmount"
+		: "https://fintech.oxyloans.com/oxyloans/v1/user/newLenderWalletAmount";
 
 	const startDate = $(".registerStartdate").val();
 	const endDate = $(".registerUserEnddate").val();

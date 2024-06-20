@@ -9,13 +9,13 @@
             <left>Membership Paid Lenders</left>
         </h1>
         <div class="col-md-6 pull-right">
-                            <div class="dashBoardPagination pull-right">
+                            <!-- <div class="dashBoardPagination pull-right">
                                 
                             <ul class="pagination bootpag"><li data-lp="1" class="first disabled"><a href="javascript:void(0);">←</a></li><li data-lp="1" class="prev disabled"><a href="javascript:void(0);">«</a></li><li data-lp="1" class="active"><a href="javascript:void(0);">1</a></li><li data-lp="2" class=""><a href="javascript:void(0);">2</a></li><li data-lp="3"><a href="javascript:void(0);">3</a></li><li data-lp="2" class="next"><a href="javascript:void(0);">»</a></li><li data-lp="3.3" class="last"><a href="javascript:void(0);">→</a></li></ul></div>
                             <div class="searchborrowerPagination pull-right" style="display: none;">
                                 <ul class="pagination bootpag">
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
     </section><br />
 
