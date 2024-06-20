@@ -183,11 +183,8 @@
                                                 <th>Payment Date </th>
                                                 <th>File status</th>
                                                 <th>Check </th>
-
-                                                <?php if ($s3DownloadLink !== null): ?>
-
-                                                <th>Link </th>
-                                                <?php endif; ?>
+        <th>Link</th>
+  
                                                 <!-- <th>Comments </th> -->
                                             </tr>
                                         </thead>
@@ -409,36 +406,30 @@
 
 
     <script id="displayDealsCmsFolderList" type="text/template">
-        {{#data}}
+    {{#data}}
     <tr>
-      <td class="col-md-2">{{fileName}}</td>
-           <td class="cmsAmount" value="{{amount}}">{{amount}}
-            </br>
-           <b>Deal Id : {{dealId}}</b>
-           </td>
-          <td>{{paymentDate}}
-        
+        <td class="col-md-2">{{fileName}}</td>
+        <td class="cmsAmount" value="{{amount}}">{{amount}}<br/>
+            <b>Deal Id: {{dealId}}</b>
         </td>
-        <td>{{fileStatus}}
-
-        </br>
-           <b>{{fileType}}</b>
+        <td>{{paymentDate}}</td>
+        <td>{{fileStatus}}<br/>
+            <b>{{fileType}}</b>
         </td>
-       <td>
-        <input type="checkbox" name="cmsoutputfolderListUsers" id="cmsoxyfile" class="cmsFileStatus_{{fileStatus}}"
-        value="{{fileName}}"/>
-      </td>
-   
-    <?php if ($s3DownloadLink !== null): ?>
-          <td>
-        <a href="<?php echo htmlspecialchars($s3DownloadLink); ?>" class="btn btn-primary">Download</a>
-    </td><?php endif; ?>
-
-
-
+        <td>
+            <input type="checkbox" name="cmsoutputfolderListUsers" id="cmsoxyfile" class="cmsFileStatus_{{fileStatus}}" value="{{fileName}}"/>
+        </td>
+      
+        <td>
+        {{#s3DownloadLink}}
+            <a href="{{s3DownloadLink}}" class="btn btn-primary">Download</a>
+            {{/s3DownloadLink}}
+        </td>
+  
     </tr>
     {{/data}}
-    </script>
+</script>
+
 
 
 

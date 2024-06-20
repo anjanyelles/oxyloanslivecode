@@ -44,7 +44,7 @@
                         <div class="col-md-3">
                             <h3 class="box-title" style="color: #008B8B; ">Lender Withdrawal info</h3>
                         </div>
-                        <div class="col-xs-3 text-center">
+                        <!-- <div class="col-xs-3 text-center">
                             <select class="form-control choosenType" id="implement">
                                 <option value="">-- Choose --</option>
                                 <option value="REQUESTED">REQUESTED</option>
@@ -61,7 +61,7 @@
                                 onclick="loadlenderswithdrawfundslist()" fdprocessedid="mjzeco">
                                 <i class="fa fa-angle-double-right"></i> <b>Search</b>
                             </button>
-                        </div>
+                        </div> -->
                         <div class="col-md-3 pull-right">
                             <div class="lenderswithdrawalPagination pull-right">
                                 <ul class="pagination bootpag">

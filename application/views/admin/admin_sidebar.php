@@ -474,11 +474,13 @@
                         <a href="knowmembership"><i class="fa fa-dot-circle-o"></i>Know Membership</a>
                     </li>
 
-                       <li <?php if ($basePATH_URL == "admin/feependingusers"){?> class="hi-tree-menu" <?php }?>>
+                       <!-- <li <?php if ($basePATH_URL == "admin/ListOfMembershipPaidLenders"){?> class="hi-tree-menu" <?php }?>>
+                        <a href="ListOfMembershipPaidLenders"><i class="fa fa-dot-circle-o"></i>Update Membership</a>
+                    </li> -->
+
+                    <li <?php if ($basePATH_URL == "admin/feependingusers"){?> class="hi-tree-menu" <?php }?>>
                         <a href="feependingusers"><i class="fa fa-dot-circle-o"></i>Pending Fee users</a>
                     </li>
-
-
                        <li <?php if ($basePATH_URL == "admin/feepaidusers"){?> class="hi-tree-menu" <?php }?>>
                         <a href="feepaidusers"><i class="fa fa-dot-circle-o"></i>Fee Paid Users</a>
                     </li>
